@@ -1,0 +1,117 @@
+fileFormatVersion: 2
+guid: 79f0db21fb008440c8763308d519c14a
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sprites_atlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 477
+        height: 1389
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1831
+        width: 257
+        height: 129
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_2
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1821
+        width: 176
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_3
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 1788
+        width: 206
+        height: 228
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_4
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1788
+        width: 227
+        height: 237
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_5
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 1824
+        width: 200
+        height: 178
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_6
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1788
+        width: 219
+        height: 218
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: sprites_atlas_7
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 73
+        width: 728
+        height: 591
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
