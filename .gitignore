@@ -1,17 +1,17 @@
 # Unity3D .gitignore file.
 #	 Store this file at the root of your local repository.
-.DS_Store
-Library/AssetImportState
-Library/AssetServerCacheV3
-Library/FailedAssetImports.txt
-Library/ScriptAssemblies
-Library/ScriptMapper
-Library/assetDatabase3
-Library/cache
-Library/expandedItems
-Library/metadata
-Library/previews
-Library/guidmapper
-Temp
-*.pidb
-build
+JellyFish/.DS_Store
+JellyFish/Library/AssetImportState
+JellyFish/Library/AssetServerCacheV3
+JellyFish/Library/FailedAssetImports.txt
+JellyFish/Library/ScriptAssemblies
+JellyFish/Library/ScriptMapper
+JellyFish/Library/assetDatabase3
+JellyFish/Library/cache
+JellyFish/Library/expandedItems
+JellyFish/Library/metadata
+JellyFish/Library/previews
+JellyFish/Library/guidmapper
+JellyFish/Temp
+JellyFish/*.pidb
+JellyFish/build
