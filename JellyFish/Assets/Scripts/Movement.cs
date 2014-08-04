@@ -17,12 +17,21 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Mouse0)) {
-			print ("mouse key is held down");
-			AnimateCharacter();
+		if (Application.platform == RuntimePlatform.Android) {
+			if (Input.touchCount > 0) {
+				if(Input.GetTouch(0).phase == TouchPhase.Began) {
+					AnimateCharacter (Input.GetTouch(0).position);
+				}
+			}
 		} else {
-			//TODO agregar equilibrio de medusa.
+			if (Input.GetKeyDown (KeyCode.Mouse0)) {
+				print ("mouse key is held down");
+				AnimateCharacter(Input.mousePosition);
+			} else {
+				//TODO agregar equilibrio de medusa.
+			}
 		}
+
 	}
 
 	void FixedUpdate(){
@@ -37,8 +46,8 @@ public class Movement : MonoBehaviour {
 		}
 	}
 
-	void AnimateCharacter() {
-		Vector2 mouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	void AnimateCharacter(Vector3 position) {
+		Vector2 mouseVector = Camera.main.ScreenToWorldPoint(position);
 		Vector2 characterVector = transform.position;
 		Vector2 newDirection = characterVector - mouseVector;
 		print (characterVector);
