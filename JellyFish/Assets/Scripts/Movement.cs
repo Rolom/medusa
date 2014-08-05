@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		removeVerticalVelocity ();
+
 		if (Application.platform == RuntimePlatform.Android) {
 			if (Input.touchCount > 0) {
 				if(Input.GetTouch(0).phase == TouchPhase.Began) {
@@ -39,7 +41,7 @@ public class Movement : MonoBehaviour {
 		float currentRotation = transform.rotation.z;
 
 		//print (" preangular: " + transform.rotation.z);
-		print("Angular position: " + currentRotation);
+		//print("Angular position: " + currentRotation);
 
 		if( currentRotation < -range || currentRotation > range){
 			rigidbody2D.angularVelocity = 0.0f;
@@ -50,11 +52,6 @@ public class Movement : MonoBehaviour {
 		Vector2 mouseVector = Camera.main.ScreenToWorldPoint(position);
 		Vector2 characterVector = transform.position;
 		Vector2 newDirection = characterVector - mouseVector;
-		print (characterVector);
-		print (mouseVector);
-		print (newDirection);
-
-		//rigidbody2D.AddForce (newDirection);
 
 		rigidbody2D.AddForce( moveLinearMedusa(newDirection) );
 
@@ -116,4 +113,14 @@ public class Movement : MonoBehaviour {
 		return torque;
 	}
 
+	void removeVerticalVelocity(){
+
+		float Xaxisvelocity = rigidbody2D.velocity.x;
+		Vector2 newLinearDirection = new Vector2 (Xaxisvelocity, 0);
+
+		if (rigidbody2D.velocity.y != 0) {
+			print("Entered remove vertical velocity");
+			rigidbody2D.velocity.Set(0.0f,0.0f);
+		}
+	}
 }
