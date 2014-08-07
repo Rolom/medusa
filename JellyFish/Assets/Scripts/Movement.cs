@@ -118,9 +118,10 @@ public class Movement : MonoBehaviour {
 		float Xaxisvelocity = rigidbody2D.velocity.x;
 		Vector2 newLinearDirection = new Vector2 (Xaxisvelocity, 0);
 
-		if (rigidbody2D.velocity.y != 0) {
+		if (rigidbody2D.velocity.y != 0 || transform.position.y != 0) {
 			print("Entered remove vertical velocity");
-			rigidbody2D.velocity.Set(0.0f,0.0f);
+			float x = transform.position.x;
+			transform.localPosition.Set(x, 0, 0);
 		}
 	}
 }
