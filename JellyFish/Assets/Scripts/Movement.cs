@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
 
-	static float LINEAR_VELOCITY = 20.0f;
+	static float LINEAR_VELOCITY = 25.0f;
 	static float MAXIMUM_ROTATION_ANGLE = 60.0f;	//in degrees.
 
 	Vector2 moveLeft;
@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour {
 				AnimateCharacter(Input.mousePosition);
 			} else {
 				//TODO agregar equilibrio de medusa.
+				setMedusaStraight();
 			}
 		}
 
@@ -56,7 +57,6 @@ public class Movement : MonoBehaviour {
 		rigidbody2D.AddForce( moveLinearMedusa(newDirection) );
 
 		rigidbody2D.AddTorque( addTorqueForMedusa(newDirection) );
-		//rigidbody2D.AddTorque (0.75f);
 
 		//print ("Local Rotation " + (transform.localRotation.z) * (180/Mathf.PI));
 	}
@@ -95,22 +95,22 @@ public class Movement : MonoBehaviour {
 
 	float addTorqueForMedusa( Vector2 newDirection ){
 
-		float torque = 1.0f * inverseVectorMagnitude(newDirection.magnitude);
+		float torqueFromClick = 1.0f * inverseVectorMagnitude(newDirection.magnitude);
 
 		if (newDirection.x < 0) {
 			// do nothing
 
 		} else if (newDirection.x > 0) {
 			//directionVector.Set(vectorMagnitud, 0);
-			torque *= -1;
+			torqueFromClick *= -1;
 
 		} else {
 			//directionVector.Set(0,0);
-			torque *= 0;
+			torqueFromClick *= 0;
 		}
 
-		print ("magnitud torque: " + torque);
-		return torque;
+		print ("magnitud torque: " + torqueFromClick);
+		return torqueFromClick;
 	}
 
 	void removeVerticalVelocity(){
@@ -123,5 +123,19 @@ public class Movement : MonoBehaviour {
 			float x = transform.position.x;
 			transform.localPosition.Set(x, 0, 0);
 		}
+	}
+
+	void setMedusaStraight(){
+		float straightTorque = 20.0f;
+
+		float rightTorque = -1 * straightTorque * (1 + Mathf.Sin (transform.eulerAngles.z));
+		float leftTorque = straightTorque * (1 - Mathf.Sin (transform.eulerAngles.z));
+
+		float netTorque = rightTorque + leftTorque;
+
+		print ("angle: " + transform.rotation.eulerAngles.z);
+		print ("leftTorque: " + leftTorque);
+		print ("rightTorque: " + rightTorque);
+		print ("netTorque: " + netTorque);
 	}
 }
