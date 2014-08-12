@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ScenarioScripts\StageGameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Movement.cs">
     <Files>
-      <File FileName="Assets\Scripts\ScenarioScripts\StageGameManager.cs" Line="32" Column="32" />
-      <File FileName="Assets\Scripts\ScenarioScripts\CreateScenarioLimit.cs" Line="24" Column="2" />
-      <File FileName="Assets\Scripts\ScenarioScripts\StageObjectsLimits.cs" Line="22" Column="3" />
+      <File FileName="Assets\Scripts\Movement.cs" Line="128" Column="24" />
+      <File FileName="Assets\Scripts\Controller.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
