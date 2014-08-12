@@ -37,9 +37,11 @@ public class BehaviourPlanck : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter2D(Collision2D col){ 
-		changeSize(1);
-		Destroy (gameObject);
+	void OnTriggerEnter2D(Collider2D col){ 
+		if(col.gameObject.tag.Equals(Constants.JELLYFISH)){
+			changeSize(1);
+			Destroy (gameObject);
+		}
 	}
 
 	private bool getRandomOrientation(){
