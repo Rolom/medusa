@@ -35,6 +35,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -50,6 +51,7 @@ TextureImporter:
         height: 1389
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_atlas_1
       rect:
         serializedVersion: 2
@@ -59,51 +61,17 @@ TextureImporter:
         height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: sprites_atlas_2
-      rect:
-        serializedVersion: 2
-        x: 386
-        y: 1821
-        width: 176
-        height: 184
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_atlas_3
       rect:
         serializedVersion: 2
-        x: 567
-        y: 1788
-        width: 206
-        height: 228
+        x: 772
+        y: 1792
+        width: 224
+        height: 226
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: sprites_atlas_4
-      rect:
-        serializedVersion: 2
-        x: 791
-        y: 1788
-        width: 227
-        height: 237
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: sprites_atlas_5
-      rect:
-        serializedVersion: 2
-        x: 1034
-        y: 1824
-        width: 200
-        height: 178
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: sprites_atlas_6
-      rect:
-        serializedVersion: 2
-        x: 1243
-        y: 1788
-        width: 219
-        height: 218
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_atlas_7
       rect:
         serializedVersion: 2
@@ -113,5 +81,6 @@ TextureImporter:
         height: 492
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
