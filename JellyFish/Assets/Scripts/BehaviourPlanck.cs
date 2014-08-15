@@ -11,7 +11,10 @@ public class BehaviourPlanck : MonoBehaviour {
 	private int movimentAxisX;
 	private int movimentAxisY;
 	private bool orientationRight;
-	
+
+	public  GameObject dieParticles;
+	private Vector3 dieParticlePos;
+
 	// Use this for initialization
 	void Start () {
 		movimentAxisX = getRandomMoviment (limitCircleMoviment);
@@ -32,7 +35,7 @@ public class BehaviourPlanck : MonoBehaviour {
 		sizeChangedX = gameObject.transform.localScale.x + 0.01f * Mathf.Cos(velocityChangeSize);
 		sizeChangedY = gameObject.transform.localScale.y + 0.01f * Mathf.Cos(velocityChangeSize);
 		
-		Debug.Log(sizeChangedX);
+		//Debug.Log(sizeChangedX);
 		gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
 
 	}
@@ -40,6 +43,10 @@ public class BehaviourPlanck : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){ 
 		if(col.gameObject.tag.Equals(Constants.JELLYFISH)){
 			changeSize(1);
+
+			Instantiate(dieParticles);
+			dieParticlePos=gameObject.transform.position;
+			dieParticles.transform.position=dieParticlePos;
 			Destroy (gameObject);
 		}
 	}
@@ -60,7 +67,7 @@ public class BehaviourPlanck : MonoBehaviour {
 		sizeChangedX = gameObject.transform.localScale.x + factorChange * Mathf.Cos(velocityChangeSize);
 		sizeChangedY = gameObject.transform.localScale.y + factorChange * Mathf.Cos(velocityChangeSize);
 		
-		Debug.Log(sizeChangedX);
+		//Debug.Log(sizeChangedX);
 		gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
 	}
 

@@ -30,6 +30,7 @@ public class StageGameManager : MonoBehaviour {
 			currentStage = Instantiate(stageObjects[randomScenario],pointA.localPosition, Quaternion.identity) as GameObject;
 			randomScenario = Random.Range (0, stageObjects.Count);
 			setCanCreateScenario(false);
+			scenarioSpeed+=0.4f;
 		}
 	}
 

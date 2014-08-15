@@ -8,7 +8,7 @@ public class MedusaTentacles : MonoBehaviour{
 	private bool activeFlag=false;
 	private LineRenderer lineRenderer;
 
-	private List<Transform> blockList= new List<Transform>();
+	private List<Transform> nodeList= new List<Transform>();
 	private float distance=1000;
 	private int count=0;
 	private Vector3 distort;
@@ -22,17 +22,17 @@ public class MedusaTentacles : MonoBehaviour{
 		c2.a=0.1f;
 		lineRenderer.SetColors(c1, c2);
 		foreach(Transform child in this.transform){
-			blockList.Add(child);
+			nodeList.Add(child);
 		}
-		lineRenderer.SetVertexCount(blockList.Count);
+		lineRenderer.SetVertexCount(nodeList.Count);
 	}
 
 	void Update() {
-		if(blockList.Count!=0){
+		if(nodeList.Count!=0){
 			count++;
 			lineRenderer=GetComponent<LineRenderer>();
-			for(int i=0;i<blockList.Count;i++){
-				lineRenderer.SetPosition(i, blockList[i].position);
+			for(int i=0;i<nodeList.Count;i++){
+				lineRenderer.SetPosition(i, nodeList[i].position);
 			}
 
 			GetComponent<LineRenderer>().enabled=true;

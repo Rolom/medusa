@@ -109,7 +109,7 @@ public class Movement : MonoBehaviour {
 			torqueFromClick *= 0;
 		}
 
-		print ("magnitud torque: " + torqueFromClick);
+		//print ("magnitud torque: " + torqueFromClick);
 		return torqueFromClick;
 	}
 
@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour {
 		Vector2 newLinearDirection = new Vector2 (Xaxisvelocity, 0);
 
 		if (rigidbody2D.velocity.y != 0 || transform.position.y != 0) {
-			print("Entered remove vertical velocity");
+			//print("Entered remove vertical velocity");
 			float x = transform.position.x;
 			transform.localPosition.Set(x, 0, 0);
 		}
@@ -133,9 +133,9 @@ public class Movement : MonoBehaviour {
 
 		float netTorque = rightTorque + leftTorque;
 
-		print ("angle: " + transform.rotation.eulerAngles.z);
-		print ("leftTorque: " + leftTorque);
-		print ("rightTorque: " + rightTorque);
-		print ("netTorque: " + netTorque);
+		//print ("angle: " + transform.rotation.eulerAngles.z);
+		//print ("leftTorque: " + leftTorque);
+		//print ("rightTorque: " + rightTorque);
+		//print ("netTorque: " + netTorque);
 	}
 }
