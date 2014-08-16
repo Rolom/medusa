@@ -29,9 +29,7 @@ public class StageGameManager : MonoBehaviour {
 		{
 			scenarioSpeed-=0.2f;
 			setScenarioSpeed(scenarioSpeed);
-			currentStage = Instantiate(stageObjects[randomScenario],pointA.localPosition, Quaternion.identity) as GameObject;
-			randomScenario = Random.Range (0, stageObjects.Count);
-			setCanCreateScenario(false);
+			createNewScenario ();
 		}
 	}
 
@@ -42,6 +40,17 @@ public class StageGameManager : MonoBehaviour {
 
 	public void setScenarioSpeed(float speed){
 		scenarioSpeedVector = new Vector2 (0, speed);
+	}
+
+	void createNewScenario ()
+	{
+		currentStage = Instantiate (stageObjects [randomScenario], pointA.localPosition, Quaternion.identity) as GameObject;
+		BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
+		Vector3 newPosition = currentStage.transform.localPosition;
+		newPosition.y += collider.size.y / 2;
+		currentStage.transform.localPosition = newPosition;
+		randomScenario = Random.Range (0, stageObjects.Count);
+		setCanCreateScenario (false);
 	}
 
 	public void setCanCreateScenario(bool canCreate)
