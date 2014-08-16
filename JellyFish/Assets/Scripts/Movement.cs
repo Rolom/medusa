@@ -5,6 +5,8 @@ public class Movement : MonoBehaviour {
 
 	static float LINEAR_VELOCITY = 25.0f;
 	static float MAXIMUM_ROTATION_ANGLE = 60.0f;	//in degrees.
+	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
+	private float verticalPosition;
 
 	Vector2 moveLeft;
 	Vector2 moveRight;
@@ -13,6 +15,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		moveLeft = new Vector2 (-1, 0);
 		moveRight = new Vector2 (1, 0);
+		verticalPosition=transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -55,6 +58,7 @@ public class Movement : MonoBehaviour {
 		Vector2 newDirection = characterVector - mouseVector;
 
 		rigidbody2D.AddForce( moveLinearMedusa(newDirection) );
+		rigidbody2D.AddForce( returnToVerticalPosition() );
 
 		rigidbody2D.AddTorque( addTorqueForMedusa(newDirection) );
 
@@ -74,6 +78,10 @@ public class Movement : MonoBehaviour {
 	{
 		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude);
 
+		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
+			vectorMagnitud=MAXIMUM_VECTOR_VELOCITY;
+		}
+
 		Vector2 directionVector = new Vector2();
 
 		print ("Vector Magnitude: " + vectorMagnitud);
@@ -87,6 +95,24 @@ public class Movement : MonoBehaviour {
 		}
 
 		return directionVector;
+	}
+
+	Vector2 returnToVerticalPosition(){
+		float upForce=5;
+		float verticalPositionOffset=0.2f;
+		float minimunVerticalPosition=verticalPosition-verticalPositionOffset;
+
+		Vector2 upVector = new Vector2();
+
+		if(transform.position.y<minimunVerticalPosition){
+			upVector.Set(0, upForce);
+		}else{
+			upVector.Set(0, 0);
+		}
+
+		print ("Vertical Position: "+ transform.position.y);
+		return upVector;
+
 	}
 
 	float inverseVectorMagnitude( float magnitude ){

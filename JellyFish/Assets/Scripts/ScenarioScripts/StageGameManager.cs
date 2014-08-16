@@ -18,7 +18,7 @@ public class StageGameManager : MonoBehaviour {
 
 	void Start () {
 		canCreateScenario = true;
-		scenarioSpeedVector = new Vector2 (0, scenarioSpeed);
+		setScenarioSpeed(scenarioSpeed);
 		randomScenario = Random.Range (0, stageObjects.Count);
 	}
 	
@@ -27,16 +27,21 @@ public class StageGameManager : MonoBehaviour {
 
 		if (canCreateScenario) 
 		{
+			scenarioSpeed-=0.2f;
+			setScenarioSpeed(scenarioSpeed);
 			currentStage = Instantiate(stageObjects[randomScenario],pointA.localPosition, Quaternion.identity) as GameObject;
 			randomScenario = Random.Range (0, stageObjects.Count);
 			setCanCreateScenario(false);
-			scenarioSpeed+=0.4f;
 		}
 	}
 
 	public static Vector2 getScenarioSpeed()
 	{
 		return scenarioSpeedVector;
+	}
+
+	public void setScenarioSpeed(float speed){
+		scenarioSpeedVector = new Vector2 (0, speed);
 	}
 
 	public void setCanCreateScenario(bool canCreate)
