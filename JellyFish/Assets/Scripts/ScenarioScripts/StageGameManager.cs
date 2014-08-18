@@ -27,7 +27,7 @@ public class StageGameManager : MonoBehaviour {
 
 		if (canCreateScenario) 
 		{
-			scenarioSpeed-=0.2f;
+			scenarioSpeed-=0.4f;
 			setScenarioSpeed(scenarioSpeed);
 			createNewScenario ();
 		}

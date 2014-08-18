@@ -1,17 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScenarioScripts/StageGameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../Librium/Assets/Scripts/Win Script/Win.cs">
     <Files>
-      <File FileName="Assets/Scripts/MedusaTentacles.cs" Line="11" Column="34" />
-      <File FileName="../../Librium/Assets/Scripts/Line Scripts/LineSelection.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScenarioScripts/CreateScenarioLimit.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScenarioScripts/StageObjectsLimits.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScenarioScripts/ScenarioMovement.cs" Line="8" Column="42" />
-      <File FileName="Assets/Scripts/ScenarioScripts/StageGameManager.cs" Line="33" Column="23" />
-      <File FileName="Assets/Scripts/MedusaDeath.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Constants.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BehaviourPlanck.cs" Line="1" Column="1" />
+      <File FileName="../../Librium/Assets/Scripts/Win Script/Win.cs" Line="24" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
