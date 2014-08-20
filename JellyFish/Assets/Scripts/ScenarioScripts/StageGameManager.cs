@@ -14,6 +14,7 @@ public class StageGameManager : MonoBehaviour {
 	
 	int randomScenario;
 	GameObject currentStage;
+	List<GameObject> stageLists = new List<GameObject>();
 
 
 	void Start () {
@@ -27,8 +28,9 @@ public class StageGameManager : MonoBehaviour {
 
 		if (canCreateScenario) 
 		{
-			scenarioSpeed-=0.2f;
+			scenarioSpeed -= 0.4f;
 			setScenarioSpeed(scenarioSpeed);
+			setScenarioSpeedToStages();
 			createNewScenario ();
 		}
 	}
@@ -50,7 +52,23 @@ public class StageGameManager : MonoBehaviour {
 		newPosition.y += collider.size.y / 2;
 		currentStage.transform.localPosition = newPosition;
 		randomScenario = Random.Range (0, stageObjects.Count);
+		stageLists.Add(currentStage);
 		setCanCreateScenario (false);
+	}
+
+	void setScenarioSpeedToStages ()
+	{
+		foreach(GameObject stage in stageLists.ToArray())
+		{
+			if(stage != null)
+			{
+				ScenarioMovement scenarioMovement = stage.GetComponent<ScenarioMovement>();
+				scenarioMovement.setScenarioSpeed(getScenarioSpeed());
+			}else
+			{
+				stageLists.Remove(stage);
+			}
+		}
 	}
 
 	public void setCanCreateScenario(bool canCreate)

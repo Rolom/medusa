@@ -2,8 +2,7 @@
   <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ScenarioScripts\StageGameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Movement.cs" Line="61" Column="3" />
-      <File FileName="Assets\Scripts\ScenarioScripts\StageGameManager.cs" Line="32" Column="21" />
+      <File FileName="Assets\Scripts\ScenarioScripts\StageGameManager.cs" Line="30" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

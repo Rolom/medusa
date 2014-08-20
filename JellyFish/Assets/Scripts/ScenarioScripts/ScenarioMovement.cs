@@ -12,4 +12,9 @@ public class ScenarioMovement : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void setScenarioSpeed(Vector2 newSpeed)
+	{
+		rigidbody2D.velocity = newSpeed;
+	}
 }
