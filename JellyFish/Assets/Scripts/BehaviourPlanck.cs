@@ -4,7 +4,12 @@ using System.Collections;
 public class BehaviourPlanck : MonoBehaviour {
 	public float velocityCircleMoviment = 0.01f;
 	public int limitCircleMoviment = 10;
+	public int limitHorizontalMoviment = 100;
+	public bool circularMovement = true;
 
+
+	private bool rightHorizontalMoviment;
+	private int quantityHorizontalMoviment = 0;
 	private float sizeChangedX, sizeChangedY;
 	private float velocityChangeSize= 0;
 	private float factorVelocityChangeSize = 0.3f;
@@ -17,19 +22,26 @@ public class BehaviourPlanck : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		movimentAxisX = getRandomMoviment (limitCircleMoviment);
-		movimentAxisY = getRandomMoviment (limitCircleMoviment);
-
-		orientationRight = getRandomOrientation ();
-	}
+		movimentAxisX = getRandomMoviment (0, limitCircleMoviment);
+		movimentAxisY = getRandomMoviment (0, limitCircleMoviment);
 	
+		orientationRight = getRandomOrientation ();
+		rightHorizontalMoviment = getRandomOrientation ();
+		quantityHorizontalMoviment = getRandomMoviment (0,limitHorizontalMoviment);
+
+	}
+
 	// Update is called once per frame
 	void Update () {
-		if (orientationRight) {
-			circleMovimentToRight();
-		} else {
-			circleMovimentToLeft();
+		horizontalMovement();
+		if (circularMovement) {
+			if (orientationRight) {
+				circleMovimentToRight ();
+			} else {
+				circleMovimentToLeft ();
+			}
 		}
+		
 		
 		velocityChangeSize += factorVelocityChangeSize;
 		sizeChangedX = gameObject.transform.localScale.x + 0.01f * Mathf.Cos(velocityChangeSize);
@@ -38,6 +50,25 @@ public class BehaviourPlanck : MonoBehaviour {
 		//Debug.Log(sizeChangedX);
 		gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
 
+	}
+
+	
+	private void horizontalMovement(){
+		if (rightHorizontalMoviment) {
+			quantityHorizontalMoviment++;
+			gameObject.transform.Translate (velocityCircleMoviment, 0, 0);
+		} else {
+			quantityHorizontalMoviment--;
+			gameObject.transform.Translate (-velocityCircleMoviment, 0, 0);
+		}
+
+		//Debug.Log ("quantity: " + quantityHorizontalMoviment);
+		if (quantityHorizontalMoviment >= limitHorizontalMoviment) {
+			rightHorizontalMoviment = false;
+		}
+		if (quantityHorizontalMoviment <= -limitHorizontalMoviment) {
+			rightHorizontalMoviment = true;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){ 
@@ -52,15 +83,15 @@ public class BehaviourPlanck : MonoBehaviour {
 	}
 
 	private bool getRandomOrientation(){
-		if ((10/2) > getRandomMoviment (10)) {
+		if ((limitCircleMoviment/2) > getRandomMoviment (0, limitCircleMoviment)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	private int getRandomMoviment(int limit){
-		return Random.Range (0, limit);
+	private int getRandomMoviment(int minLimit, int maxLimit){
+		return Random.Range (minLimit, maxLimit);
 	}
 	
 	private void changeSize(float factorChange){
