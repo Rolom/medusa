@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MedusaHealth.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Jellyfish Script/MedusaHealth.cs">
     <Files>
-      <File FileName="../../Librium/Assets/Scripts/Win Script/Win.cs" Line="24" Column="8" />
-      <File FileName="Assets/Scripts/MedusaHealth.cs" Line="34" Column="54" />
-      <File FileName="Assets/Scripts/MedusaTentacles.cs" Line="22" Column="42" />
+      <File FileName="Assets/Scripts/Jellyfish Script/MedusaHealth.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
