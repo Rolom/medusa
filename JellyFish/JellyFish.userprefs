@@ -1,5 +1,5 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="../../Librium/Assets/Scripts/Win Script/Win.cs">
     <Files>
       <File FileName="../../Librium/Assets/Scripts/Win Script/Win.cs" Line="24" Column="8" />

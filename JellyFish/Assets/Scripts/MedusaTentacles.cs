@@ -19,7 +19,7 @@ public class MedusaTentacles : MonoBehaviour{
 		c1=getRandomColor();
 		c2=getRandomColor();
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
-		lineRenderer.SetWidth(Random.Range(0.05f,0.1F), 0.0F);
+		lineRenderer.SetWidth(Random.Range(0.08f,0.12F), 0.0F);
 		lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
 		c1.a=0.3f;
 		c2.a=1f;
