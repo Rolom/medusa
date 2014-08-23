@@ -15,6 +15,8 @@ public class BehaviourPlanck : MonoBehaviour {
 	public  GameObject dieParticles;
 	private Vector3 dieParticlePos;
 
+	public int score = 1;
+
 	// Use this for initialization
 	void Start () {
 		movimentAxisX = getRandomMoviment (limitCircleMoviment);
@@ -47,6 +49,7 @@ public class BehaviourPlanck : MonoBehaviour {
 			Instantiate(dieParticles);
 			dieParticlePos=gameObject.transform.position;
 			dieParticles.transform.position=dieParticlePos;
+			ScoreManager.getInstance().addScore(getScoreToAdd());
 			Destroy (gameObject);
 		}
 	}
@@ -103,6 +106,11 @@ public class BehaviourPlanck : MonoBehaviour {
 			movimentAxisY++;
 		}
 		
+	}
+
+	public int getScoreToAdd()
+	{
+		return score;
 	}
 }
 
