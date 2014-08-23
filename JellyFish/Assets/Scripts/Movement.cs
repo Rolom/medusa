@@ -149,8 +149,8 @@ public class Movement : MonoBehaviour {
 	}
 
 	void setMedusaStraight(){
-		float straightTorque = 60.0f;
-		float delta = 0.03f;
+		float straightTorque = 50.0f;
+		float delta = 0.1f;
 
 		print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
 		if ( Mathf.Abs( rigidbody2D.angularVelocity) < delta) {
@@ -162,6 +162,8 @@ public class Movement : MonoBehaviour {
 
 			rigidbody2D.AddTorque(netTorque);
 		}
+
+		//collider2D.bounds.
 
 		//print ("angle: " + transform.rotation.eulerAngles.z);
 		//print ("leftTorque: " + leftTorque);
