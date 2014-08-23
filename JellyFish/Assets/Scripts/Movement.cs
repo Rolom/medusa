@@ -23,15 +23,18 @@ public class Movement : MonoBehaviour {
 		setMedusaStraight();
 		removeVerticalVelocity ();
 
+		CircleCollider2D circleCollider2D = (CircleCollider2D)collider2D;
 		if (Application.platform == RuntimePlatform.Android) {
+
 			if (Input.touchCount > 0) {
-				if(Input.GetTouch(0).phase == TouchPhase.Began) {
+
+				if(Input.GetTouch(0).phase == TouchPhase.Began && !circleCollider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) ) ) {
 					AnimateCharacter (Input.GetTouch(0).position);
 				}
 			}
 		} else {
-			if (Input.GetKeyDown (KeyCode.Mouse0)) {
-				print ("mouse key is held down");
+
+			if (Input.GetKeyDown (KeyCode.Mouse0) && !circleCollider2D.OverlapPoint( Camera.main.ScreenToWorldPoint(Input.mousePosition) ) ) {
 				AnimateCharacter(Input.mousePosition);
 			}
 		}
@@ -152,7 +155,7 @@ public class Movement : MonoBehaviour {
 		float straightTorque = 50.0f;
 		float delta = 0.1f;
 
-		print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
+		//print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
 		if ( Mathf.Abs( rigidbody2D.angularVelocity) < delta) {
 			float currentRotation = transform.rotation.z;
 			//print ("Enderezando");
@@ -162,5 +165,9 @@ public class Movement : MonoBehaviour {
 
 			rigidbody2D.AddTorque(netTorque);
 		}
+	}
+
+	Vector2 convertFromVector3( Vector3 vector3){
+		return new Vector2 (vector3.x, vector3.y);
 	}
 }

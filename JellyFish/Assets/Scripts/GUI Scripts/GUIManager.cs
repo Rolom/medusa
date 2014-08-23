@@ -6,6 +6,7 @@ public class GUIManager : MonoBehaviour {
 	private static GUIManager _instance;
 
 	public Main_Menu mainMenu;
+	public OnPlay onPlay;
 
 
 	public static GUIManager getInstance()
@@ -30,6 +31,11 @@ public class GUIManager : MonoBehaviour {
 	public Main_Menu getMainMenu()
 	{
 		return mainMenu;
+	}
+
+	public OnPlay getOnPlay()
+	{
+		return onPlay;
 	}
 
 }

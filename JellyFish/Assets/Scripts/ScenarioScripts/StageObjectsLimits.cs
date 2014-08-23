@@ -7,7 +7,6 @@ public class StageObjectsLimits : MonoBehaviour {
 	void Start () {
 	
 	}
-	
 
 	void Update () {
 	
