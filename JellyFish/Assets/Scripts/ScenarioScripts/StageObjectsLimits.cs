@@ -18,6 +18,13 @@ public class StageObjectsLimits : MonoBehaviour {
 		if(other.gameObject.tag.Equals(Constants.STAGE_TAG))
 		{
 			Destroy (other.gameObject);
+		}else if(other.gameObject.tag.Equals(Constants.PLANK)){
+			MedusaHealth medusaHealth = GameObject.FindObjectOfType<MedusaHealth>();
+			if(medusaHealth != null)
+			{
+				medusaHealth.detachTentacle();
+			}
+			Destroy (other.gameObject);
 		}
 	}
 }

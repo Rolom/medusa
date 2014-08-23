@@ -12,7 +12,6 @@ public class ScenarioMovement : MonoBehaviour {
 	void Update () {
 	
 	}
-
 	
 	public void setScenarioSpeed(Vector2 newSpeed)
 	{

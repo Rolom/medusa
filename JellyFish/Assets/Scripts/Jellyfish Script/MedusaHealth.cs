@@ -32,7 +32,7 @@ public class MedusaHealth : MonoBehaviour {
 		}
 	}
 
-	private void detachTentacle(){
+	public void detachTentacle(){
 		Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
 		sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
 		sTentacle.enabled=false;
