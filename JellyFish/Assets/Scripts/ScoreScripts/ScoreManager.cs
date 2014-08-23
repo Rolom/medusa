@@ -6,8 +6,6 @@ public class ScoreManager : MonoBehaviour {
 	private static ScoreManager _instance;
 
 	private int score = 0;
-	public Transform scoreTextPosition;
-	private GUIText scoreText;
 
 	public static ScoreManager getInstance()
 	{
@@ -18,17 +16,16 @@ public class ScoreManager : MonoBehaviour {
 		return _instance;
 	}
 	void Start () {
-		scoreText = GetComponent<GUIText> ();
-		scoreText.transform.localPosition = scoreTextPosition.localPosition;
+
 	}
 
 	void Update () {
-		scoreText.text = Constants.SCORE_TEXT + score;
+
 	}
 
 	public void addScore(int scoreToAdd)
 	{
 		score += scoreToAdd;
-		Debug.Log ("Score at: " + score);
+		GUIManager.getInstance ().getOnPlay ().setMyScore (score + "");
 	}
 }
