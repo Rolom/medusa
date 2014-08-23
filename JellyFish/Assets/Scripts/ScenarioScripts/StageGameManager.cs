@@ -28,7 +28,7 @@ public class StageGameManager : MonoBehaviour {
 	}
 
 	void Start () {
-		canCreateScenario = true;
+		canCreateScenario = false;
 		setScenarioSpeed(scenarioSpeed);
 		randomScenario = Random.Range (0, stageObjects.Count);
 	}
