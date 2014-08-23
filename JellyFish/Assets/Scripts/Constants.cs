@@ -7,4 +7,5 @@ public class Constants {
 	public static string JELLYFISH = "Jellyfish";
 	public static string ROCK = "Rock";
 	public static string SCORE_TEXT = "Score: ";
+	public static string PLANK = "Plank";
 }
