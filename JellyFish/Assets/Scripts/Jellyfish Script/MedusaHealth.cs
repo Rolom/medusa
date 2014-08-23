@@ -21,7 +21,9 @@ public class MedusaHealth : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D  other){
+		print(other.gameObject.tag);
 		detachTentacle();
+		Application.LoadLevel(Application.loadedLevel);
 	}
 
 	void calculateLoose(){
@@ -30,7 +32,7 @@ public class MedusaHealth : MonoBehaviour {
 		}
 	}
 
-	private void detachTentacle(){
+	public void detachTentacle(){
 		Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
 		sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
 		sTentacle.enabled=false;
