@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class StageGameManager : MonoBehaviour {
 
+	private static StageGameManager _instance;
+
 	public float scenarioSpeed = -0.9f;
 	private static Vector2 scenarioSpeedVector;
 	public Transform pointA;
@@ -15,6 +17,15 @@ public class StageGameManager : MonoBehaviour {
 	int randomScenario;
 	GameObject currentStage;
 	List<GameObject> stageLists = new List<GameObject>();
+
+	public static StageGameManager getInstance()
+	{
+		if (_instance == null) 
+		{
+			_instance = GameObject.FindObjectOfType<StageGameManager> ();
+		}
+		return _instance;
+	}
 
 	void Start () {
 		canCreateScenario = false;
@@ -34,7 +45,7 @@ public class StageGameManager : MonoBehaviour {
 		}
 	}
 
-	public static Vector2 getScenarioSpeed()
+	public Vector2 getScenarioSpeed()
 	{
 		return scenarioSpeedVector;
 	}
