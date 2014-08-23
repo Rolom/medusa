@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		setMedusaStraight();
 		removeVerticalVelocity ();
 
 		if (Application.platform == RuntimePlatform.Android) {
@@ -32,9 +33,6 @@ public class Movement : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 				print ("mouse key is held down");
 				AnimateCharacter(Input.mousePosition);
-			} else {
-				//TODO agregar equilibrio de medusa.
-				setMedusaStraight();
 			}
 		}
 
@@ -110,7 +108,6 @@ public class Movement : MonoBehaviour {
 			upVector.Set(0, 0);
 		}
 
-		print ("Vertical Position: "+ transform.position.y);
 		return upVector;
 
 	}
@@ -152,16 +149,18 @@ public class Movement : MonoBehaviour {
 	}
 
 	void setMedusaStraight(){
-		float straightTorque = 20.0f;
+		float straightTorque = 50.0f;
+		float delta = 0.1f;
 
-		float rightTorque = -1 * straightTorque * (1 + Mathf.Sin (transform.eulerAngles.z));
-		float leftTorque = straightTorque * (1 - Mathf.Sin (transform.eulerAngles.z));
+		print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
+		if ( Mathf.Abs( rigidbody2D.angularVelocity) < delta) {
+			float currentRotation = transform.rotation.z;
+			//print ("Enderezando");
+			//print ("Enderezando Angle: " + currentRotation);
+			float netTorque = straightTorque * -1 * currentRotation ;
+			//print("netTorque: " + netTorque);
 
-		float netTorque = rightTorque + leftTorque;
-
-		//print ("angle: " + transform.rotation.eulerAngles.z);
-		//print ("leftTorque: " + leftTorque);
-		//print ("rightTorque: " + rightTorque);
-		//print ("netTorque: " + netTorque);
+			rigidbody2D.AddTorque(netTorque);
+		}
 	}
 }
