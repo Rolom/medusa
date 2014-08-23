@@ -155,19 +155,12 @@ public class Movement : MonoBehaviour {
 		print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
 		if ( Mathf.Abs( rigidbody2D.angularVelocity) < delta) {
 			float currentRotation = transform.rotation.z;
-			print ("Enderezando");
-			print ("Enderezando Angle: " + currentRotation);
+			//print ("Enderezando");
+			//print ("Enderezando Angle: " + currentRotation);
 			float netTorque = straightTorque * -1 * currentRotation ;
-			print("netTorque: " + netTorque);
+			//print("netTorque: " + netTorque);
 
 			rigidbody2D.AddTorque(netTorque);
 		}
-
-		//collider2D.bounds.
-
-		//print ("angle: " + transform.rotation.eulerAngles.z);
-		//print ("leftTorque: " + leftTorque);
-		//print ("rightTorque: " + rightTorque);
-		//print ("netTorque: " + netTorque);
 	}
 }
