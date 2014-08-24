@@ -4,7 +4,11 @@ using System.Collections;
 public class BehaviourPlanck : MonoBehaviour {
 	public float velocityCircleMoviment = 0.01f;
 	public int limitCircleMoviment = 10;
+	public int limitHorizontalMoviment = 100;
+	public bool horizontalMovementAllowed = false;
 
+	private bool rightHorizontalMoviment = true;
+	private int quantityHorizontalMoviment = 0;
 	private float sizeChangedX, sizeChangedY;
 	private float velocityChangeSize= 0;
 	private float factorVelocityChangeSize = 0.3f;
@@ -27,11 +31,8 @@ public class BehaviourPlanck : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (orientationRight) {
-			circleMovimentToRight();
-		} else {
-			circleMovimentToLeft();
-		}
+		horizontalMovement();
+		circleMovement();
 		
 		velocityChangeSize += factorVelocityChangeSize;
 		sizeChangedX = gameObject.transform.localScale.x + 0.01f * Mathf.Cos(velocityChangeSize);
@@ -41,6 +42,44 @@ public class BehaviourPlanck : MonoBehaviour {
 		gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
 
 	}
+
+	private void circleMovement(){
+		if (orientationRight) {
+			circleMovimentToRight();
+		} else {
+			circleMovimentToLeft();
+		}
+	}
+
+	private void horizontalMovement(){
+
+		if (horizontalMovementAllowed) {
+
+			doHorizontalMovement();
+			countMovimentAndChangeHorizontalMovement();
+		}
+	}
+
+	private void doHorizontalMovement(){
+
+		if (rightHorizontalMoviment) {
+			quantityHorizontalMoviment++;
+			gameObject.transform.Translate (velocityCircleMoviment, 0, 0);
+		} else {
+			quantityHorizontalMoviment--;
+			gameObject.transform.Translate (-velocityCircleMoviment, 0, 0);
+		}
+	}
+
+	private void countMovimentAndChangeHorizontalMovement(){
+		if (quantityHorizontalMoviment >= limitHorizontalMoviment) {
+			rightHorizontalMoviment = false;
+		}
+		if (quantityHorizontalMoviment <= -limitHorizontalMoviment) {
+			rightHorizontalMoviment = true;
+		}
+	}
+
 
 	void OnTriggerEnter2D(Collider2D col){ 
 		if(col.gameObject.tag.Equals(Constants.JELLYFISH)){
@@ -53,6 +92,8 @@ public class BehaviourPlanck : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+
 
 	private bool getRandomOrientation(){
 		if ((10/2) > getRandomMoviment (10)) {
