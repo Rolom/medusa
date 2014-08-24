@@ -22,13 +22,12 @@ public class MedusaHealth : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D  other){
 		print(other.gameObject.tag);
-		detachTentacle();
-		Application.LoadLevel(Application.loadedLevel);
+		GUIManager.getInstance().showEndGame();
 	}
 
 	void calculateLoose(){
 		if(tentacleList.Count==0){
-			Application.LoadLevel(Application.loadedLevel);
+			GUIManager.getInstance().showEndGame();
 		}
 	}
 

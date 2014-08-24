@@ -2,10 +2,8 @@
 using System.Collections;
 
 public class OnPlay : MonoBehaviour {
-
-	private float sWidth=Screen.width;
-	private float sHeight=Screen.height;
-	private string myScore="N/A";
+	
+	private string myScore="";
 	
 	public GUISkin myGuiSkin;	
 	private GUI score;
@@ -13,19 +11,15 @@ public class OnPlay : MonoBehaviour {
 	void OnGUI () {
 		GUI.skin=myGuiSkin;
 
-		myGuiSkin.box.fontSize=(int)(sWidth/10);
+		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-		GUI.Box(leftRect(1,30,200),Constants.SCORE_TEXT+myScore);
-	}
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-	private Rect leftRect(float y,int w,int h){
-		float pW=(sWidth*w)/100;
-		float x=sWidth-pW;
-		float pH=(sHeight*h)/100;
-		float pY=(sHeight*y)/100;
-		Rect myRect= new Rect(x,pY,pW,pH);
-		
-		return myRect;
+		if(GUI.Button(RectAligment.rigthRect(1,30,10),"Pause")){
+			GUIManager.getInstance().showPause();
+		}
+
+		GUI.Box(RectAligment.leftRect(1,30,10),Constants.SCORE_TEXT+myScore);
 	}
 
 	public void setMyScore(string myScore){

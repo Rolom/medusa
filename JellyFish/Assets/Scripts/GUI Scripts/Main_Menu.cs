@@ -3,38 +3,33 @@ using System.Collections;
 
 public class Main_Menu : MonoBehaviour {
 	
-	private float sWidth=Screen.width;
-	private float sHeight=Screen.height;
-
 	public GUISkin myGuiSkin;
+
+	public void Update(){
+		//animatePosY+=Time.deltaTime*10;
+	}
 
 	void OnGUI () {
 		GUI.skin=myGuiSkin;
 		
-		myGuiSkin.button.fontSize=(int)(sWidth/4);
-		myGuiSkin.box.fontSize=(int)(sWidth/10);
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(25);
+		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-		if(GUI.Button(centerRect(20,60,15),"Play")){
-			StageGameManager.getInstance().setCanCreateScenario(true);
-			gameObject.SetActive(false);
+		if(GUI.Button(RectAligment.centerRect(20,60,20),"Play")){
+			GUIManager.getInstance().showOnGame();
 		}
 
-		myGuiSkin.button.fontSize=(int)(sWidth/8);
-		if(GUI.Button(centerRect(35,40,15),"Credits")){
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(15);
+		if(GUI.Button(RectAligment.centerRect(35,40,15),"Credits")){
 			//Application.LoadLevel(1);
 		}
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(8);
+		if(GUI.Button(RectAligment.rigthRect(1,25,8),"EXIT APP")){
+			GUIManager.getInstance().closeApp();	
+		}
 
 
-		GUI.Box(centerRect(45,100,200),"Touch the screen to play.");
+		GUI.Box(RectAligment.centerRect(50,100,200),"Touch the screen \n to move the Jelly Fish.");
 	}
 
-	private Rect centerRect(float y,int w,int h){
-		float pW=(sWidth*w)/100;
-		float x=sWidth/2-pW/2;
-		float pH=(sHeight*h)/100;
-		float pY=(sHeight*y)/100;
-		Rect myRect= new Rect(x,pY,pW,pH);
-
-		return myRect;
-	}
 }

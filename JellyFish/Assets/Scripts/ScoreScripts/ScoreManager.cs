@@ -28,4 +28,8 @@ public class ScoreManager : MonoBehaviour {
 		score += scoreToAdd;
 		GUIManager.getInstance ().getOnPlay ().setMyScore (score + "");
 	}
+
+	public int getScore(){
+		return score;
+	}
 }

@@ -51,6 +51,7 @@ public class Movement : MonoBehaviour {
 		if( currentRotation < -range || currentRotation > range){
 			rigidbody2D.angularVelocity = 0.0f;
 		}
+		rigidbody2D.AddForce( returnToVerticalPosition() );
 	}
 
 	void AnimateCharacter(Vector3 position) {
@@ -59,7 +60,6 @@ public class Movement : MonoBehaviour {
 		Vector2 newDirection = characterVector - mouseVector;
 
 		rigidbody2D.AddForce( moveLinearMedusa(newDirection) );
-		rigidbody2D.AddForce( returnToVerticalPosition() );
 
 		rigidbody2D.AddTorque( addTorqueForMedusa(newDirection) );
 

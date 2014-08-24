@@ -86,4 +86,10 @@ public class StageGameManager : MonoBehaviour {
 		this.canCreateScenario = canCreate;	
 	}
 
+	public void resetStage(){
+		Destroy(currentStage);
+		canCreateScenario=false;
+		scenarioSpeed = -0.9f;
+	}
+
 }
