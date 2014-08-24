@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour {
 	static float MAXIMUM_ROTATION_ANGLE = 60.0f;	//in degrees.
 	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
 	private float verticalPosition;
+	public GameObject verticalToken;
 
 	Vector2 moveLeft;
 	Vector2 moveRight;
@@ -15,7 +16,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		moveLeft = new Vector2 (-1, 0);
 		moveRight = new Vector2 (1, 0);
-		verticalPosition=transform.position.y;
+		verticalPosition=verticalToken.transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -99,7 +100,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	Vector2 returnToVerticalPosition(){
-		float upForce=5;
+		float upForce=0.4f;
 		float verticalPositionOffset=0.2f;
 		float minimunVerticalPosition=verticalPosition-verticalPositionOffset;
 

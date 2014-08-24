@@ -1,9 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Jellyfish Script/Movement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScenarioScripts/StageGameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GUI Scripts/Main_Menu.cs" Line="28" Column="41" />
-      <File FileName="Assets/Scripts/Jellyfish Script/Movement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Jellyfish Script/Movement.cs" Line="103" Column="20" />
+      <File FileName="Assets/Scripts/GUI Scripts/Main_Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI Scripts/OnPlay.cs" Line="30" Column="13" />
+      <File FileName="Assets/Scripts/GUI Scripts/EndMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI Scripts/GUIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ScoreScripts/ScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ScenarioScripts/StageGameManager.cs" Line="98" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -24,7 +24,7 @@ public class Main_Menu : MonoBehaviour {
 			//Application.LoadLevel(1);
 		}
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(8);
-		if(GUI.Button(RectAligment.rigthRect(1,25,8),"EXIT APP")){
+		if(GUI.Button(RectAligment.rigthRect(1,25,8),"EXIT")){
 			GUIManager.getInstance().closeApp();	
 		}
 

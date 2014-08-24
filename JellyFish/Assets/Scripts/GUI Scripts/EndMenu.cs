@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class EndMenu : MonoBehaviour {
-
-	private float sWidth=Screen.width;
-	private float sHeight=Screen.height;
+	
 	public GUISkin myGuiSkin;
 	
 	void OnGUI () {
