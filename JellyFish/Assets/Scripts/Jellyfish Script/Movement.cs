@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour {
 	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
 	private float verticalPosition;
 	public GameObject verticalToken;
+	private float forceMultiplier=1;
 
 	Vector2 moveLeft;
 	Vector2 moveRight;
@@ -78,7 +79,7 @@ public class Movement : MonoBehaviour {
 
 	Vector2 moveLinearMedusa (Vector2 newDirection)
 	{
-		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude);
+		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*FORCE_MULTIPLIER;
 
 		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
 			vectorMagnitud=MAXIMUM_VECTOR_VELOCITY;
@@ -170,5 +171,9 @@ public class Movement : MonoBehaviour {
 
 	Vector2 convertFromVector3( Vector3 vector3){
 		return new Vector2 (vector3.x, vector3.y);
+	}
+
+	public void setForceMultiplier(float fm){
+		forceMultiplier=fm;
 	}
 }
