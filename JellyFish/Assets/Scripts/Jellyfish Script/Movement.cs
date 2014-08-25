@@ -79,7 +79,7 @@ public class Movement : MonoBehaviour {
 
 	Vector2 moveLinearMedusa (Vector2 newDirection)
 	{
-		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*FORCE_MULTIPLIER;
+		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*forceMultiplier;
 
 		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
 			vectorMagnitud=MAXIMUM_VECTOR_VELOCITY;
