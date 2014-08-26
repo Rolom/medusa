@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour {
 	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
 	private float verticalPosition;
 	public GameObject verticalToken;
-	private float forceMultiplier=1;
+	private float forceMultiplier=2;
 
 	Vector2 moveLeft;
 	Vector2 moveRight;
@@ -154,19 +154,11 @@ public class Movement : MonoBehaviour {
 	}
 
 	void setMedusaStraight(){
-		float straightTorque = 50.0f;
-		float delta = 0.1f;
-
-		//print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
-		if ( Mathf.Abs( rigidbody2D.angularVelocity) < delta) {
-			float currentRotation = transform.rotation.z;
-			//print ("Enderezando");
-			//print ("Enderezando Angle: " + currentRotation);
-			float netTorque = straightTorque * -1 * currentRotation ;
-			//print("netTorque: " + netTorque);
-
-			rigidbody2D.AddTorque(netTorque);
-		}
+		float straightTorque = 3.0f;
+	
+		float currentRotation = transform.rotation.z;
+		float netTorque = straightTorque * -1 * currentRotation ;
+		rigidbody2D.AddTorque(netTorque);
 	}
 
 	Vector2 convertFromVector3( Vector3 vector3){
