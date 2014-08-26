@@ -8,4 +8,5 @@ public class Constants {
 	public static string ROCK = "Rock";
 	public static string SCORE_TEXT = "Score: ";
 	public static string PLANK = "Plank";
+	public static string HIGHSCORE = "highscore";
 }

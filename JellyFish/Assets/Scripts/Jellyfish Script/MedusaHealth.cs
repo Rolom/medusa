@@ -20,18 +20,23 @@ public class MedusaHealth : MonoBehaviour {
 		calculateLoose();
 	}
 
-	void OnCollisionEnter2D(Collision2D  other){
+	void OnCollisionEnter2D(Collision2D  other)
+	{
 		print(other.gameObject.tag);
+		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 		GUIManager.getInstance().showEndGame();
 	}
 
 	void calculateLoose(){
-		if(tentacleList.Count==0){
+		if(tentacleList.Count==0)
+		{
+			Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 			GUIManager.getInstance().showEndGame();
 		}
 	}
 
-	public void detachTentacle(){
+	public void detachTentacle()
+	{
 		Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
 		sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
 		sTentacle.enabled=false;
