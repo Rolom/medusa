@@ -11,11 +11,14 @@ public class StageGameManager : MonoBehaviour {
 	private static Vector2 scenarioSpeedVector;
 	public Transform pointA;
 	public Transform pointB;
+	public GameObject jellyFish;
+	private GameObject currentJellyFish;
 	public List<GameObject> stageObjects = new List<GameObject>();
 	private bool canCreateScenario;
 	
 	int randomScenario;
 	GameObject currentStage;
+	GameObject oldScenario;
 	List<GameObject> stageLists = new List<GameObject>();
 
 	public static StageGameManager getInstance()
@@ -31,6 +34,7 @@ public class StageGameManager : MonoBehaviour {
 		canCreateScenario = false;
 		setScenarioSpeed(scenarioSpeed);
 		randomScenario = Random.Range (0, stageObjects.Count);
+		createJellyFish();
 	}
 	
 	// Update is called once per frame
@@ -56,6 +60,7 @@ public class StageGameManager : MonoBehaviour {
 
 	void createNewScenario ()
 	{
+		saveOldScenario();
 		currentStage = Instantiate (stageObjects [randomScenario], pointA.localPosition, Quaternion.identity) as GameObject;
 		BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
 		Vector3 newPosition = currentStage.transform.localPosition;
@@ -64,6 +69,18 @@ public class StageGameManager : MonoBehaviour {
 		randomScenario = Random.Range (0, stageObjects.Count);
 		stageLists.Add(currentStage);
 		setCanCreateScenario (false);
+	}
+
+	private void saveOldScenario(){
+		if(currentStage!=null){
+			oldScenario=currentStage;
+		}
+	}
+
+	private void deleteOldScenario(){
+		if(oldScenario!=null){
+			Destroy(oldScenario);
+		}
 	}
 
 	void setScenarioSpeedToStages ()
@@ -86,9 +103,22 @@ public class StageGameManager : MonoBehaviour {
 		this.canCreateScenario = canCreate;	
 	}
 
+	public void createJellyFish(){
+		currentJellyFish = (GameObject)(Instantiate(jellyFish));
+	}
+
 	public void resetStage(){
+		deleteOldScenario();
+		Destroy(currentJellyFish);
+		createJellyFish();
 		Destroy(currentStage);
 		canCreateScenario=false;
+		resetScenarioSpeed();
+		GUIManager.getInstance().onPlay.resetMyScore();
+		ScoreManager.getInstance().resetScore();
+	}
+
+	private void resetScenarioSpeed(){
 		scenarioSpeed = -0.9f;
 	}
 

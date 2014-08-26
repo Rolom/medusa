@@ -3,7 +3,7 @@ using System.Collections;
 
 public class OnPlay : MonoBehaviour {
 	
-	private string myScore="";
+	private string myScore="0";
 	
 	public GUISkin myGuiSkin;	
 	private GUI score;
@@ -15,7 +15,7 @@ public class OnPlay : MonoBehaviour {
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-		if(GUI.Button(RectAligment.rigthRect(1,30,10),"Pause")){
+		if(GUI.Button(RectAligment.rigthRect(1,20,8),"Pause")){
 			GUIManager.getInstance().showPause();
 		}
 
@@ -24,5 +24,9 @@ public class OnPlay : MonoBehaviour {
 
 	public void setMyScore(string myScore){
 		this.myScore=myScore;
+	}
+
+	public void resetMyScore(){
+		myScore="0";
 	}
 }

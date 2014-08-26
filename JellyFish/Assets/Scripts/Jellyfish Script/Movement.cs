@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour {
 	static float MAXIMUM_ROTATION_ANGLE = 60.0f;	//in degrees.
 	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
 	private float verticalPosition;
+	public GameObject verticalToken;
+	private float forceMultiplier=1;
 
 	Vector2 moveLeft;
 	Vector2 moveRight;
@@ -15,7 +17,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		moveLeft = new Vector2 (-1, 0);
 		moveRight = new Vector2 (1, 0);
-		verticalPosition=transform.position.y;
+		verticalPosition=verticalToken.transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -77,7 +79,7 @@ public class Movement : MonoBehaviour {
 
 	Vector2 moveLinearMedusa (Vector2 newDirection)
 	{
-		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude);
+		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*forceMultiplier;
 
 		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
 			vectorMagnitud=MAXIMUM_VECTOR_VELOCITY;
@@ -99,7 +101,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	Vector2 returnToVerticalPosition(){
-		float upForce=5;
+		float upForce=0.4f;
 		float verticalPositionOffset=0.2f;
 		float minimunVerticalPosition=verticalPosition-verticalPositionOffset;
 
@@ -169,5 +171,9 @@ public class Movement : MonoBehaviour {
 
 	Vector2 convertFromVector3( Vector3 vector3){
 		return new Vector2 (vector3.x, vector3.y);
+	}
+
+	public void setForceMultiplier(float fm){
+		forceMultiplier=fm;
 	}
 }
