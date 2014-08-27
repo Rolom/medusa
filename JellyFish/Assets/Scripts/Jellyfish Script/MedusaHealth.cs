@@ -51,8 +51,8 @@ public class MedusaHealth : MonoBehaviour {
 	public void deadState(){
 		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 		collider2D.enabled=false;
-		Instantiate(jellyFishDieParticle);
 		jellyFishDieParticle.transform.position=(new Vector2(gameObject.transform.position.x,gameObject.transform.position.y));
+		Instantiate(jellyFishDieParticle);
 		Destroy(gameObject);
 		GUIManager.getInstance().showEndGame();
 	}
