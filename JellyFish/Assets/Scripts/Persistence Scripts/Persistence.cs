@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 
 public class Persistence : MonoBehaviour {
 
 	private static Persistence _instance;
+	private int actualHighscore = -1;
 
 	public static Persistence getInstance()
 	{
@@ -16,8 +17,11 @@ public class Persistence : MonoBehaviour {
 
 	public int getHighscore()
 	{
-		int highScore = PlayerPrefs.GetInt(Constants.HIGHSCORE);
-		return highScore;
+		if(actualHighscore == -1)
+		{
+			actualHighscore = PlayerPrefs.GetInt(Constants.HIGHSCORE);
+		}
+		return actualHighscore;
 	}
 
 	private void setHighscore(int newHighscore)
@@ -27,19 +31,29 @@ public class Persistence : MonoBehaviour {
 
 	public void replaceHighScore(int newHighscore)
 	{
-		int actualHighscore = getHighscore();
-		if(actualHighscore != null)
+		if(getHighscore() < newHighscore)
 		{
-			if(actualHighscore < newHighscore)
-			{
-				setHighscore(newHighscore);
-				PlayerPrefs.Save();
-			}
+			setHighscore(newHighscore);
+			actualHighscore = newHighscore;
+			PlayerPrefs.Save();
+		}
+	}
+
+	public bool isHighscore(int posibbleHighscore)
+	{
+		if(posibbleHighscore > getHighscore())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("Highscore is: " + getHighscore());
+		actualHighscore = getHighscore();
+		Debug.Log("Highscore is: "+ actualHighscore);
 	}
 	
 	// Update is called once per frame
