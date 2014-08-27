@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour {
 	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
 	private float verticalPosition;
 	public GameObject verticalToken;
-	private float forceMultiplier=1;
+	private float forceMultiplier=1.3f;
 
 	Vector2 moveLeft;
 	Vector2 moveRight;

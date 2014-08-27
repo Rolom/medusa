@@ -37,7 +37,6 @@ public class GUIManager : MonoBehaviour {
 	public void showEndGame(){
 		deactivateMenus();
 		endMenu.gameObject.SetActive(true);
-		Time.timeScale=0;
 	}
 
 	public void replayGame(){

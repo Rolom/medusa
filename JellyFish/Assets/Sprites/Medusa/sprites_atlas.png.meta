@@ -55,17 +55,17 @@ TextureImporter:
     - name: sprites_atlas_3
       rect:
         serializedVersion: 2
-        x: 772
-        y: 1792
-        width: 224
-        height: 226
+        x: 1026
+        y: 1791
+        width: 228
+        height: 227
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_atlas_7
       rect:
         serializedVersion: 2
-        x: 40
+        x: 296
         y: 1710
         width: 492
         height: 320
@@ -75,10 +75,10 @@ TextureImporter:
     - name: sprites_atlas_3
       rect:
         serializedVersion: 2
-        x: 611
+        x: 1149
         y: 0
-        width: 925
-        height: 1380
+        width: 899
+        height: 1300
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

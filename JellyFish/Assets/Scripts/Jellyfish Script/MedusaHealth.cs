@@ -7,6 +7,7 @@ public class MedusaHealth : MonoBehaviour {
 	private List<Transform> tentacleList= new List<Transform>();
 	private DistanceJoint2D sTentacle;
 	private Rigidbody2D rTentacle;
+	public GameObject jellyFishDieParticle;
 
 	// Use this for initialization
 	void Start () {
@@ -22,23 +23,36 @@ public class MedusaHealth : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D  other){
 		print(other.gameObject.tag);
-		GUIManager.getInstance().showEndGame();
+		detachTentacle();
+		//GUIManager.getInstance().showEndGame();
 	}
 
 	void calculateLoose(){
 		if(tentacleList.Count==0){
-			GUIManager.getInstance().showEndGame();
+			//GUIManager.getInstance().showEndGame();
+			deadState();
 		}
 	}
 
 	public void detachTentacle(){
-		Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
-		sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
-		sTentacle.enabled=false;
+		if(tentacleList.Count>=1){
+			Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
+			sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
+			sTentacle.enabled=false;
 
-		rTentacle=selectedTentacle.GetComponent<Rigidbody2D>();
-		rTentacle.mass=1;
-		rTentacle.gravityScale=2;
-		tentacleList.Remove(selectedTentacle);
+			rTentacle=selectedTentacle.GetComponent<Rigidbody2D>();
+			rTentacle.mass=1;
+			rTentacle.gravityScale=2;
+			tentacleList.Remove(selectedTentacle);
+		}
+	}
+
+	public void deadState(){
+		collider2D.enabled=false;
+		Instantiate(jellyFishDieParticle);
+		jellyFishDieParticle.transform.position=(new Vector2(gameObject.transform.position.x,gameObject.transform.position.y));
+		Destroy(gameObject);
+		GUIManager.getInstance().showEndGame();
+
 	}
 }
