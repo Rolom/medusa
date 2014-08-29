@@ -15,6 +15,9 @@ public class BehaviourPlanck : MonoBehaviour {
 	private int movimentAxisX;
 	private int movimentAxisY;
 	private bool orientationRight;
+	private bool dieFlag=false;
+	private float scaleX;
+	private float scaleY;
 
 	public  GameObject dieParticles;
 	private Vector3 dieParticlePos;
@@ -23,6 +26,8 @@ public class BehaviourPlanck : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		scaleX=gameObject.transform.localScale.x;
+		scaleY=gameObject.transform.localScale.y;
 		movimentAxisX = getRandomMoviment (limitCircleMoviment);
 		movimentAxisY = getRandomMoviment (limitCircleMoviment);
 
@@ -39,7 +44,11 @@ public class BehaviourPlanck : MonoBehaviour {
 		sizeChangedY = gameObject.transform.localScale.y + 0.01f * Mathf.Cos(velocityChangeSize);
 		
 		//Debug.Log(sizeChangedX);
-		gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
+		if(!dieFlag){
+			gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
+		}else{
+			dieAnimation();
+		}
 
 	}
 
@@ -83,13 +92,12 @@ public class BehaviourPlanck : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){ 
 		if(col.gameObject.tag.Equals(Constants.JELLYFISH)){
-			changeSize(1);
-
-			Instantiate(dieParticles);
 			dieParticlePos=gameObject.transform.position;
 			dieParticles.transform.position=dieParticlePos;
+			Instantiate(dieParticles);
 			ScoreManager.getInstance().addScore(getScoreToAdd());
-			Destroy (gameObject);
+			collider2D.enabled=false;
+			dieFlag=true;
 		}
 	}
 
@@ -147,6 +155,17 @@ public class BehaviourPlanck : MonoBehaviour {
 			movimentAxisY++;
 		}
 		
+	}
+
+	private void dieAnimation(){
+		float decreaseVelocity=0.04f;
+		scaleX-=decreaseVelocity;
+		scaleY-=decreaseVelocity;
+			gameObject.transform.localScale=new Vector2(scaleX,scaleY);
+			if(gameObject.transform.localScale.x<0){
+				Destroy(gameObject);
+			}
+
 	}
 
 	public int getScoreToAdd()

@@ -7,11 +7,14 @@ public class OnPlay : MonoBehaviour {
 	
 	public GUISkin myGuiSkin;	
 	private GUI score;
-	private float hSliderValue = 0.5f;
 
 	void OnGUI () {
 
 		GUI.skin=myGuiSkin;
+
+		Color myColor =GUI.color;
+		myColor.a=1f;
+		GUI.color=myColor;
 
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
@@ -24,7 +27,7 @@ public class OnPlay : MonoBehaviour {
 		GUI.Box(RectAligment.leftRect(1,30,10),Constants.SCORE_TEXT+myScore);
 
 
-		hSliderValue = GUI.HorizontalSlider (RectAligment.centerRect(95, 50, 30), hSliderValue, 0f, 1.0f);
+		//hSliderValue = GUI.HorizontalSlider (RectAligment.centerRect(95, 50, 30), hSliderValue, 0f, 1.0f);
 
 	}
 	
@@ -32,9 +35,6 @@ public class OnPlay : MonoBehaviour {
 		this.myScore=myScore;
 	}
 
-	public void Update(){
-		StageGameManager.getInstance().changeScenariosSpeed(hSliderValue);
-	}
 
 	public void resetMyScore(){
 		myScore="0";

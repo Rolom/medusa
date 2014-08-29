@@ -24,7 +24,7 @@ public class MedusaHealth : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D  other)
 	{
 		print(other.gameObject.tag);
-		detachTentacle();
+		deadState();
 		//GUIManager.getInstance().showEndGame();
 	}
 
@@ -51,7 +51,7 @@ public class MedusaHealth : MonoBehaviour {
 	public void deadState(){
 		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 		collider2D.enabled=false;
-		jellyFishDieParticle.transform.position=(new Vector2(gameObject.transform.position.x,gameObject.transform.position.y));
+		jellyFishDieParticle.transform.position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y));
 		Instantiate(jellyFishDieParticle);
 		Destroy(gameObject);
 		GUIManager.getInstance().showEndGame();
