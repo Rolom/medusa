@@ -5,10 +5,11 @@ public class Movement : MonoBehaviour {
 
 	static float LINEAR_VELOCITY = 25.0f;
 	static float MAXIMUM_ROTATION_ANGLE = 60.0f;	//in degrees.
-	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
+	static float MAXIMUM_VECTOR_VELOCITY=50.0f;
 	private float verticalPosition;
 	public GameObject verticalToken;
-	private float forceMultiplier=1.3f;
+	private const float LINEAR_FORCE_MULTIPLIER=1.3f;
+	private const float ANGULAR_FORCE_MULTIPLIER=1.0f;
 
 
 	Vector2 moveLeft;
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour {
 
 			if (Input.touchCount > 0) {
 
-				if(Input.GetTouch(0).phase == TouchPhase.Began && !circleCollider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) ) ) {
+				if(Input.GetTouch(0).phase == TouchPhase.Began ) {
 					AnimateCharacter (Input.GetTouch(0).position);
 
 				}
@@ -39,7 +40,7 @@ public class Movement : MonoBehaviour {
 
 		} else {
 
-			if (Input.GetKeyDown (KeyCode.Mouse0) && !circleCollider2D.OverlapPoint( Camera.main.ScreenToWorldPoint(Input.mousePosition) ) ) {
+			if (Input.GetKeyDown (KeyCode.Mouse0)  ) {
 				AnimateCharacter(Input.mousePosition);
 			}
 		}
@@ -82,11 +83,7 @@ public class Movement : MonoBehaviour {
 
 	Vector2 moveLinearMedusa (Vector2 newDirection)
 	{
-		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*forceMultiplier;
-
-		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
-			vectorMagnitud=MAXIMUM_VECTOR_VELOCITY;
-		}
+		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*LINEAR_FORCE_MULTIPLIER;
 
 		Vector2 directionVector = new Vector2();
 
@@ -121,12 +118,18 @@ public class Movement : MonoBehaviour {
 	}
 
 	float inverseVectorMagnitude( float magnitude ){
-		return 1 / Mathf.Pow (magnitude, 2) * LINEAR_VELOCITY;
+		float vectorMagnitud = 1 / Mathf.Pow (magnitude, 2) * LINEAR_VELOCITY;
+
+		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
+			return MAXIMUM_VECTOR_VELOCITY;
+		}
+		return vectorMagnitud;
+
 	}
 
 	float addTorqueForMedusa( Vector2 newDirection ){
 
-		float torqueFromClick = 1.0f * inverseVectorMagnitude(newDirection.magnitude);
+		float torqueFromClick = ANGULAR_FORCE_MULTIPLIER * inverseVectorMagnitude(newDirection.magnitude);
 
 		if (newDirection.x < 0) {
 			// do nothing
@@ -167,8 +170,5 @@ public class Movement : MonoBehaviour {
 	Vector2 convertFromVector3( Vector3 vector3){
 		return new Vector2 (vector3.x, vector3.y);
 	}
-
-	public void setForceMultiplier(float fm){
-		forceMultiplier=fm;
-	}
+	
 }
