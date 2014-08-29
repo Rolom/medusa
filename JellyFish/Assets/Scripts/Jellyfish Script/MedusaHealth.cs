@@ -8,6 +8,7 @@ public class MedusaHealth : MonoBehaviour {
 	private DistanceJoint2D sTentacle;
 	private Rigidbody2D rTentacle;
 	public GameObject jellyFishDieParticle;
+	private bool touchJellyFlag;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,14 @@ public class MedusaHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		calculateLoose();
+		if (Input.touchCount > 0) {
+			if(collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position)) && !touchJellyFlag){
+				gameObject.GetComponent<MedusaHealth>().detachTentacle();
+				touchJellyFlag=true;
+			}else{
+				touchJellyFlag=false;
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D  other)

@@ -55,6 +55,12 @@ public class Persistence : MonoBehaviour {
 		actualHighscore = getHighscore();
 		Debug.Log("Highscore is: "+ actualHighscore);
 	}
+
+	public void resetHighscore(){
+		setHighscore(0);
+		actualHighscore = 0;
+		PlayerPrefs.Save();
+	}
 	
 	// Update is called once per frame
 	void Update () {

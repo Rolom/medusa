@@ -19,12 +19,10 @@ public class Main_Menu : MonoBehaviour {
 			GUIManager.getInstance().showOnGame();
 		}
 
-		//myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(15);
-		//if(GUI.Button(RectAligment.centerRect(30,40,15),"Credits")){
-			//Application.LoadLevel(1);
-		//}
-
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(8);
+		if(GUI.Button(RectAligment.leftRect(1,25,6),"Options")){
+			GUIManager.getInstance().showOptions();	
+		}
 		if(GUI.Button(RectAligment.rigthRect(1,25,8),"EXIT")){
 			GUIManager.getInstance().closeApp();	
 		}

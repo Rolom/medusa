@@ -34,10 +34,6 @@ public class Movement : MonoBehaviour {
 				if(Input.GetTouch(0).phase == TouchPhase.Began && !circleCollider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) ) ) {
 					AnimateCharacter (Input.GetTouch(0).position);
 
-				}else{
-					if(circleCollider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position))){
-						gameObject.GetComponent<MedusaHealth>().detachTentacle();
-					}
 				}
 			}
 

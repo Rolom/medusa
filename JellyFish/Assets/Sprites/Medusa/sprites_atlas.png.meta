@@ -82,5 +82,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_atlas_4
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 1795
+        width: 244
+        height: 244
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
