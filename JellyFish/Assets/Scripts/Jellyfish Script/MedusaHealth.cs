@@ -20,16 +20,26 @@ public class MedusaHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		calculateLoose();
-		if (Input.touchCount > 0) {
-			if(collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position)) && !touchJellyFlag){
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
+			if (Input.touchCount > 0) {
+				if(collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position)) && !touchJellyFlag){
+					gameObject.GetComponent<MedusaHealth>().detachTentacle();
+					touchJellyFlag=true;
+				}
+			}else{
+				touchJellyFlag=false;
+			}
+		}else{
+			if (Input.GetKeyDown (KeyCode.Mouse0)  ) {
+			if (collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) ) {
 				gameObject.GetComponent<MedusaHealth>().detachTentacle();
 				touchJellyFlag=true;
 			}
-		}else{
-			touchJellyFlag=false;
+			}else{
+				touchJellyFlag=false;
+			}
+
 		}
-
-
 	}
 
 	void OnCollisionEnter2D(Collision2D  other)
