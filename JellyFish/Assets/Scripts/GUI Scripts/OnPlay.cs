@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnPlay : MonoBehaviour {
+public class OnPlay : BasicGUI {
 	
 	private string myScore="0";
 	
@@ -9,12 +9,9 @@ public class OnPlay : MonoBehaviour {
 	private GUI score;
 
 	void OnGUI () {
+		GUI.color=changeAlphaGui(GUI.color);
 
 		GUI.skin=myGuiSkin;
-
-		Color myColor =GUI.color;
-		myColor.a=1f;
-		GUI.color=myColor;
 
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 

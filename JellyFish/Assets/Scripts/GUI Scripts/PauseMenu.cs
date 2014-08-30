@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : BasicGUI {
 	
 	public GUISkin myGuiSkin;	
 	
 	void OnGUI () {
+		GUI.color=changeAlphaGui(GUI.color);
+
 		GUI.skin=myGuiSkin;
 		
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(20);

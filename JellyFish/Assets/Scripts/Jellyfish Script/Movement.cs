@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour {
 		removeVerticalVelocity ();
 
 		CircleCollider2D circleCollider2D = (CircleCollider2D)collider2D;
-		if (Application.platform == RuntimePlatform.Android) {
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
 
 			if (Input.touchCount > 0) {
 

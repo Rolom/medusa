@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OptionsMenu : MonoBehaviour {
+public class OptionsMenu : BasicGUI {
 
 	public GUISkin myGuiSkin;	
 	private string SOUND_ON="Sounds ON";
@@ -17,6 +17,7 @@ public class OptionsMenu : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		GUI.color=changeAlphaGui(GUI.color);
 
 		GUI.skin=myGuiSkin;
 

@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Main_Menu : MonoBehaviour {
+public class Main_Menu : BasicGUI{
 	
 	public GUISkin myGuiSkin;
-
-	public void Update(){
-		//animatePosY+=Time.deltaTime*10;
-	}
-
+	
 	void OnGUI () {
+		GUI.color=changeAlphaGui(GUI.color);
+
 		GUI.skin=myGuiSkin;
 		
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(25);
