@@ -9,7 +9,12 @@ public class OnPlay : MonoBehaviour {
 	private GUI score;
 
 	void OnGUI () {
+
 		GUI.skin=myGuiSkin;
+
+		Color myColor =GUI.color;
+		myColor.a=1f;
+		GUI.color=myColor;
 
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
@@ -20,11 +25,16 @@ public class OnPlay : MonoBehaviour {
 		}
 
 		GUI.Box(RectAligment.leftRect(1,30,10),Constants.SCORE_TEXT+myScore);
-	}
 
+
+		//hSliderValue = GUI.HorizontalSlider (RectAligment.centerRect(95, 50, 30), hSliderValue, 0f, 1.0f);
+
+	}
+	
 	public void setMyScore(string myScore){
 		this.myScore=myScore;
 	}
+
 
 	public void resetMyScore(){
 		myScore="0";

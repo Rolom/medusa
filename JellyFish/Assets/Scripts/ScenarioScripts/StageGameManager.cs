@@ -122,4 +122,13 @@ public class StageGameManager : MonoBehaviour {
 		scenarioSpeed = -0.9f;
 	}
 
+	public void changeScenariosSpeed(float changedSpeed){
+		if(currentStage !=null){
+			currentStage.GetComponent<ScenarioMovement>().setScenarioSpeed(new Vector2(0,scenarioSpeed-changedSpeed));
+		}
+		if(oldScenario !=null){
+			oldScenario.GetComponent<ScenarioMovement>().setScenarioSpeed(new Vector2(0,scenarioSpeed-changedSpeed));
+		}
+	}
+
 }

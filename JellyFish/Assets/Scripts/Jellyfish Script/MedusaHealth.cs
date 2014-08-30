@@ -7,6 +7,8 @@ public class MedusaHealth : MonoBehaviour {
 	private List<Transform> tentacleList= new List<Transform>();
 	private DistanceJoint2D sTentacle;
 	private Rigidbody2D rTentacle;
+	public GameObject jellyFishDieParticle;
+	private bool touchJellyFlag;
 
 	// Use this for initialization
 	void Start () {
@@ -18,32 +20,52 @@ public class MedusaHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		calculateLoose();
+		if (Input.touchCount > 0) {
+			if(collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position)) && !touchJellyFlag){
+				gameObject.GetComponent<MedusaHealth>().detachTentacle();
+				touchJellyFlag=true;
+			}
+		}else{
+			touchJellyFlag=false;
+		}
+
+
 	}
 
 	void OnCollisionEnter2D(Collision2D  other)
 	{
 		print(other.gameObject.tag);
-		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
-		GUIManager.getInstance().showEndGame();
+		deadState();
+		//GUIManager.getInstance().showEndGame();
 	}
 
 	void calculateLoose(){
-		if(tentacleList.Count==0)
-		{
-			Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
-			GUIManager.getInstance().showEndGame();
+		if(tentacleList.Count==0){
+			//GUIManager.getInstance().showEndGame();
+			deadState();
 		}
 	}
 
-	public void detachTentacle()
-	{
-		Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
-		sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
-		sTentacle.enabled=false;
+	public void detachTentacle(){
+		if(tentacleList.Count>=1){
+			Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
+			sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
+			sTentacle.enabled=false;
 
-		rTentacle=selectedTentacle.GetComponent<Rigidbody2D>();
-		rTentacle.mass=1;
-		rTentacle.gravityScale=2;
-		tentacleList.Remove(selectedTentacle);
+			rTentacle=selectedTentacle.GetComponent<Rigidbody2D>();
+			rTentacle.mass=1;
+			rTentacle.gravityScale=2;
+			tentacleList.Remove(selectedTentacle);
+		}
 	}
+
+	public void deadState(){
+		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
+		collider2D.enabled=false;
+		jellyFishDieParticle.transform.position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y));
+		Instantiate(jellyFishDieParticle);
+		Destroy(gameObject);
+		GUIManager.getInstance().showEndGame();
+	}
+	
 }

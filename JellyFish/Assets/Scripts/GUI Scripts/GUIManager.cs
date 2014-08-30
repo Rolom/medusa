@@ -9,6 +9,7 @@ public class GUIManager : MonoBehaviour {
 	public OnPlay onPlay;
 	public EndMenu endMenu;
 	public PauseMenu pauseMenu;
+	public OptionsMenu optionsMenu;
 
 
 	public static GUIManager getInstance()
@@ -37,7 +38,6 @@ public class GUIManager : MonoBehaviour {
 	public void showEndGame(){
 		deactivateMenus();
 		endMenu.gameObject.SetActive(true);
-		Time.timeScale=0;
 	}
 
 	public void replayGame(){
@@ -57,6 +57,11 @@ public class GUIManager : MonoBehaviour {
 		}
 	}
 
+	public void showOptions(){
+		deactivateMenus();
+		optionsMenu.gameObject.SetActive(true);
+	}
+
 	public void closeApp(){
 		Application.Quit();
 	}
@@ -66,6 +71,7 @@ public class GUIManager : MonoBehaviour {
 		onPlay.gameObject.SetActive(false);
 		endMenu.gameObject.SetActive(false);
 		pauseMenu.gameObject.SetActive(false);
+		optionsMenu.gameObject.SetActive(false);
 	}
 
 	public Main_Menu getMainMenu()

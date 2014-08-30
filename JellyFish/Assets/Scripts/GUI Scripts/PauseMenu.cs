@@ -8,18 +8,19 @@ public class PauseMenu : MonoBehaviour {
 	void OnGUI () {
 		GUI.skin=myGuiSkin;
 		
-		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
-		
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(20);
+
+		if(GUI.Button(RectAligment.centerRect(25,50,20),"Resume")){
+			GUIManager.getInstance().showPause();
+		}
+
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
-		
-		if(GUI.Button(RectAligment.centerRect(30,30,10),"Restart")){
+		if(GUI.Button(RectAligment.centerRect(45,30,10),"Restart")){
 			GUIManager.getInstance().replayGame();
 		}
-		if(GUI.Button(RectAligment.centerRect(40,30,10),"Main Menu")){
+
+		if(GUI.Button(RectAligment.centerRect(55,30,10),"Main Menu")){
 			GUIManager.getInstance().showMainMenu();
-		}
-		if(GUI.Button(RectAligment.centerRect(50,30,10),"Resume")){
-			GUIManager.getInstance().showPause();
 		}
 
 	}
