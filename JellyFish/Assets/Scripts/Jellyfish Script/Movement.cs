@@ -5,8 +5,12 @@ public class Movement : MonoBehaviour {
 
 	static float LINEAR_VELOCITY = 25.0f;
 	static float MAXIMUM_ROTATION_ANGLE = 60.0f;	//in degrees.
-	static float MAXIMUM_VECTOR_VELOCITY=300.0f;
+	static float MAXIMUM_VECTOR_VELOCITY=50.0f;
 	private float verticalPosition;
+	public GameObject verticalToken;
+	private const float LINEAR_FORCE_MULTIPLIER=1.3f;
+	private const float ANGULAR_FORCE_MULTIPLIER=1.0f;
+
 
 	Vector2 moveLeft;
 	Vector2 moveRight;
@@ -15,7 +19,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		moveLeft = new Vector2 (-1, 0);
 		moveRight = new Vector2 (1, 0);
-		verticalPosition=transform.position.y;
+		verticalPosition=verticalToken.transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -23,15 +27,20 @@ public class Movement : MonoBehaviour {
 		setMedusaStraight();
 		removeVerticalVelocity ();
 
-		if (Application.platform == RuntimePlatform.Android) {
+		CircleCollider2D circleCollider2D = (CircleCollider2D)collider2D;
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
+
 			if (Input.touchCount > 0) {
-				if(Input.GetTouch(0).phase == TouchPhase.Began) {
+
+				if(Input.GetTouch(0).phase == TouchPhase.Began ) {
 					AnimateCharacter (Input.GetTouch(0).position);
+
 				}
 			}
+
 		} else {
-			if (Input.GetKeyDown (KeyCode.Mouse0)) {
-				print ("mouse key is held down");
+
+			if (Input.GetKeyDown (KeyCode.Mouse0)  ) {
 				AnimateCharacter(Input.mousePosition);
 			}
 		}
@@ -48,6 +57,7 @@ public class Movement : MonoBehaviour {
 		if( currentRotation < -range || currentRotation > range){
 			rigidbody2D.angularVelocity = 0.0f;
 		}
+		rigidbody2D.AddForce( returnToVerticalPosition() );
 	}
 
 	void AnimateCharacter(Vector3 position) {
@@ -56,7 +66,6 @@ public class Movement : MonoBehaviour {
 		Vector2 newDirection = characterVector - mouseVector;
 
 		rigidbody2D.AddForce( moveLinearMedusa(newDirection) );
-		rigidbody2D.AddForce( returnToVerticalPosition() );
 
 		rigidbody2D.AddTorque( addTorqueForMedusa(newDirection) );
 
@@ -74,11 +83,7 @@ public class Movement : MonoBehaviour {
 
 	Vector2 moveLinearMedusa (Vector2 newDirection)
 	{
-		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude);
-
-		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
-			vectorMagnitud=MAXIMUM_VECTOR_VELOCITY;
-		}
+		float vectorMagnitud = inverseVectorMagnitude(newDirection.magnitude)*LINEAR_FORCE_MULTIPLIER;
 
 		Vector2 directionVector = new Vector2();
 
@@ -96,7 +101,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	Vector2 returnToVerticalPosition(){
-		float upForce=5;
+		float upForce=0.4f;
 		float verticalPositionOffset=0.2f;
 		float minimunVerticalPosition=verticalPosition-verticalPositionOffset;
 
@@ -113,12 +118,18 @@ public class Movement : MonoBehaviour {
 	}
 
 	float inverseVectorMagnitude( float magnitude ){
-		return 1 / Mathf.Pow (magnitude, 2) * LINEAR_VELOCITY;
+		float vectorMagnitud = 1 / Mathf.Pow (magnitude, 2) * LINEAR_VELOCITY;
+
+		if(vectorMagnitud>MAXIMUM_VECTOR_VELOCITY){
+			return MAXIMUM_VECTOR_VELOCITY;
+		}
+		return vectorMagnitud;
+
 	}
 
 	float addTorqueForMedusa( Vector2 newDirection ){
 
-		float torqueFromClick = 1.0f * inverseVectorMagnitude(newDirection.magnitude);
+		float torqueFromClick = ANGULAR_FORCE_MULTIPLIER * inverseVectorMagnitude(newDirection.magnitude);
 
 		if (newDirection.x < 0) {
 			// do nothing
@@ -149,18 +160,15 @@ public class Movement : MonoBehaviour {
 	}
 
 	void setMedusaStraight(){
-		float straightTorque = 50.0f;
-		float delta = 0.1f;
-
-		print ("Angular Velocity: " + rigidbody2D.angularVelocity) ;
-		if ( Mathf.Abs( rigidbody2D.angularVelocity) < delta) {
-			float currentRotation = transform.rotation.z;
-			//print ("Enderezando");
-			//print ("Enderezando Angle: " + currentRotation);
-			float netTorque = straightTorque * -1 * currentRotation ;
-			//print("netTorque: " + netTorque);
-
-			rigidbody2D.AddTorque(netTorque);
-		}
+		float straightTorque = 3.0f;
+	
+		float currentRotation = transform.rotation.z;
+		float netTorque = straightTorque * -1 * currentRotation ;
+		rigidbody2D.AddTorque(netTorque);
 	}
+
+	Vector2 convertFromVector3( Vector3 vector3){
+		return new Vector2 (vector3.x, vector3.y);
+	}
+	
 }

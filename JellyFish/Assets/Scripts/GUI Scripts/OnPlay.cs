@@ -1,34 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnPlay : MonoBehaviour {
-
-	private float sWidth=Screen.width;
-	private float sHeight=Screen.height;
-	private string myScore="N/A";
+public class OnPlay : BasicGUI {
+	
+	private string myScore="0";
 	
 	public GUISkin myGuiSkin;	
 	private GUI score;
 
 	void OnGUI () {
+		GUI.color=changeAlphaGui(GUI.color);
+
 		GUI.skin=myGuiSkin;
 
-		myGuiSkin.box.fontSize=(int)(sWidth/10);
+		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-		GUI.Box(leftRect(1,30,200),Constants.SCORE_TEXT+myScore);
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
+
+		if(GUI.Button(RectAligment.rigthRect(1,20,8),"Pause")){
+			GUIManager.getInstance().showPause();
+		}
+
+		GUI.Box(RectAligment.leftRect(1,30,10),Constants.SCORE_TEXT+myScore);
+
+
+		//hSliderValue = GUI.HorizontalSlider (RectAligment.centerRect(95, 50, 30), hSliderValue, 0f, 1.0f);
+
 	}
-
-	private Rect leftRect(float y,int w,int h){
-		float pW=(sWidth*w)/100;
-		float x=sWidth-pW;
-		float pH=(sHeight*h)/100;
-		float pY=(sHeight*y)/100;
-		Rect myRect= new Rect(x,pY,pW,pH);
-		
-		return myRect;
-	}
-
+	
 	public void setMyScore(string myScore){
 		this.myScore=myScore;
+	}
+
+
+	public void resetMyScore(){
+		myScore="0";
 	}
 }
