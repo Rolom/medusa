@@ -5,6 +5,10 @@ public class SoundManager : MonoBehaviour {
 
 	private static SoundManager _instance;
 
+	public RipleSFXImpl ripleSound;
+	public JellyDeathSFXImpl jellyDeathSound;
+	public WhaleSFXImpl whaleSound;
+
 	public static SoundManager getInstance()
 	{
 		if(_instance == null)
@@ -22,5 +26,23 @@ public class SoundManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public SFXObject RipleSound {
+		get {
+			return ripleSound;
+		}
+	}
+
+	public JellyDeathSFXImpl JellyDeathSound {
+		get {
+			return jellyDeathSound;
+		}
+	}
+
+	public WhaleSFXImpl WhaleSound {
+		get {
+			return whaleSound;
+		}
 	}
 }

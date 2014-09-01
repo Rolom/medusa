@@ -69,12 +69,18 @@ public class MedusaHealth : MonoBehaviour {
 		}
 	}
 
+	void playDeathSound ()
+	{
+		SoundManager.getInstance().JellyDeathSound.play();
+	}
+
 	public void deadState(){
 		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 		collider2D.enabled=false;
 		jellyFishDieParticle.transform.position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y));
 		Instantiate(jellyFishDieParticle);
 		Destroy(gameObject);
+		playDeathSound();
 		GUIManager.getInstance().showEndGame();
 	}
 	

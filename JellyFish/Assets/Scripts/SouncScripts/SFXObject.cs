@@ -7,6 +7,8 @@ public interface SFXObject {
 
 	void play(bool newInstance);
 
+	void playWithDelay(float time);
+
 	void stop();
 
 	void pause();

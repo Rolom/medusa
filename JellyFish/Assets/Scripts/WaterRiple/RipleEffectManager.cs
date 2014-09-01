@@ -15,13 +15,20 @@ public class RipleEffectManager : MonoBehaviour {
 	void Update () {
 
 		if (Input.touchCount > 0) {
+			Debug.Log ("Entre");
 			if(touchFlag==false){
 				Instantiate(ripless);
 				touchFlag=true;
+				playRipleSound();
 			}
 		}else{
 			touchFlag=false;
 		}
 	
+	}
+
+	void playRipleSound ()
+	{
+		SoundManager.getInstance().RipleSound.play();
 	}
 }
