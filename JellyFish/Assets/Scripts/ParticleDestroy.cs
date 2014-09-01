@@ -10,10 +10,9 @@ public class ParticleDestroy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if(particleSystem.isStopped){
+			Destroy(gameObject);
+		}
 	}
 
-	void Awake () {
-		Destroy(this.gameObject, particleSystem.duration);    
-	}
 }

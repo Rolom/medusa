@@ -10,7 +10,22 @@ public class GUIManager : MonoBehaviour {
 	public EndMenu endMenu;
 	public PauseMenu pauseMenu;
 	public OptionsMenu optionsMenu;
+	public SugarLayer sugarLayer;
+	private bool sugarLayerFlag=false;
 
+	public void Update(){
+		showSugaLayer();
+	}
+
+	public void showSugaLayer(){
+		if(Persistence.getInstance().getHighscore()==0){
+			sugarLayerFlag=true;
+		}
+		if(Persistence.getInstance().isHighscore(ScoreManager.getInstance().getScore()) && !sugarLayerFlag){
+			sugarLayer.gameObject.SetActive(true);
+			sugarLayerFlag=true;
+		}
+	}
 
 	public static GUIManager getInstance()
 	{
@@ -24,6 +39,7 @@ public class GUIManager : MonoBehaviour {
 	public void showMainMenu(){
 		deactivateMenus();
 		StageGameManager.getInstance().resetStage();
+		resetFlags();
 		Time.timeScale=1;
 		mainMenu.gameObject.SetActive(true);
 	}
@@ -37,11 +53,13 @@ public class GUIManager : MonoBehaviour {
 
 	public void showEndGame(){
 		deactivateMenus();
+		resetFlags();
 		endMenu.gameObject.SetActive(true);
 	}
 
 	public void replayGame(){
 		StageGameManager.getInstance().resetStage();
+		resetFlags();
 		showOnGame();
 	}
 
@@ -72,6 +90,11 @@ public class GUIManager : MonoBehaviour {
 		endMenu.gameObject.SetActive(false);
 		pauseMenu.gameObject.SetActive(false);
 		optionsMenu.gameObject.SetActive(false);
+		sugarLayer.gameObject.SetActive(false);
+	}
+
+	public void resetFlags(){
+		sugarLayerFlag=false;
 	}
 
 	public Main_Menu getMainMenu()

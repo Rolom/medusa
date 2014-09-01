@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class BasicGUI : MonoBehaviour {
-	public float alpha=0;
-	private float alphaDrow=0.02f;
+	protected float alpha=0;
+	protected float alphaDrow=0.02f;
 
 	// Update is called once per frame
 	void Update () {
