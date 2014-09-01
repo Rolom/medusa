@@ -32,6 +32,8 @@ public class BehaviourPlanck : MonoBehaviour {
 		movimentAxisY = getRandomMoviment (limitCircleMoviment);
 
 		orientationRight = getRandomOrientation ();
+
+		initialRotation ();
 	}
 	
 	// Update is called once per frame
@@ -101,7 +103,10 @@ public class BehaviourPlanck : MonoBehaviour {
 		}
 	}
 
-
+	private void initialRotation(){
+		var angle = getRandomMoviment (360);
+		gameObject.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+	}
 
 	private bool getRandomOrientation(){
 		if ((10/2) > getRandomMoviment (10)) {
