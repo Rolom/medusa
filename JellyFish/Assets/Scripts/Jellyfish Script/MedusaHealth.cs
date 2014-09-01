@@ -25,6 +25,7 @@ public class MedusaHealth : MonoBehaviour {
 				if(collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position)) && !touchJellyFlag){
 					gameObject.GetComponent<MedusaHealth>().detachTentacle();
 					touchJellyFlag=true;
+					Handheld.Vibrate ();
 				}
 			}else{
 				touchJellyFlag=false;
