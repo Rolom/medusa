@@ -1,16 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface SFXObject {
+public abstract class SFXObject : MonoBehaviour {
 
-	void play();
+	public AudioSource audio;
 
-	void play(bool newInstance);
+	void Start () {
+		
+	}
 
-	void playWithDelay(float time);
+	void Update () {
 
-	void stop();
+	}
 
-	void pause();
+	public void play()
+	{
+		play (false);
+	}
+
+	public void play(bool newInstance)
+	{
+		if(newInstance)
+		{
+			audio.Play();
+		}else
+		{
+			audio.Play();
+		}
+	}
+
+	public void playWithDelay(float time)
+	{
+		audio.PlayDelayed(time);
+	}
+
+	public void stop()
+	{
+		audio.Stop();
+	}
+
+	public void pause()
+	{
+		audio.Pause();
+	}
+
+
 	
 }
