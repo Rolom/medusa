@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WhaleSFXImpl : MonoBehaviour, SFXObject {
-
-	public AudioSource audio;
+public class WhaleSFXImpl : SFXObject {
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -14,38 +13,5 @@ public class WhaleSFXImpl : MonoBehaviour, SFXObject {
 		
 	}
 	
-	#region SFXObject implementation
-	
-	public void play ()
-	{
-		play (false);
-	}
-	
-	public void play (bool newInstance)
-	{
-		if(newInstance)
-		{
-			audio.Play();
-		}else
-		{
-			audio.Play();
-		}
-	}
-	
-	public void stop ()
-	{
-		audio.Stop();
-	}
-	
-	public void pause ()
-	{
-		audio.Pause();
-	}
 
-	public void playWithDelay (float time)
-	{
-		audio.PlayDelayed(time);
-	}
-
-	#endregion
 }

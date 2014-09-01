@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JellyDeathSFXImpl : MonoBehaviour, SFXObject {
-
-	public AudioSource audio;
+public class JellyDeathSFXImpl : SFXObject {
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -14,38 +13,5 @@ public class JellyDeathSFXImpl : MonoBehaviour, SFXObject {
 	
 	}
 
-	#region SFXObject implementation
 
-	public void play ()
-	{
-		play (false);
-	}
-	
-	public void play (bool newInstance)
-	{
-		if(newInstance)
-		{
-			audio.Play();
-		}else
-		{
-			audio.Play();
-		}
-	}
-
-	public void playWithDelay (float time)
-	{
-		throw new System.NotImplementedException ();
-	}
-	
-	public void stop ()
-	{
-		audio.Stop();
-	}
-	
-	public void pause ()
-	{
-		audio.Pause();
-	}
-
-	#endregion
 }
