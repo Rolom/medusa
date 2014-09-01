@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour {
 	public RipleSFXImpl ripleSound;
 	public JellyDeathSFXImpl jellyDeathSound;
 	public WhaleSFXImpl whaleSound;
+	public PlanktonDeathSFXImpl planktonDeathSound;
 
 	public static SoundManager getInstance()
 	{
@@ -43,6 +44,12 @@ public class SoundManager : MonoBehaviour {
 	public WhaleSFXImpl WhaleSound {
 		get {
 			return whaleSound;
+		}
+	}
+
+	public PlanktonDeathSFXImpl PlanktonDeathSound {
+		get {
+			return planktonDeathSound;
 		}
 	}
 }
