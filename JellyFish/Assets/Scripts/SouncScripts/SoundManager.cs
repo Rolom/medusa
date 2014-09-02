@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour {
 	public RipleSFXImpl ripleSound;
 	public JellyDeathSFXImpl jellyDeathSound;
 	public WhaleSFXImpl whaleSound;
+	public PlanktonDeathSFXImpl planktonDeathSound;
 
 	public static SoundManager getInstance()
 	{
@@ -44,5 +45,21 @@ public class SoundManager : MonoBehaviour {
 		get {
 			return whaleSound;
 		}
+	}
+
+	public PlanktonDeathSFXImpl PlanktonDeathSound {
+		get {
+			return planktonDeathSound;
+		}
+	}
+
+	public void pauseAudio()
+	{
+		AudioListener.pause = true;;
+	}
+
+	public void unPauseAudio()
+	{
+		AudioListener.pause = false;
 	}
 }
