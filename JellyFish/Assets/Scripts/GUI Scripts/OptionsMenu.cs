@@ -6,10 +6,14 @@ public class OptionsMenu : BasicGUI {
 	public GUISkin myGuiSkin;	
 	private string SOUND_ON="Sounds ON";
 	private string SOUND_OFF="Sounds OFF";
+	private string VIBRATION_ON="Vibration ON";
+	private string VIBRATION_OFF="Vibration OFF";
+	private bool vibrationStateFlag=true;
 	private string resetMessage="Reset Best Score";
 	private int resetCount=0;
 	private string soundCondition;
-	private bool soundState=true;
+	private bool soundStateFlag=true;
+	public GameObject camera;
 
 	// Use this for initialization
 	public void Start(){
@@ -23,7 +27,12 @@ public class OptionsMenu : BasicGUI {
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(14);
 		if(GUI.Button(RectAligment.centerRect(15,60,20),soundCondition)){
+
+		}
+
+		if(GUI.Button(RectAligment.centerRect(15,60,20),soundCondition)){
 			defineSoundState();
+			camera.GetComponent<AudioListener>().enabled=(soundStateFlag);
 		}
 
 		if(GUI.Button(RectAligment.centerRect(30,60,20),"Credits")){
@@ -65,12 +74,12 @@ public class OptionsMenu : BasicGUI {
 	}
 
 	public void defineSoundState(){
-		if(soundState){
+		if(soundStateFlag){
 			soundCondition=SOUND_OFF;
-			soundState=false;
+			soundStateFlag=false;
 		}else{
 			soundCondition=SOUND_ON;
-			soundState=true;
+			soundStateFlag=true;
 		}
 	}
 	

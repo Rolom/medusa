@@ -76,6 +76,7 @@ public class MedusaHealth : MonoBehaviour {
 	}
 
 	public void deadState(){
+		Handheld.Vibrate ();
 		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 		collider2D.enabled=false;
 		jellyFishDieParticle.transform.position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y));
