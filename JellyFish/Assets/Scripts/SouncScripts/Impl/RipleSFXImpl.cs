@@ -1,50 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class RipleSFXImpl : MonoBehaviour, SFXObject{
+public class RipleSFXImpl : SFXObject{
 
-	public AudioSource audio;
+	public List<AudioSource> sounds;
+	private int audioPosition = 0;
+
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-
-	#region SFXObject implementation
-
-	public void play ()
+	
+	public void play()
 	{
-		play (false);
-	}
-
-	public void play (bool newInstance)
-	{
-		if(newInstance)
+		if (audioPosition < sounds.Count) 
 		{
-			audio.Play();
-		}else
+			sounds [audioPosition].Play ();
+			audioPosition++;
+		} else
 		{
-			audio.Play();
+			audioPosition = 0;
+			sounds [audioPosition].Play ();
 		}
 	}
 
-	public void stop ()
+	public void stop()
 	{
-		audio.Stop();
+		sounds [audioPosition].Stop ();
 	}
 
-	public void pause ()
+	public void pause()
 	{
-		audio.Pause();
+		sounds [audioPosition].Pause ();
 	}
-
-	public void playWithDelay (float time)
-	{
-		throw new System.NotImplementedException ();
-	}
-	#endregion
+	
 }
