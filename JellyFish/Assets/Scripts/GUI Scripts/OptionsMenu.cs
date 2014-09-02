@@ -8,16 +8,17 @@ public class OptionsMenu : BasicGUI {
 	private string SOUND_OFF="Sounds OFF";
 	private string VIBRATION_ON="Vibration ON";
 	private string VIBRATION_OFF="Vibration OFF";
-	private bool vibrationStateFlag=true;
+	public bool vibrationStateFlag=true;
+	private string vibrateCondition;
 	private string resetMessage="Reset Best Score";
 	private int resetCount=0;
 	private string soundCondition;
 	private bool soundStateFlag=true;
-	public GameObject camera;
 
 	// Use this for initialization
 	public void Start(){
 		soundCondition=SOUND_ON;
+		vibrateCondition=VIBRATION_ON;
 	}
 
 	void OnGUI() {
@@ -26,21 +27,23 @@ public class OptionsMenu : BasicGUI {
 		GUI.skin=myGuiSkin;
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(14);
-		if(GUI.Button(RectAligment.centerRect(15,60,20),soundCondition)){
 
-		}
 
-		if(GUI.Button(RectAligment.centerRect(15,60,20),soundCondition)){
+
+		if(GUI.Button(RectAligment.centerRect(5,60,20),soundCondition)){
 			defineSoundState();
-			camera.GetComponent<AudioListener>().enabled=(soundStateFlag);
 		}
 
-		if(GUI.Button(RectAligment.centerRect(30,60,20),"Credits")){
+		if(GUI.Button(RectAligment.centerRect(17,60,20),vibrateCondition)){
+			defineVibrationState();
+		}
+
+		if(GUI.Button(RectAligment.centerRect(29,60,20),"Credits")){
 
 		}
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(12);
-		if(GUI.Button(RectAligment.centerRect(42,90,20),resetMessage)){
+		if(GUI.Button(RectAligment.centerRect(41,90,20),resetMessage)){
 			resetCount++;
 			switch(resetCount){
 				case 1:
@@ -61,7 +64,7 @@ public class OptionsMenu : BasicGUI {
 		}
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(13);
-		if(GUI.Button(RectAligment.centerRect(55,60,20),"Back")){
+		if(GUI.Button(RectAligment.centerRect(53,60,20),"Back")){
 			resetScoreMessageCount();
 			GUIManager.getInstance().showMainMenu();
 		}
@@ -76,11 +79,28 @@ public class OptionsMenu : BasicGUI {
 	public void defineSoundState(){
 		if(soundStateFlag){
 			soundCondition=SOUND_OFF;
+			SoundManager.getInstance().pauseAudio();
 			soundStateFlag=false;
 		}else{
 			soundCondition=SOUND_ON;
+			SoundManager.getInstance().unPauseAudio();
 			soundStateFlag=true;
 		}
+	}
+
+	public void defineVibrationState(){
+		if(vibrationStateFlag){
+			vibrateCondition=VIBRATION_OFF;
+			vibrationStateFlag=false;
+		}else{
+			vibrateCondition=VIBRATION_ON;
+			Handheld.Vibrate ();
+			vibrationStateFlag=true;
+		}
+	}
+
+	public bool getVibrationState(){
+		return vibrationStateFlag;
 	}
 	
 
