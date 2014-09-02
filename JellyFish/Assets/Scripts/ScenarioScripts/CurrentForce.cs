@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CurrentForce : MonoBehaviour {
 
-	public int forceVector=1;
+	public float forceVector=1;
 	public GameObject particles;
 	public int forceDirection=1;
 	// Use this for initialization
@@ -13,7 +13,8 @@ public class CurrentForce : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		particles.GetComponent<ParticleSystem>().startSize=forceVector*0.7f;
+		particles.GetComponent<ParticleSystem>().startLifetime=(0.7f*10)/forceVector;
+		particles.GetComponent<ParticleSystem>().startSpeed=(forceVector*0.7f)*3;
 	}
 	
 	public void OnTriggerStay2D(Collider2D other){
