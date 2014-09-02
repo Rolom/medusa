@@ -52,4 +52,14 @@ public class SoundManager : MonoBehaviour {
 			return planktonDeathSound;
 		}
 	}
+
+	public void pauseAudio()
+	{
+		AudioListener.pause = true;;
+	}
+
+	public void unPauseAudio()
+	{
+		AudioListener.pause = false;
+	}
 }
