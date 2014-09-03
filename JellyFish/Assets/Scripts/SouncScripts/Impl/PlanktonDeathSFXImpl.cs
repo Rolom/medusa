@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class PlanktonDeathSFXImpl : SFXObject {
 
 	public List<AudioSource> sounds;
-	private int randomCount;
+	private int count = 0;
 	// Use this for initialization
 	void Start () {
-		randomCount = Random.Range (0, sounds.Count);
+		//count = Random.Range (0, sounds.Count);
 	}
 	
 	// Update is called once per frame
@@ -18,17 +18,20 @@ public class PlanktonDeathSFXImpl : SFXObject {
 
 	public void play()
 	{
-		sounds [randomCount].Play ();
-		randomCount = Random.Range (0, sounds.Count);
+		if (count >= sounds.Count) {
+			count = 0;
+		}
+		sounds [count].Play ();
+		count++;
 	}
 
 	public void stop()
 	{
-		sounds [randomCount].Stop ();
+		sounds [count].Stop ();
 	}
 
 	public void pause()
 	{
-		sounds [randomCount].Pause ();
+		sounds [count].Pause ();
 	}
 }

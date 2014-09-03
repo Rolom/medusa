@@ -169,8 +169,13 @@ public class BehaviourPlanck : MonoBehaviour {
 			gameObject.transform.localScale=new Vector2(scaleX,scaleY);
 			if(gameObject.transform.localScale.x<0){
 				Destroy(gameObject);
+				playDeathSound();
 			}
+	}
 
+	void playDeathSound ()
+	{
+		SoundManager.getInstance().PlanktonDeathSound.play();
 	}
 
 	public int getScoreToAdd()
