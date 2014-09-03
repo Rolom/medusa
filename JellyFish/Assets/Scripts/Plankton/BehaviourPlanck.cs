@@ -2,18 +2,20 @@
 using System.Collections;
 
 public class BehaviourPlanck : MonoBehaviour {
-	public float velocityCircleMoviment = 0.01f;
-	public int limitCircleMoviment = 10;
-	public int limitHorizontalMoviment = 100;
+	public float velocityCircleMovement = 0.01f;
+	public float velocityHorizontalMovement = 0.01f;
+	public int limitCircleMovement = 10;
+	public int limitHorizontalMovement = 100;
 	public bool horizontalMovementAllowed = false;
+	public bool randomInitialHorizontalMovement = false;
 
-	private bool rightHorizontalMoviment = true;
-	private int quantityHorizontalMoviment = 0;
+	private bool rightHorizontalMovement = true;
+	private int quantityHorizontalMovement = 0;
 	private float sizeChangedX, sizeChangedY;
 	private float velocityChangeSize= 0;
 	private float factorVelocityChangeSize = 0.3f;
-	private int movimentAxisX;
-	private int movimentAxisY;
+	private int movementAxisX;
+	private int movementAxisY;
 	private bool orientationRight;
 	private bool dieFlag=false;
 	private float scaleX;
@@ -28,12 +30,19 @@ public class BehaviourPlanck : MonoBehaviour {
 	void Start () {
 		scaleX=gameObject.transform.localScale.x;
 		scaleY=gameObject.transform.localScale.y;
-		movimentAxisX = getRandomMoviment (limitCircleMoviment);
-		movimentAxisY = getRandomMoviment (limitCircleMoviment);
+		movementAxisX = getRandomMovement (limitCircleMovement);
+		movementAxisY = getRandomMovement (limitCircleMovement);
 
 		orientationRight = getRandomOrientation ();
+		checkAndDoHorizontalMovement ();
 
 		initialRotation ();
+	}
+
+	private void checkAndDoHorizontalMovement(){
+		if (randomInitialHorizontalMovement) {
+			rightHorizontalMovement = getRandomOrientation();
+		}
 	}
 	
 	// Update is called once per frame
@@ -56,9 +65,9 @@ public class BehaviourPlanck : MonoBehaviour {
 
 	private void circleMovement(){
 		if (orientationRight) {
-			circleMovimentToRight();
+			circleMovementToRight();
 		} else {
-			circleMovimentToLeft();
+			circleMovementToLeft();
 		}
 	}
 
@@ -67,27 +76,27 @@ public class BehaviourPlanck : MonoBehaviour {
 		if (horizontalMovementAllowed) {
 
 			doHorizontalMovement();
-			countMovimentAndChangeHorizontalMovement();
+			countMovementAndChangeHorizontalMovement();
 		}
 	}
 
 	private void doHorizontalMovement(){
 
-		if (rightHorizontalMoviment) {
-			quantityHorizontalMoviment++;
-			gameObject.transform.Translate (velocityCircleMoviment, 0, 0);
+		if (rightHorizontalMovement) {
+			quantityHorizontalMovement++;
+			gameObject.transform.Translate (velocityHorizontalMovement, 0, 0, Camera.main.transform);
 		} else {
-			quantityHorizontalMoviment--;
-			gameObject.transform.Translate (-velocityCircleMoviment, 0, 0);
+			quantityHorizontalMovement--;
+			gameObject.transform.Translate (-velocityHorizontalMovement, 0, 0, Camera.main.transform);
 		}
 	}
 
-	private void countMovimentAndChangeHorizontalMovement(){
-		if (quantityHorizontalMoviment >= limitHorizontalMoviment) {
-			rightHorizontalMoviment = false;
+	private void countMovementAndChangeHorizontalMovement(){
+		if (quantityHorizontalMovement >= limitHorizontalMovement) {
+			rightHorizontalMovement = false;
 		}
-		if (quantityHorizontalMoviment <= -limitHorizontalMoviment) {
-			rightHorizontalMoviment = true;
+		if (quantityHorizontalMovement <= -limitHorizontalMovement) {
+			rightHorizontalMovement = true;
 		}
 	}
 
@@ -104,19 +113,19 @@ public class BehaviourPlanck : MonoBehaviour {
 	}
 
 	private void initialRotation(){
-		var angle = getRandomMoviment (360);
+		var angle = getRandomMovement (360);
 		gameObject.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 	}
 
 	private bool getRandomOrientation(){
-		if ((10/2) > getRandomMoviment (10)) {
+		if ((10/2) > getRandomMovement (10)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	private int getRandomMoviment(int limit){
+	private int getRandomMovement(int limit){
 		return Random.Range (0, limit);
 	}
 	
@@ -128,36 +137,36 @@ public class BehaviourPlanck : MonoBehaviour {
 		gameObject.transform.localScale = new Vector3(sizeChangedX, sizeChangedY, 0);
 	}
 
-	private void circleMovimentToRight(){
-		if (movimentAxisX < limitCircleMoviment && movimentAxisY == 0) {
-			gameObject.transform.Translate (velocityCircleMoviment, 0, 0);
-			movimentAxisX++;
-		} else if (movimentAxisX == limitCircleMoviment && movimentAxisY < limitCircleMoviment) {
-			gameObject.transform.Translate (0, velocityCircleMoviment, 0);
-			movimentAxisY++;
-		} else if (movimentAxisX > -1 && movimentAxisY == limitCircleMoviment) {
-			gameObject.transform.Translate (-velocityCircleMoviment, 0, 0);
-			movimentAxisX--;
+	private void circleMovementToRight(){
+		if (movementAxisX < limitCircleMovement && movementAxisY == 0) {
+			gameObject.transform.Translate (velocityCircleMovement, 0, 0);
+			movementAxisX++;
+		} else if (movementAxisX == limitCircleMovement && movementAxisY < limitCircleMovement) {
+			gameObject.transform.Translate (0, velocityCircleMovement, 0);
+			movementAxisY++;
+		} else if (movementAxisX > -1 && movementAxisY == limitCircleMovement) {
+			gameObject.transform.Translate (-velocityCircleMovement, 0, 0);
+			movementAxisX--;
 		} else {
-			gameObject.transform.Translate (0, -velocityCircleMoviment, 0);
-			movimentAxisY--;
+			gameObject.transform.Translate (0, -velocityCircleMovement, 0);
+			movementAxisY--;
 		}
 		
 	}
 	
-	private void circleMovimentToLeft(){
-		if (movimentAxisX > 0 && movimentAxisY == limitCircleMoviment) {
-			gameObject.transform.Translate (-velocityCircleMoviment, 0, 0);
-			movimentAxisX--;
-		} else if (movimentAxisX == 0 && movimentAxisY > 0) {
-			gameObject.transform.Translate (0, velocityCircleMoviment, 0);
-			movimentAxisY--;
-		} else if (movimentAxisX < limitCircleMoviment && movimentAxisY == 0) {
-			gameObject.transform.Translate (velocityCircleMoviment, 0, 0);
-			movimentAxisX++;
+	private void circleMovementToLeft(){
+		if (movementAxisX > 0 && movementAxisY == limitCircleMovement) {
+			gameObject.transform.Translate (-velocityCircleMovement, 0, 0);
+			movementAxisX--;
+		} else if (movementAxisX == 0 && movementAxisY > 0) {
+			gameObject.transform.Translate (0, velocityCircleMovement, 0);
+			movementAxisY--;
+		} else if (movementAxisX < limitCircleMovement && movementAxisY == 0) {
+			gameObject.transform.Translate (velocityCircleMovement, 0, 0);
+			movementAxisX++;
 		} else {
-			gameObject.transform.Translate (0, -velocityCircleMoviment, 0);
-			movimentAxisY++;
+			gameObject.transform.Translate (0, -velocityCircleMovement, 0);
+			movementAxisY++;
 		}
 		
 	}
@@ -169,8 +178,13 @@ public class BehaviourPlanck : MonoBehaviour {
 			gameObject.transform.localScale=new Vector2(scaleX,scaleY);
 			if(gameObject.transform.localScale.x<0){
 				Destroy(gameObject);
+				playDeathSound();
 			}
+	}
 
+	void playDeathSound ()
+	{
+		SoundManager.getInstance().PlanktonDeathSound.play();
 	}
 
 	public int getScoreToAdd()

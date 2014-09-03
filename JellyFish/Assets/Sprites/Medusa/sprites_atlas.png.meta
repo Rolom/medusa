@@ -92,5 +92,125 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: alga_0
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 139
+        height: 1207
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_0
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 1948
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_1
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 1948
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_2
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1948
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_3
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 1948
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_4
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 1948
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_5
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 1848
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_6
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 1848
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_7
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1848
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_8
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 1848
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: plankton_9
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 1848
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: alga_1
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 123
+        height: 1123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
