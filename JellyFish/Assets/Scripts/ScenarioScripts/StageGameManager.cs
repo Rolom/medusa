@@ -13,7 +13,12 @@ public class StageGameManager : MonoBehaviour {
 	public Transform pointB;
 	public GameObject jellyFish;
 	private GameObject currentJellyFish;
-	public List<GameObject> stageObjects = new List<GameObject>();
+	private List<GameObject> currentLevelList = new List<GameObject>();
+	
+	public List<GameObject> level1List = new List<GameObject>();
+	public List<GameObject> level2List = new List<GameObject>();
+	public List<GameObject> level3List = new List<GameObject>();
+
 	private bool canCreateScenario;
 	
 	int randomScenario;
@@ -33,7 +38,8 @@ public class StageGameManager : MonoBehaviour {
 	void Start () {
 		canCreateScenario = false;
 		setScenarioSpeed(scenarioSpeed);
-		randomScenario = Random.Range (0, stageObjects.Count);
+		randomScenario = Random.Range (0, currentLevelList.Count);
+		currentLevelList = level1List;
 		createJellyFish();
 	}
 	
@@ -61,12 +67,12 @@ public class StageGameManager : MonoBehaviour {
 	void createNewScenario ()
 	{
 		saveOldScenario();
-		currentStage = Instantiate (stageObjects [randomScenario], pointA.localPosition, Quaternion.identity) as GameObject;
+		currentStage = Instantiate (currentLevelList [randomScenario], pointA.localPosition, Quaternion.identity) as GameObject;
 		BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
 		Vector3 newPosition = currentStage.transform.localPosition;
 		newPosition.y += collider.size.y / 2;
 		currentStage.transform.localPosition = newPosition;
-		randomScenario = Random.Range (0, stageObjects.Count);
+		randomScenario = Random.Range (0, currentLevelList.Count);
 		stageLists.Add(currentStage);
 		setCanCreateScenario (false);
 	}
@@ -128,6 +134,17 @@ public class StageGameManager : MonoBehaviour {
 		}
 		if(oldScenario !=null){
 			oldScenario.GetComponent<ScenarioMovement>().setScenarioSpeed(new Vector2(0,scenarioSpeed-changedSpeed));
+		}
+	}
+
+	public void moveListToNextLevel()
+	{
+		if(currentLevelList == level1List)
+		{
+			currentLevelList = level2List;
+		}else if(currentLevelList == level2List)
+		{
+			currentLevelList = level3List;
 		}
 	}
 

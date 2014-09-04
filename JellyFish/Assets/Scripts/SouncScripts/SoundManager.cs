@@ -55,11 +55,11 @@ public class SoundManager : MonoBehaviour {
 
 	public void pauseAudio()
 	{
-		AudioListener.pause = true;;
+		AudioListener.volume = 0;
 	}
 
 	public void unPauseAudio()
 	{
-		AudioListener.pause = false;
+		AudioListener.volume = 1;
 	}
 }
