@@ -6,23 +6,26 @@ public class SugarLayer : BasicGUI {
 	public GUISkin myGuiSkin;	
 	private int score;
 	public GameObject particles;
+	private GameObject currentParticles;
 
 	public void OnEnable(){
 		score=ScoreManager.getInstance().getScore();
+		currentParticles=(GameObject)Instantiate(particles);
 	}
 
 	public void Update(){
-		if(!particles.GetComponent<ParticleSystem>().isPlaying){
-			if(alpha>0){
-				alpha-=alphaDrow;
+		if(currentParticles==null){
+				if(alpha>0){
+					alpha-=alphaDrow;
+				}else{
+					gameObject.SetActive(false);
+				}
 			}else{
-				gameObject.SetActive(false);
+				if(alpha<1){
+				alpha+=alphaDrow;
+				}
 			}
-		}else{
-			if(alpha<1){
-			alpha+=alphaDrow;
-			}
-		}
+
 	}
 
 	void OnGUI () {
