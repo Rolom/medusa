@@ -55,10 +55,10 @@ TextureImporter:
     - name: sprites_atlas_7
       rect:
         serializedVersion: 2
-        x: 296
-        y: 1710
-        width: 492
-        height: 320
+        x: 344
+        y: 1750
+        width: 396
+        height: 222
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
