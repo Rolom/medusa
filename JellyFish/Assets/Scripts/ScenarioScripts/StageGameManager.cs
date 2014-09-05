@@ -14,10 +14,14 @@ public class StageGameManager : MonoBehaviour {
 	public GameObject jellyFish;
 	private GameObject currentJellyFish;
 	private List<GameObject> currentLevelList = new List<GameObject>();
+	private int scenarioChangeCount;
 	
 	public List<GameObject> level1List = new List<GameObject>();
 	public List<GameObject> level2List = new List<GameObject>();
 	public List<GameObject> level3List = new List<GameObject>();
+
+	public List<int> scoreThreshold = new List<int>();
+	private int scoreThresholdPosition = 0;
 
 	private bool canCreateScenario;
 	
@@ -41,6 +45,7 @@ public class StageGameManager : MonoBehaviour {
 		randomScenario = Random.Range (0, currentLevelList.Count);
 		currentLevelList = level1List;
 		createJellyFish();
+		scenarioChangeCount = 0;
 	}
 	
 	// Update is called once per frame
@@ -48,6 +53,7 @@ public class StageGameManager : MonoBehaviour {
 
 		if (canCreateScenario) 
 		{
+			updateScenarioLevel();
 			scenarioSpeed-=0.4f;
 			setScenarioSpeed(scenarioSpeed);
 			setScenarioSpeedToStages();
@@ -75,6 +81,7 @@ public class StageGameManager : MonoBehaviour {
 		randomScenario = Random.Range (0, currentLevelList.Count);
 		stageLists.Add(currentStage);
 		setCanCreateScenario (false);
+		scenarioChangeCount++;
 	}
 
 	private void saveOldScenario(){
@@ -162,10 +169,31 @@ public class StageGameManager : MonoBehaviour {
 		if(currentLevelList == level1List)
 		{
 			currentLevelList = level2List;
+			scenarioChangeCount = 0;
+			Debug.Log("Cambie de Lista a 2");
 		}else if(currentLevelList == level2List)
 		{
 			currentLevelList = level3List;
+			scenarioChangeCount = 0;
+			Debug.Log("Cambie de Lista a 3");
 		}
 	}
 
+	void updateScenarioLevel ()
+	{
+		if(!isMaxThreshold() && scoreThreshold[scoreThresholdPosition] <= scenarioChangeCount )
+		{
+			moveListToNextLevel();
+		}
+
+	}
+
+	bool isMaxThreshold ()
+	{
+		if(scoreThresholdPosition > scoreThreshold.Count)
+		{
+			return true;
+		}
+		return false;
+	}
 }
