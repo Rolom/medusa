@@ -48,7 +48,7 @@ public class GUIManager : MonoBehaviour {
 		deactivateMenus();
 		Time.timeScale=1;
 		onPlay.gameObject.SetActive(true);
-		StageGameManager.getInstance().setCanCreateScenario(true);
+		StageGameManager.getInstance().setCanCreateScenarioFromGui(true);
 	}
 
 	public void showEndGame(){

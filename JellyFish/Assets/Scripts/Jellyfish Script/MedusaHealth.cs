@@ -9,12 +9,16 @@ public class MedusaHealth : MonoBehaviour {
 	private Rigidbody2D rTentacle;
 	public GameObject jellyFishDieParticle;
 	private bool touchJellyFlag;
+	private int numberOfTentacles;
 
 	// Use this for initialization
 	void Start () {
 		foreach(Transform child in this.transform){
-			tentacleList.Add(child);
+			if(child.name=="Tentacle"){
+				tentacleList.Add(child);
+			}
 		}
+		numberOfTentacles=tentacleList.Count;
 	}
 	
 	// Update is called once per frame
@@ -62,7 +66,6 @@ public class MedusaHealth : MonoBehaviour {
 			Transform selectedTentacle=tentacleList[Random.Range(0,tentacleList.Count)];
 			sTentacle=selectedTentacle.GetComponent<DistanceJoint2D>();
 			sTentacle.enabled=false;
-
 			rTentacle=selectedTentacle.GetComponent<Rigidbody2D>();
 			rTentacle.mass=1;
 			rTentacle.gravityScale=2;
@@ -90,6 +93,10 @@ public class MedusaHealth : MonoBehaviour {
 		if(GUIManager.getInstance().optionsMenu.getVibrationState()){
 			Handheld.Vibrate ();
 		}
+	}
+
+	public bool getCompareOfTentacle(){
+		return tentacleList.Count==numberOfTentacles;
 	}
 	
 }

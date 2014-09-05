@@ -83,6 +83,21 @@ public class StageGameManager : MonoBehaviour {
 		}
 	}
 
+	private void checkJellyFishTentacleState(){
+		if(currentJellyFish!=null){
+			if(!currentJellyFish.GetComponent<MedusaHealth>().getCompareOfTentacle()){
+				resetJellyFish();
+			}
+		}
+	}
+
+	private void resetJellyFish(){
+		if(currentJellyFish!=null){
+			Destroy(currentJellyFish);
+			createJellyFish();
+		}
+	}
+
 	private void deleteOldScenario(){
 		if(oldScenario!=null){
 			Destroy(oldScenario);
@@ -109,14 +124,19 @@ public class StageGameManager : MonoBehaviour {
 		this.canCreateScenario = canCreate;	
 	}
 
+	public void setCanCreateScenarioFromGui(bool canCreate)
+	{
+		this.canCreateScenario = canCreate;	
+		checkJellyFishTentacleState();
+	}
+
 	public void createJellyFish(){
 		currentJellyFish = (GameObject)(Instantiate(jellyFish));
 	}
 
 	public void resetStage(){
 		deleteOldScenario();
-		Destroy(currentJellyFish);
-		createJellyFish();
+		resetJellyFish();
 		Destroy(currentStage);
 		canCreateScenario=false;
 		resetScenarioSpeed();
