@@ -209,4 +209,11 @@ public class StageGameManager : MonoBehaviour {
 		onGameFlag=false;
 	}
 
+	public void resetScenarioLevel()
+	{
+		currentLevelList = level1List;
+		scenarioChangeCount = 0;
+		Debug.Log("Scenario reseted");
+	}
+
 }
