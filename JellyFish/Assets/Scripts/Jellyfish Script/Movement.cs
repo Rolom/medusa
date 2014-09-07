@@ -172,6 +172,6 @@ public class Movement : MonoBehaviour {
 	}
 
 	float convertFromVelocity(float velocity){
-		return 0.0f;
+		return velocity / MAXIMUM_VECTOR_VELOCITY;
 	}
 }
