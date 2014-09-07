@@ -42,6 +42,8 @@ public class GUIManager : MonoBehaviour {
 		resetFlags();
 		Time.timeScale=1;
 		mainMenu.gameObject.SetActive(true);
+		StageGameManager.getInstance().resetJellyFish();
+		StageGameManager.getInstance().setOnGameFlag(false);
 	}
 	
 	public void showOnGame(){

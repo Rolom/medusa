@@ -51,12 +51,10 @@ public class MedusaHealth : MonoBehaviour {
 	{
 		print(other.gameObject.tag);
 		deadState();
-		//GUIManager.getInstance().showEndGame();
 	}
 
 	void calculateLoose(){
-		if(tentacleList.Count==0){
-			//GUIManager.getInstance().showEndGame();
+		if(tentacleList.Count== 0 ){
 			deadState();
 		}
 	}
@@ -86,7 +84,11 @@ public class MedusaHealth : MonoBehaviour {
 		Instantiate(jellyFishDieParticle);
 		Destroy(gameObject);
 		playDeathSound();
-		GUIManager.getInstance().showEndGame();
+		if(StageGameManager.getInstance().getOnGameFlag()){
+			GUIManager.getInstance().showEndGame();
+		}else{
+			StageGameManager.getInstance().resetJellyFish();
+		}
 	}
 
 	public void phoneVibration(){

@@ -24,7 +24,8 @@ public class StageGameManager : MonoBehaviour {
 	private int scoreThresholdPosition = 0;
 
 	private bool canCreateScenario;
-	
+
+	private bool onGameFlag=false;
 	int randomScenario;
 	GameObject currentStage;
 	GameObject oldScenario;
@@ -98,9 +99,11 @@ public class StageGameManager : MonoBehaviour {
 		}
 	}
 
-	private void resetJellyFish(){
+	public void resetJellyFish(){
 		if(currentJellyFish!=null){
 			Destroy(currentJellyFish);
+			createJellyFish();
+		}else{
 			createJellyFish();
 		}
 	}
@@ -135,6 +138,7 @@ public class StageGameManager : MonoBehaviour {
 	{
 		this.canCreateScenario = canCreate;	
 		checkJellyFishTentacleState();
+		onGameFlag=true;
 	}
 
 	public void createJellyFish(){
@@ -196,4 +200,13 @@ public class StageGameManager : MonoBehaviour {
 		}
 		return false;
 	}
+
+	public bool getOnGameFlag(){
+		return onGameFlag;
+	}
+
+	public void setOnGameFlag(bool flag){
+		onGameFlag=false;
+	}
+
 }
