@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour {
 	public JellyDeathSFXImpl jellyDeathSound;
 	public WhaleSFXImpl whaleSound;
 	public PlanktonDeathSFXImpl planktonDeathSound;
+	public MovementSFXImpl movementSound;
 
 	public static SoundManager getInstance()
 	{
@@ -50,6 +51,12 @@ public class SoundManager : MonoBehaviour {
 	public PlanktonDeathSFXImpl PlanktonDeathSound {
 		get {
 			return planktonDeathSound;
+		}
+	}
+
+	public MovementSFXImpl MovementSound {
+		get {
+			return movementSound;
 		}
 	}
 
