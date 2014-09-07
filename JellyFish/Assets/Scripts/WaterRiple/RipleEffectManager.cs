@@ -19,7 +19,8 @@ public class RipleEffectManager : MonoBehaviour {
 			if(touchFlag==false){
 				Instantiate(ripless);
 				touchFlag=true;
-				playRipleSound();
+				//Sound desactivated cause is annoying
+				//playRipleSound();
 			}
 		}else{
 			touchFlag=false;
