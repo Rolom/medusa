@@ -170,5 +170,8 @@ public class Movement : MonoBehaviour {
 	Vector2 convertFromVector3( Vector3 vector3){
 		return new Vector2 (vector3.x, vector3.y);
 	}
-	
+
+	float convertFromVelocity(float velocity){
+		return 0.0f;
+	}
 }
