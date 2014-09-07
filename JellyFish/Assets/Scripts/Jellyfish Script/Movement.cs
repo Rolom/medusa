@@ -72,8 +72,6 @@ public class Movement : MonoBehaviour {
 		//print ("Local Rotation " + (transform.localRotation.z) * (180/Mathf.PI));
 		//SoundManager soundManager = SoundManager.getInstance ();
 
-
-
 		SoundManager.getInstance().MovementSound.play( convertFromVelocity(moveLinearMedusa(newDirection).magnitude) );
 
 		//SoundManager.MovementSound.play( convertFromVelocity(newDirection.magnitude) );
