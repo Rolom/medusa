@@ -20,7 +20,7 @@ public class StageGameManager : MonoBehaviour {
 	public List<GameObject> level2List = new List<GameObject>();
 	public List<GameObject> level3List = new List<GameObject>();
 
-	public List<int> scoreThreshold = new List<int>();
+	public List<int> scenarioChangeThresholds = new List<int>();
 	private int scoreThresholdPosition = 0;
 
 	private bool canCreateScenario;
@@ -185,7 +185,7 @@ public class StageGameManager : MonoBehaviour {
 
 	void updateScenarioLevel ()
 	{
-		if(!isMaxThreshold() && scoreThreshold[scoreThresholdPosition] <= scenarioChangeCount )
+		if(!isMaxThreshold() && scenarioChangeThresholds[scoreThresholdPosition] <= scenarioChangeCount )
 		{
 			moveListToNextLevel();
 		}
@@ -194,7 +194,7 @@ public class StageGameManager : MonoBehaviour {
 
 	bool isMaxThreshold ()
 	{
-		if(scoreThresholdPosition > scoreThreshold.Count)
+		if(scoreThresholdPosition > scenarioChangeThresholds.Count)
 		{
 			return true;
 		}
