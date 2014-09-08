@@ -42,33 +42,163 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: rock_3
+    - name: sprite_atlas2_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 991
-        width: 298
-        height: 1056
+        x: 0
+        y: 990
+        width: 299
+        height: 1058
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: rock_5
+    - name: sprite_atlas2_1
       rect:
         serializedVersion: 2
-        x: 306
-        y: 669
-        width: 433
-        height: 728
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: rock_4
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 1395
-        width: 549
+        x: 299
+        y: 1398
+        width: 563
         height: 650
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jelly_1
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1961
+        width: 472
+        height: 87
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_2
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1953
+        width: 443
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_3
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 1719
+        width: 442
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_5
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 1488
+        width: 337
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_6
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 1479
+        width: 316
+        height: 181
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_8
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 1247
+        width: 258
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_10
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 1011
+        width: 270
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_11
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 775
+        width: 310
+        height: 170
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_12
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 775
+        width: 354
+        height: 134
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_13
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 555
+        width: 376
+        height: 104
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_14
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 553
+        width: 432
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_4
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1725
+        width: 392
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_7
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 1234
+        width: 289
+        height: 232
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_9
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 1007
+        width: 283
+        height: 228
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
