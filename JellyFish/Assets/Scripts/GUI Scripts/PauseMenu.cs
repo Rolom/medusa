@@ -10,18 +10,18 @@ public class PauseMenu : BasicGUI {
 
 		GUI.skin=myGuiSkin;
 		
-		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(20);
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(15);
 
 		if(GUI.Button(RectAligment.centerRect(25,50,20),"Resume")){
 			GUIManager.getInstance().showPause();
 		}
 
-		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
-		if(GUI.Button(RectAligment.centerRect(45,30,10),"Restart")){
+	
+		if(GUI.Button(RectAligment.centerRect(42,50,10),"Restart")){
 			GUIManager.getInstance().replayGame();
 		}
 
-		if(GUI.Button(RectAligment.centerRect(55,30,10),"Main Menu")){
+		if(GUI.Button(RectAligment.centerRect(55,50,10),"Main Menu")){
 			GUIManager.getInstance().showMainMenu();
 		}
 

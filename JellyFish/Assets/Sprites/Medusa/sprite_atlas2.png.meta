@@ -42,33 +42,133 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: rock_3
+    - name: sprite_atlas2_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 991
-        width: 298
-        height: 1056
+        x: 0
+        y: 990
+        width: 299
+        height: 1058
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: rock_5
+    - name: sprite_atlas2_1
       rect:
         serializedVersion: 2
-        x: 306
-        y: 669
-        width: 433
-        height: 728
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: rock_4
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 1395
-        width: 549
+        x: 299
+        y: 1398
+        width: 563
         height: 650
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jelly_1
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1953
+        width: 473
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_2
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1953
+        width: 443
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_3
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 1767
+        width: 394
+        height: 125
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_5
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 1579
+        width: 278
+        height: 172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_6
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 1563
+        width: 270
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_8
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 1385
+        width: 376
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_10
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1195
+        width: 432
+        height: 98
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_4
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 1771
+        width: 341
+        height: 148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_7
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 1373
+        width: 310
+        height: 170
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jelly_9
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 1183
+        width: 356
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite_atlas2_16
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 667
+        width: 440
+        height: 730
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
