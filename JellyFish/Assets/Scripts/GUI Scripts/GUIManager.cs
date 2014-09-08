@@ -24,6 +24,8 @@ public class GUIManager : MonoBehaviour {
 		if(Persistence.getInstance().isHighscore(ScoreManager.getInstance().getScore()) && !sugarLayerFlag){
 			sugarLayer.gameObject.SetActive(true);
 			sugarLayerFlag=true;
+
+			SoundManager.getInstance().HighScoreSound.play();
 		}
 	}
 
