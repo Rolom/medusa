@@ -19,7 +19,7 @@ public class RipleEffectManager : MonoBehaviour {
 			if(touchFlag==false){
 				Instantiate(ripless);
 				touchFlag=true;
-				playRipleSound();
+				//playRipleSound();
 			}
 		}else{
 			touchFlag=false;
