@@ -65,79 +65,79 @@ TextureImporter:
     - name: jelly_1
       rect:
         serializedVersion: 2
-        x: 1117
-        y: 1953
-        width: 473
-        height: 95
+        x: 1291
+        y: 1939
+        width: 338
+        height: 109
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_2
       rect:
         serializedVersion: 2
-        x: 1605
-        y: 1953
-        width: 443
-        height: 95
+        x: 1657
+        y: 1933
+        width: 391
+        height: 115
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_3
       rect:
         serializedVersion: 2
-        x: 1157
-        y: 1767
-        width: 394
-        height: 125
+        x: 1263
+        y: 1751
+        width: 392
+        height: 130
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_5
       rect:
         serializedVersion: 2
-        x: 1217
-        y: 1579
+        x: 1323
+        y: 1561
         width: 278
-        height: 172
+        height: 174
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_6
       rect:
         serializedVersion: 2
-        x: 1691
-        y: 1563
+        x: 1717
+        y: 1546
         width: 270
-        height: 188
+        height: 189
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_8
       rect:
         serializedVersion: 2
-        x: 1639
-        y: 1385
-        width: 376
-        height: 108
+        x: 1683
+        y: 1368
+        width: 340
+        height: 123
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_10
       rect:
         serializedVersion: 2
-        x: 1611
-        y: 1195
-        width: 432
-        height: 98
+        x: 1689
+        y: 1177
+        width: 326
+        height: 124
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_4
       rect:
         serializedVersion: 2
-        x: 1657
-        y: 1771
-        width: 341
+        x: 1683
+        y: 1753
+        width: 342
         height: 148
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -145,19 +145,19 @@ TextureImporter:
     - name: Jelly_7
       rect:
         serializedVersion: 2
-        x: 1199
-        y: 1373
+        x: 1305
+        y: 1356
         width: 310
-        height: 170
+        height: 171
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jelly_9
       rect:
         serializedVersion: 2
-        x: 1177
-        y: 1183
-        width: 356
+        x: 1293
+        y: 1165
+        width: 336
         height: 144
       alignment: 0
       pivot: {x: .5, y: .5}

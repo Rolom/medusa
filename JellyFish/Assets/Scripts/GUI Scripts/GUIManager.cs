@@ -11,7 +11,9 @@ public class GUIManager : MonoBehaviour {
 	public PauseMenu pauseMenu;
 	public OptionsMenu optionsMenu;
 	public SugarLayer sugarLayer;
+	public CreditsMenu creditMenu;
 	private bool sugarLayerFlag=false;
+
 
 	public void Update(){
 		showSugaLayer();
@@ -88,6 +90,11 @@ public class GUIManager : MonoBehaviour {
 		Application.Quit();
 	}
 
+	public void showCreditMenu(){
+		deactivateMenus();
+		creditMenu.gameObject.SetActive(true);
+	}
+
 	private void deactivateMenus(){
 		mainMenu.gameObject.SetActive(false);
 		onPlay.gameObject.SetActive(false);
@@ -95,6 +102,7 @@ public class GUIManager : MonoBehaviour {
 		pauseMenu.gameObject.SetActive(false);
 		optionsMenu.gameObject.SetActive(false);
 		sugarLayer.gameObject.SetActive(false);
+		creditMenu.gameObject.SetActive(false);
 	}
 
 	public void resetFlags(){

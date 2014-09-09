@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class OptionsMenu : BasicGUI {
-
-	public GUISkin myGuiSkin;	
+	
 	private string SOUND_ON="Sounds ON";
 	private string SOUND_OFF="Sounds OFF";
 	private string VIBRATION_ON="Vibration ON";
@@ -39,7 +38,7 @@ public class OptionsMenu : BasicGUI {
 		}
 
 		if(GUI.Button(RectAligment.centerRect(29,60,20),"Credits")){
-
+			GUIManager.getInstance().showCreditMenu();
 		}
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(12);

@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class PauseMenu : BasicGUI {
-	
-	public GUISkin myGuiSkin;	
-	
+
 	void OnGUI () {
 		GUI.color=changeAlphaGui(GUI.color);
 

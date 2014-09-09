@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SugarLayer : BasicGUI {
 
-	public GUISkin myGuiSkin;	
 	private int score;
 	public GameObject particles;
 	private GameObject currentParticles;

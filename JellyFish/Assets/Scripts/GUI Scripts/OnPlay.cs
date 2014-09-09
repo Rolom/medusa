@@ -4,8 +4,6 @@ using System.Collections;
 public class OnPlay : BasicGUI {
 	
 	private string myScore="0";
-	
-	public GUISkin myGuiSkin;	
 	private GUI score;
 
 	void OnGUI () {
