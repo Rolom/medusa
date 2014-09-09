@@ -24,7 +24,7 @@ public class Main_Menu : BasicGUI{
 		}
 
 
-		GUI.Box(RectAligment.centerRect(62,100,200),"TAP the screen \n to SCARE the Jelly Fish.");
+		GUI.Box(RectAligment.centerRect(62,100,200),"TAP the screen \n to SCARE the Jellyfish.");
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(18);
 		GUI.Box(RectAligment.centerRect(35,100,200),"Best Score \n"+Persistence.getInstance().getHighscore());
 	}

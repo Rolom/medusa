@@ -9,7 +9,7 @@ public class EndMenu : BasicGUI {
 	public void addPhraces(){
 		phrasesList=new ArrayList();
 		phrasesList.Add("A jelly fish is 96% water... \n and 100% deepness.");
-		phrasesList.Add("Somethimes, you just \n have to let go... and flow.");
+		phrasesList.Add("Sometimes, you just have \n to let it go... and flow.");
 		phrasesList.Add("Can be the soul \n so deep?.");
 		phrasesList.Add("Your mind and body are only\n an illusion that hide the truth.");
 		phrasesList.Add("Stop Thinking, \n Start experiencing.");
@@ -52,7 +52,7 @@ public class EndMenu : BasicGUI {
 		phrasesList.Add ("How much deeper would be \n the ocean without Jellyfishes?.");
 		phrasesList.Add ("If you were a jellyfish, \n Would you be caught \n by Bob SquarePants?.");
 		phrasesList.Add ("The irony of life is... \n we have to fight for peace.");
-		phrasesList.Add ("The cry of a jellyfish does not mean weakness, means their feelings are true.");
+		phrasesList.Add ("The cry of a jellyfish does \n not mean weakness, means \n their feelings are true.");
 
 	}
 
