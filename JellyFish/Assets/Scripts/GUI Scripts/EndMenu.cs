@@ -51,7 +51,7 @@ public class EndMenu : BasicGUI {
 		phrasesList.Add ("How much deeper would be \n the ocean without Jellyfishes?.");
 		phrasesList.Add ("If you were a jellyfish, \n Would you be caught \n by Bob SquarePants?.");
 		phrasesList.Add ("The irony of life is... \n we have to fight for peace.");
-		phrasesList.Add ("The cry of a jellyfish does not mean weakness, means their feelings are true.");
+		phrasesList.Add ("The cry of a jellyfish does \n not mean weakness, means \n their feelings are true.");
 
 	}
 
