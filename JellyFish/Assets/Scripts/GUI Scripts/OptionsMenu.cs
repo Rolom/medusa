@@ -4,8 +4,8 @@ using System.Collections;
 public class OptionsMenu : BasicGUI {
 
 	public GUISkin myGuiSkin;	
-	private string SOUND_ON="Sounds ON";
-	private string SOUND_OFF="Sounds OFF";
+	private string SOUND_ON="Sound ON";
+	private string SOUND_OFF="Sound OFF";
 	private string VIBRATION_ON="Vibration ON";
 	private string VIBRATION_OFF="Vibration OFF";
 	public bool vibrationStateFlag=true;
@@ -51,10 +51,10 @@ public class OptionsMenu : BasicGUI {
 				break;
 
 				case 2:
-					resetMessage="Really Sure?";
+					resetMessage="Are you Really Sure?";
 				break;
 				case 3:
-				resetMessage="Reset last Warning!!";
+				resetMessage="Reset, the last Warning!!";
 				break;
 				case 4:
 					resetMessage="High Score = 0";
