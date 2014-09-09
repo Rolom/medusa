@@ -8,7 +8,7 @@ public class EndMenu : BasicGUI {
 	public void addPhraces(){
 		phrasesList=new ArrayList();
 		phrasesList.Add("A jelly fish is 96% water... \n and 100% deepness.");
-		phrasesList.Add("Somethimes, you just \n have to let go... and flow.");
+		phrasesList.Add("Sometimes, you just have \n to let it go... and flow.");
 		phrasesList.Add("Can be the soul \n so deep?.");
 		phrasesList.Add("Your mind and body are only\n an illusion that hide the truth.");
 		phrasesList.Add("Stop Thinking, \n Start experiencing.");
