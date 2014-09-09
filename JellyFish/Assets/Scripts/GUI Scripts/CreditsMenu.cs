@@ -23,7 +23,7 @@ public class CreditsMenu : BasicGUI {
 		credits.Add("Hector Poblete\n (Dev, CM)");
 		credits.Add("Fernanda De La Hoz\n (Artist, Dev, \nLevel Designer)");
 	    credits.Add("Nolberto Luengo\n (Dev, Marketing)");
-		credits.Add("Gabriel De Ioannes Becker\n (Game Designer, Dev,\n Artis, UX)");
+		credits.Add("Gabriel De Ioannes\n (Game Designer, Dev,\n Artis, UX)");
 	    credits.Add("Mauricio Castro\n (Architec, Dev)");
 		credits.Add("Pablo Alvarez\n (Music, Dev, \nLevel Designer)");
 
