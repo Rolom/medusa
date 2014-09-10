@@ -4,6 +4,7 @@ using System.Collections;
 public class BasicGUI : MonoBehaviour {
 	protected float alpha=0;
 	protected float alphaDrow=0.02f;
+	public GUISkin myGuiSkin;
 
 	// Update is called once per frame
 	void Update () {

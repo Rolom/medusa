@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class EndMenu : BasicGUI {
-	public GUISkin myGuiSkin;
+
 	private ArrayList phrasesList;
 	private string currentPhrace;
+
 	public void addPhraces(){
 		phrasesList=new ArrayList();
 		phrasesList.Add("A jelly fish is 96% water... \n and 100% deepness.");
@@ -82,7 +83,7 @@ public class EndMenu : BasicGUI {
 		GUI.Box(RectAligment.centerRect(46,100,100),currentPhrace);
 
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(15);
-		GUI.Box(RectAligment.centerRect(65,100,100),"Final Score: "+ScoreManager.getInstance().getScore());
+		GUI.Box(RectAligment.centerRect(70,100,100),"Final Score: "+ScoreManager.getInstance().getScore());
 	}
 
 	private void choosePhrase(){
