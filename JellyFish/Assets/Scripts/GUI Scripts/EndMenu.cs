@@ -76,7 +76,7 @@ public class EndMenu : BasicGUI {
 		GUI.Box(RectAligment.centerRect(10,100,100),"Score "+ScoreManager.getInstance().getScore());
 		
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(12);
-		if(ScoreManager.getInstance().getScore()!=Persistence.getInstance().getHighscore() && Persistence.getInstance().getHighscore() ==0){
+		if(ScoreManager.getInstance().getScore()!=Persistence.getInstance().getHighscore() && Persistence.getInstance().getHighscore() !=0){
 			myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(12);
 			GUI.Box(RectAligment.centerRect(25,100,100),"Best Score "+Persistence.getInstance().getHighscore());
 		}else{
