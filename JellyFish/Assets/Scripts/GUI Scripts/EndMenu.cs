@@ -5,6 +5,8 @@ public class EndMenu : BasicGUI {
 
 	private ArrayList phrasesList;
 	private string currentPhrace;
+	public GameObject highScoreParticles;
+	public bool particleFlag=false;
 
 	public void addPhraces(){
 		phrasesList=new ArrayList();
@@ -61,6 +63,7 @@ public class EndMenu : BasicGUI {
 			addPhraces();
 		}
 		choosePhrase();
+		particleFlag=false;
 	}
 	
 	void OnGUI () {
@@ -68,22 +71,35 @@ public class EndMenu : BasicGUI {
 
 		GUI.skin=myGuiSkin;
 		
-		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(15);
-
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(17);
+		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(22);
+		GUI.Box(RectAligment.centerRect(10,100,100),"Score "+ScoreManager.getInstance().getScore());
 		
-		if(GUI.Button(RectAligment.centerRect(15,40,15),"Replay")){
-			GUIManager.getInstance().replayGame();
-		}
-
-		if(GUI.Button(RectAligment.centerRect(30,50,15),"Main Menu")){
-			GUIManager.getInstance().showMainMenu();
+		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(12);
+		if(ScoreManager.getInstance().getScore()!=Persistence.getInstance().getHighscore() && Persistence.getInstance().getHighscore() ==0){
+			myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(12);
+			GUI.Box(RectAligment.centerRect(25,100,100),"Best Score "+Persistence.getInstance().getHighscore());
+		}else{
+			GUI.Box(RectAligment.centerRect(25,100,100),"New Best Score!!!");
+			if(!particleFlag){
+				Instantiate(highScoreParticles);
+				particleFlag=true;
+			}
 		}
 
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
-		GUI.Box(RectAligment.centerRect(46,100,100),currentPhrace);
+		GUI.Box(RectAligment.centerRect(41,100,100),currentPhrace);
 
-		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(15);
-		GUI.Box(RectAligment.centerRect(70,100,100),"Final Score: "+ScoreManager.getInstance().getScore());
+		
+		if(GUI.Button(RectAligment.centerRect(68,100,15),"PLAY AGAIN")){
+			GUIManager.getInstance().replayGame();
+		}
+		
+		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(12);
+		if(GUI.Button(RectAligment.centerRect(80,50,15),"Main Menu")){
+			GUIManager.getInstance().showMainMenu();
+		}
+
 	}
 
 	private void choosePhrase(){
