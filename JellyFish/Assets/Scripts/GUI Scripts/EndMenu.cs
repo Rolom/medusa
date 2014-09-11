@@ -44,7 +44,7 @@ public class EndMenu : BasicGUI {
 		phrasesList.Add ("The sound of the depth \n is not so beautiful.");
 		phrasesList.Add ("The sound of the depth \n can be so beautiful... \n like you are.");
 		phrasesList.Add ("Your mind is brilliant!.");
-		phrasesList.Add ("The nature knows how really \n you are, she did you.");
+		phrasesList.Add ("The nature knows how really \n you are, it created you.");
 		phrasesList.Add ("Here you can hide \n the secrets of your soul.");
 		phrasesList.Add ("What else can you \n find in the deeps?.");
 		phrasesList.Add ("Did you hear the sound \n scale of the life?... \n open your eyes.");
