@@ -18,7 +18,7 @@ public class CreditsMenu : BasicGUI {
 	// Use this for initialization
 	private void addCredits () {
 		credits = new ArrayList();
-		credits.Add("QuantumVaccum\nStudio");
+		credits.Add("Nombre a escoger\nStudio");
 		credits.Add("Rolando Martinez\n (Sound FX, Dev, CM)");
 		credits.Add("Hector Poblete\n (Dev, CM)");
 		credits.Add("Fernanda De La Hoz\n (Artist, Dev, \nLevel Designer)");
@@ -26,9 +26,6 @@ public class CreditsMenu : BasicGUI {
 		credits.Add("Gabriel De Ioannes\n (Game Designer, Dev,\n Artis, UX)");
 	    credits.Add("Mauricio Castro\n (Architec, Dev)");
 		credits.Add("Pablo Alvarez\n (Music, Dev, \nLevel Designer)");
-
-		credits.Add("QuantumVaccum\nStudio");
-
 	}
 	
 	// Update is called once per frame
@@ -51,7 +48,7 @@ public class CreditsMenu : BasicGUI {
 		}
 
 		if(creditCount>=credits.Count){
-			creditCount=1;
+			creditCount=0;
 		}
 
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(14);
