@@ -74,12 +74,12 @@ public class StageGameManager : MonoBehaviour {
 	void createNewScenario ()
 	{
 		saveOldScenario();
+		randomScenario = Random.Range (0, currentLevelList.Count);
 		currentStage = Instantiate (currentLevelList [randomScenario], pointA.localPosition, Quaternion.identity) as GameObject;
 		BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
 		Vector3 newPosition = currentStage.transform.localPosition;
 		newPosition.y += collider.size.y / 2;
 		currentStage.transform.localPosition = newPosition;
-		randomScenario = Random.Range (0, currentLevelList.Count);
 		stageLists.Add(currentStage);
 		setCanCreateScenario (false);
 		scenarioChangeCount++;
