@@ -7,6 +7,10 @@ public class EndMenu : BasicGUI {
 	private string currentPhrace;
 	public GameObject highScoreParticles;
 	public bool particleFlag=false;
+	private float DOWN_POSITION=120;
+	private float upReplayAnimation1=120;
+	private float upMainMenuAnimation2=150;
+	private float upVelocity=0.3f;
 
 	public void addPhraces(){
 		phrasesList=new ArrayList();
@@ -64,6 +68,8 @@ public class EndMenu : BasicGUI {
 		}
 		choosePhrase();
 		particleFlag=false;
+		upMainMenuAnimation2=150;
+		upReplayAnimation1=DOWN_POSITION;
 	}
 	
 	void OnGUI () {
@@ -90,16 +96,27 @@ public class EndMenu : BasicGUI {
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 		GUI.Box(RectAligment.centerRect(41,100,100),currentPhrace);
 
-		
-		if(GUI.Button(RectAligment.centerRect(68,100,15),"PLAY AGAIN")){
+		showPLayAgainButton();
+
+	}
+
+	private void showPLayAgainButton(){
+		if(upReplayAnimation1>69){
+			upReplayAnimation1-=upVelocity;
+		}
+
+		if(upMainMenuAnimation2>80){
+			upMainMenuAnimation2-=upVelocity;
+		}
+
+		if(GUI.Button(RectAligment.centerRect(upReplayAnimation1,100,15),"PLAY AGAIN")){
 			GUIManager.getInstance().replayGame();
 		}
 		
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(12);
-		if(GUI.Button(RectAligment.centerRect(80,50,15),"Main Menu")){
+		if(GUI.Button(RectAligment.centerRect(upMainMenuAnimation2,50,15),"Main Menu")){
 			GUIManager.getInstance().showMainMenu();
 		}
-
 	}
 
 	private void choosePhrase(){
