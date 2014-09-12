@@ -10,7 +10,7 @@ public class EndMenu : BasicGUI {
 	private float DOWN_POSITION=120;
 	private float upReplayAnimation1=120;
 	private float upMainMenuAnimation2=150;
-	private float upVelocity=0.3f;
+	private float upVelocity=0.01f;
 
 	public void addPhraces(){
 		phrasesList=new ArrayList();
@@ -101,12 +101,13 @@ public class EndMenu : BasicGUI {
 	}
 
 	private void showPLayAgainButton(){
+
 		if(upReplayAnimation1>69){
-			upReplayAnimation1-=upVelocity;
+			upReplayAnimation1-=upVelocity*(upReplayAnimation1-69);
 		}
 
 		if(upMainMenuAnimation2>80){
-			upMainMenuAnimation2-=upVelocity;
+			upMainMenuAnimation2-=upVelocity*(upMainMenuAnimation2-80);
 		}
 
 		if(GUI.Button(RectAligment.centerRect(upReplayAnimation1,100,15),"PLAY AGAIN")){
