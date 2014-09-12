@@ -50,4 +50,20 @@ public class Main_Menu : BasicGUI{
 		GUI.Box(RectAligment.centerRect(90,100,10),"BEST SCORE "+Persistence.getInstance().getHighscore());
 	}
 
+	void Update () {
+		if(alpha<1){
+			alpha+=alphaDrow;
+		}
+
+		checkBackButton();
+
+	}
+
+	void checkBackButton ()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			GUIManager.getInstance().closeApp();
+		}
+	}
 }

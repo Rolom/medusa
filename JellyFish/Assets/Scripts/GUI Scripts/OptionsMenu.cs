@@ -70,6 +70,15 @@ public class OptionsMenu : BasicGUI {
 
 	}
 
+	void Update () {
+		if(alpha<1){
+			alpha+=alphaDrow;
+		}
+		
+		checkBackButton();
+		
+	}
+
 	public void resetScoreMessageCount(){
 		resetMessage="Reset Best Score";
 		resetCount=0;
@@ -100,6 +109,14 @@ public class OptionsMenu : BasicGUI {
 
 	public bool getVibrationState(){
 		return vibrationStateFlag;
+	}
+
+	void checkBackButton ()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			GUIManager.getInstance().showMainMenu();
+		}
 	}
 	
 

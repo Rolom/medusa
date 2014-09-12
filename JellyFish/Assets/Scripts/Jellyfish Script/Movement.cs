@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour {
 		float localAngle = transform.localRotation.z * ( 180/Mathf.PI);
 
 		localAngle = 90 + localAngle;
-		print ("Local angle: " + (localAngle) );
+		//print ("Local angle: " + (localAngle) );
 		return localAngle;
 	}
 
@@ -94,7 +94,7 @@ public class Movement : MonoBehaviour {
 
 		Vector2 directionVector = new Vector2();
 
-		print ("Vector Magnitude: " + vectorMagnitud);
+		//print ("Vector Magnitude: " + vectorMagnitud);
 
 		if (newDirection.x < 0) {
 			directionVector.Set(-1 * vectorMagnitud, 0);
