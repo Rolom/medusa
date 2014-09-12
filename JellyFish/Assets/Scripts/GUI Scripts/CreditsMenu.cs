@@ -55,4 +55,21 @@ public class CreditsMenu : BasicGUI {
 		GUI.Box(RectAligment.centerRect(yPosition,100,100),""+credits[creditCount]);
 		
 	}
+
+	void Update () {
+		if(alpha<1){
+			alpha+=alphaDrow;
+		}
+		
+		checkBackButton();
+		
+	}
+
+	void checkBackButton ()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			GUIManager.getInstance().showOptions();
+		}
+	}
 }
