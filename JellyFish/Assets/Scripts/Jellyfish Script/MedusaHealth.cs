@@ -10,10 +10,7 @@ public class MedusaHealth : MonoBehaviour {
 	public GameObject jellyFishDieParticle;
 	private bool touchJellyFlag;
 	private int numberOfTentacles;
-	private float count=-0.5f;
-	private int frame=0;
-	private float count2=0;
-	public List<Sprite> sprites;
+
 
 	// Use this for initialization
 	void Start () {
@@ -26,39 +23,9 @@ public class MedusaHealth : MonoBehaviour {
 
 	}
 
-	private void modifiTentacles(){
-		count+=10f*Time.deltaTime;
-		count2+=15*Time.deltaTime;
-		for(int i=0;i<tentacleList.Count;i++){
-			float conectedAnchor=tentacleList[i].GetComponent<DistanceJoint2D>().connectedAnchor.x;
-			Vector2 newConectedAnchorX=new Vector2(((Mathf.Sin(count)/25)),0);
-			Vector2 newConectedAnchorY=new Vector2(0,((Mathf.Sin(count)/20)));
-			if(conectedAnchor>0){
-				tentacleList[i].GetComponent<DistanceJoint2D>().connectedAnchor+=newConectedAnchorX;
-			}
-			if(conectedAnchor<0){
-				tentacleList[i].GetComponent<DistanceJoint2D>().connectedAnchor-=newConectedAnchorX;
-			}
-			tentacleList[i].GetComponent<DistanceJoint2D>().connectedAnchor-=newConectedAnchorY;
-		}
-
-		if(count2>=1){
-			count2=0;
-			print (frame);
-			frame++;
-			if(frame>=10){
-				frame=0;
-			}
-			gameObject.GetComponent<SpriteRenderer>().sprite=sprites[frame];
-		}
-
-
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		calculateLoose();
-		//modifiTentacles();
 		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
 			if (Input.touchCount > 0) {
 				if(collider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position)) && !touchJellyFlag){
@@ -103,6 +70,7 @@ public class MedusaHealth : MonoBehaviour {
 			rTentacle.mass=1;
 			rTentacle.gravityScale=2;
 			tentacleList.Remove(selectedTentacle);
+			gameObject.GetComponent<MedusaAnimation>().setDamageFlag(true);
 		}
 	}
 
@@ -115,7 +83,7 @@ public class MedusaHealth : MonoBehaviour {
 		phoneVibration();
 		Persistence.getInstance().replaceHighScore(ScoreManager.getInstance().getScore());
 		collider2D.enabled=false;
-		jellyFishDieParticle.transform.position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y));
+		jellyFishDieParticle.transform.position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,-8f));
 		Instantiate(jellyFishDieParticle);
 		Destroy(gameObject);
 		playDeathSound();
@@ -135,6 +103,10 @@ public class MedusaHealth : MonoBehaviour {
 
 	public bool getCompareOfTentacle(){
 		return tentacleList.Count==numberOfTentacles;
+	}
+
+	public List<Transform> getTentacleList(){
+		return tentacleList;
 	}
 	
 }

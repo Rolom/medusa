@@ -34,7 +34,8 @@ public class Movement : MonoBehaviour {
 
 				if(Input.GetTouch(0).phase == TouchPhase.Began ) {
 					AnimateCharacter (Input.GetTouch(0).position);
-
+					gameObject.GetComponent<MedusaAnimation>().setMovementFlag(true);
+					
 				}
 			}
 
@@ -42,6 +43,7 @@ public class Movement : MonoBehaviour {
 
 			if (Input.GetKeyDown (KeyCode.Mouse0)  ) {
 				AnimateCharacter(Input.mousePosition);
+				gameObject.GetComponent<MedusaAnimation>().setMovementFlag(true);
 			}
 		}
 

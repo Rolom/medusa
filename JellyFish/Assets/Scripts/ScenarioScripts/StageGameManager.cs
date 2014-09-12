@@ -8,6 +8,7 @@ public class StageGameManager : MonoBehaviour {
 	private static StageGameManager _instance;
 
 	public float scenarioSpeed = -0.9f;
+	public float SCENARIO_ACELERATION=0.4f;
 	private static Vector2 scenarioSpeedVector;
 	public Transform pointA;
 	public Transform pointB;
@@ -55,7 +56,7 @@ public class StageGameManager : MonoBehaviour {
 		if (canCreateScenario) 
 		{
 			updateScenarioLevel();
-			scenarioSpeed-=0.4f;
+			scenarioSpeed-=SCENARIO_ACELERATION;
 			setScenarioSpeed(scenarioSpeed);
 			setScenarioSpeedToStages();
 			createNewScenario ();
