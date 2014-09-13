@@ -23,6 +23,7 @@ public class StageGameManager : MonoBehaviour {
 
 	public List<int> scenarioChangeThresholds = new List<int>();
 	private int scoreThresholdPosition = 0;
+	public int planktonCount;
 
 	private bool canCreateScenario;
 	private bool canCreateStage;
@@ -217,6 +218,7 @@ public class StageGameManager : MonoBehaviour {
 	{
 		currentLevelList = level1List;
 		scenarioChangeCount = 0;
+		planktonCount = 0;
 		Debug.Log("Scenario reseted");
 	}
 
