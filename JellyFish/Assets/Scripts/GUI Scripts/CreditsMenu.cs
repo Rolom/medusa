@@ -18,7 +18,7 @@ public class CreditsMenu : BasicGUI {
 	// Use this for initialization
 	private void addCredits () {
 		credits = new ArrayList();
-		credits.Add("Nombre a escoger\nStudio");
+		credits.Add("Quantum Vacuum\nStudio");
 		credits.Add("Rolando Martinez\n (Sound FX, Dev, CM)");
 		credits.Add("Hector Poblete\n (Dev, CM)");
 		credits.Add("Fernanda De La Hoz\n (Artist, Dev, \nLevel Designer)");

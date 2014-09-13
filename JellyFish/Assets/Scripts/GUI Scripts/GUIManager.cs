@@ -85,7 +85,7 @@ public class GUIManager : MonoBehaviour {
 			pause=false;
 			Time.timeScale=1;
 			deactivateMenus();
-			showOnGame();
+			onPlay.gameObject.SetActive(true);
 		}
 	}
 
