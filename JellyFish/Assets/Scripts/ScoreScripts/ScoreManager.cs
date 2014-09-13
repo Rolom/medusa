@@ -7,6 +7,8 @@ public class ScoreManager : MonoBehaviour {
 
 	private int score = 0;
 
+	public int bonus;
+
 	public static ScoreManager getInstance()
 	{
 		if(_instance == null)
@@ -35,5 +37,11 @@ public class ScoreManager : MonoBehaviour {
 
 	public void resetScore(){
 		score=0;
+	}
+
+	public void addBonusToScore()
+	{
+		score += bonus;
+		GUIManager.getInstance ().getOnPlay ().setMyScore (score + "");
 	}
 }

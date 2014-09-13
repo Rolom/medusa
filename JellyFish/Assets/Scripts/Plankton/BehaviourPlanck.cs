@@ -41,7 +41,12 @@ public class BehaviourPlanck : MonoBehaviour {
 	}
 
 	void OnBecameVisible() {
-		id = StageGameManager.getInstance ().planktonCount ++;
+		//id = StageGameManager.getInstance ().planktonCount ++;
+	}
+
+	public void setId(int id)
+	{
+		this.id = id;
 	}
 
 	private void checkAndDoHorizontalMovement(){

@@ -30,6 +30,7 @@ public class PlanktonDeathSFXImpl : SFXObject {
 		sounds [count].Play ();
 		if (count == 14) {
 			plankton.playPlanktonAchivment();
+			addScoreBonus();
 		}
 		count++;
 		nextPlankton = id + 1;
@@ -43,5 +44,10 @@ public class PlanktonDeathSFXImpl : SFXObject {
 	public void pause()
 	{
 		sounds [count].Pause ();
+	}
+
+	void addScoreBonus ()
+	{
+		ScoreManager.getInstance().addBonusToScore();
 	}
 }

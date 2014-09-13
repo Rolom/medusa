@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CreateScenarioLimit : MonoBehaviour {
 
-	public StageGameManager stageGameManager;
+	//public StageGameManager stageGameManager;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +18,14 @@ public class CreateScenarioLimit : MonoBehaviour {
 		
 		if(other.gameObject.tag.Equals(Constants.STAGE_TAG))
 		{
-			stageGameManager.setCanCreateScenario(true);
+			//stageGameManager.setCanCreateScenario(true);
+			StageGameManager.getInstance().setCanCreateScenario(true);
+		}
+		else if(other.gameObject.tag.Equals(Constants.PLANK))
+		{
+			Debug.Log ("Getting BH Script");
+			BehaviourPlanck bhPlanck = other.GetComponent<BehaviourPlanck>();
+			bhPlanck.setId(StageGameManager.getInstance ().planktonCount ++);
 		}
 	}
 }
