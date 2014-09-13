@@ -28,7 +28,7 @@ public class MedusaAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(movementFlag){
+		if(movementFlag && !GUIManager.getInstance().pause){
 			movementAnimation();
 		}else{
 			//staticAnimation();
@@ -40,12 +40,12 @@ public class MedusaAnimation : MonoBehaviour {
 	}
 
 	private void movementAnimation(){
-		count+=10f*Time.deltaTime;
+		count+=25f*Time.deltaTime;
 		count2+=25*Time.deltaTime;
 
 		for(int i=0;i<tentacleList.Count;i++){
 			float conectedAnchor=tentacleList[i].GetComponent<DistanceJoint2D>().connectedAnchor.x;
-			Vector2 newConectedAnchorX=new Vector2(((Mathf.Sin(count)/25)),0);
+			Vector2 newConectedAnchorX=new Vector2(((Mathf.Sin(count)/50)),0);
 			Vector2 newConectedAnchorY=new Vector2(0,((Mathf.Sin(count)/20)));
 			if(conectedAnchor>0){
 				tentacleList[i].GetComponent<DistanceJoint2D>().connectedAnchor+=newConectedAnchorX;
