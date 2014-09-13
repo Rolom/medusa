@@ -1,14 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ScoreScripts\ScoreManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScenarioScripts/StageGameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\SouncScripts\Impl\PlanktonDeathSFXImpl.cs" Line="44" Column="21" />
-      <File FileName="Assets\Scripts\SouncScripts\SoundManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Plankton\BehaviourPlanck.cs" Line="47" Column="8" />
-      <File FileName="Assets\Scripts\ScenarioScripts\StageGameManager.cs" Line="214" Column="27" />
-      <File FileName="Assets\Scripts\ScenarioScripts\CreateScenarioLimit.cs" Line="28" Column="68" />
-      <File FileName="Assets\Scripts\Constants.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ScoreScripts\ScoreManager.cs" Line="44" Column="18" />
+      <File FileName="Assets/Scripts/ScenarioScripts/StageGameManager.cs" Line="204" Column="16" />
+      <File FileName="Assets/Scripts/Jellyfish Script/MedusaAnimation.cs" Line="31" Column="23" />
+      <File FileName="Assets/Scripts/GUI Scripts/GUIManager.cs" Line="62" Column="56" />
+      <File FileName="Assets/Scripts/GUI Scripts/PauseMenu.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/ScenarioScripts/CreateScenarioLimit.cs" Line="28" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

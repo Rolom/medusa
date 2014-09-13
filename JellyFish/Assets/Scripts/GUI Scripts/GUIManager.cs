@@ -13,6 +13,7 @@ public class GUIManager : MonoBehaviour {
 	public SugarLayer sugarLayer;
 	public CreditsMenu creditMenu;
 	private bool sugarLayerFlag=false;
+	public bool pause=false;
 
 
 	public void Update(){
@@ -41,6 +42,7 @@ public class GUIManager : MonoBehaviour {
 	}
 
 	public void showMainMenu(){
+		pause=false;
 		deactivateMenus();
 		StageGameManager.getInstance().resetStage();
 		resetFlags();
@@ -51,17 +53,20 @@ public class GUIManager : MonoBehaviour {
 	}
 	
 	public void showOnGame(){
+		pause=false;
 		deactivateMenus();
 		Time.timeScale=1;
 		onPlay.gameObject.SetActive(true);
 		StageGameManager.getInstance().setCanCreateScenarioFromGui(true);
 		StageGameManager.getInstance().resetScenarioLevel();
+		StageGameManager.getInstance().setCanCreateStage(true);
 	}
 
 	public void showEndGame(){
 		deactivateMenus();
 		resetFlags();
 		endMenu.gameObject.SetActive(true);
+		StageGameManager.getInstance().setCanCreateStage(false);
 	}
 
 	public void replayGame(){
@@ -73,9 +78,11 @@ public class GUIManager : MonoBehaviour {
 	public void showPause(){
 		deactivateMenus();
 		if(Time.timeScale==1){
+			pause=true;
 			Time.timeScale=0;
 			pauseMenu.gameObject.SetActive(true);
 		}else{
+			pause=false;
 			Time.timeScale=1;
 			deactivateMenus();
 			onPlay.gameObject.SetActive(true);
