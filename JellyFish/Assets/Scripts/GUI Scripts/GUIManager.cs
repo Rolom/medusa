@@ -59,12 +59,14 @@ public class GUIManager : MonoBehaviour {
 		onPlay.gameObject.SetActive(true);
 		StageGameManager.getInstance().setCanCreateScenarioFromGui(true);
 		StageGameManager.getInstance().resetScenarioLevel();
+		StageGameManager.getInstance().setCanCreateStage(true);
 	}
 
 	public void showEndGame(){
 		deactivateMenus();
 		resetFlags();
 		endMenu.gameObject.SetActive(true);
+		StageGameManager.getInstance().setCanCreateStage(false);
 	}
 
 	public void replayGame(){
@@ -83,7 +85,7 @@ public class GUIManager : MonoBehaviour {
 			pause=false;
 			Time.timeScale=1;
 			deactivateMenus();
-			onPlay.gameObject.SetActive(true);
+			showOnGame();
 		}
 	}
 

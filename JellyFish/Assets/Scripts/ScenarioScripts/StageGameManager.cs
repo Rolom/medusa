@@ -23,9 +23,9 @@ public class StageGameManager : MonoBehaviour {
 
 	public List<int> scenarioChangeThresholds = new List<int>();
 	private int scoreThresholdPosition = 0;
-	public int planktonCount;
 
 	private bool canCreateScenario;
+	private bool canCreateStage;
 
 	private bool onGameFlag=false;
 	int randomScenario;
@@ -53,14 +53,15 @@ public class StageGameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (canCreateScenario) 
-		{
-			updateScenarioLevel();
-			scenarioSpeed-=SCENARIO_ACELERATION;
-			setScenarioSpeed(scenarioSpeed);
-			setScenarioSpeedToStages();
-			createNewScenario ();
+		if(canCreateStage){
+			if (canCreateScenario) 
+			{
+				updateScenarioLevel();
+				scenarioSpeed-=SCENARIO_ACELERATION;
+				setScenarioSpeed(scenarioSpeed);
+				setScenarioSpeedToStages();
+				createNewScenario ();
+			}
 		}
 	}
 
@@ -215,8 +216,15 @@ public class StageGameManager : MonoBehaviour {
 	{
 		currentLevelList = level1List;
 		scenarioChangeCount = 0;
-		planktonCount = 0;
 		Debug.Log("Scenario reseted");
+	}
+
+	public bool getCanCreateStage(){
+		return canCreateStage;
+	}
+
+	public void setCanCreateStage(bool cCS){
+		canCreateStage=cCS;
 	}
 
 }
