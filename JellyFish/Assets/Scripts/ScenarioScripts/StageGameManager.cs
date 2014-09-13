@@ -33,7 +33,6 @@ public class StageGameManager : MonoBehaviour {
 	GameObject currentStage;
 	GameObject oldScenario;
 	List<GameObject> stageLists = new List<GameObject>();
-	public int planktonCount=0;
 
 	public static StageGameManager getInstance()
 	{
