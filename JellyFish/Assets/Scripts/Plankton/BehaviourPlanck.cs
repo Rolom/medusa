@@ -25,6 +25,7 @@ public class BehaviourPlanck : MonoBehaviour {
 	private Vector3 dieParticlePos;
 
 	public int score = 1;
+	public int id;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,10 @@ public class BehaviourPlanck : MonoBehaviour {
 		checkAndDoHorizontalMovement ();
 
 		initialRotation ();
+	}
+
+	void OnBecameVisible() {
+		id = StageGameManager.getInstance ().planktonCount ++;
 	}
 
 	private void checkAndDoHorizontalMovement(){
@@ -179,17 +184,24 @@ public class BehaviourPlanck : MonoBehaviour {
 			if(gameObject.transform.localScale.x<0){
 				Destroy(gameObject);
 				playDeathSound();
+				print ("dead " + id);
 			}
 	}
 
 	void playDeathSound ()
 	{
-		SoundManager.getInstance().PlanktonDeathSound.play();
+		SoundManager.getInstance().PlanktonDeathSound.play(this);
 	}
 
 	public int getScoreToAdd()
 	{
 		return score;
+	}
+
+	public void playPlanktonAchivment(){
+		GameObject prefab = Resources.Load ("PlactomAchievementParticle") as GameObject;
+		Vector3 position=(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,2f));
+		GameObject plactomAchievementParticle = Instantiate(prefab, position, Quaternion.identity) as GameObject;
 	}
 }
 

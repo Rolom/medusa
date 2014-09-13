@@ -6,6 +6,7 @@ public class PlanktonDeathSFXImpl : SFXObject {
 
 	public List<AudioSource> sounds;
 	private int count = 0;
+	private int nextPlankton;
 	// Use this for initialization
 	void Start () {
 		//count = Random.Range (0, sounds.Count);
@@ -16,13 +17,22 @@ public class PlanktonDeathSFXImpl : SFXObject {
 	
 	}
 
-	public void play()
+	public void play(BehaviourPlanck plankton)
 	{
+		int id = plankton.id;
+		if (id != nextPlankton) {
+			count = 0;
+			print ("miss");
+		}
 		if (count >= sounds.Count) {
 			count = 0;
 		}
 		sounds [count].Play ();
+		if (count == 14) {
+			plankton.playPlanktonAchivment();
+		}
 		count++;
+		nextPlankton = id + 1;
 	}
 
 	public void stop()
