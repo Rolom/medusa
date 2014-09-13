@@ -9,7 +9,7 @@ public class Main_Menu : BasicGUI{
 	public void addInstructions(){
 		instructions=new ArrayList();
 		instructions.Add("TAP the screen \n to SCARE the Jellyfish.");
-		instructions.Add("TAP CLOSER to the jelly \n to MOVE it FASTER.");
+		instructions.Add("TAP CLOSER to the Jellyfish \n to MOVE it FASTER.");
 		instructions.Add("Avoid the ROCK, \n eat the PLANKTON.");
 		instructions.Add("DON'T TAP on the JELLYFISH, \n you hurt his SOUL.");
 		instructions.Add("RELAX, have FUN \n and SHARE your EXPERIENCE.");
