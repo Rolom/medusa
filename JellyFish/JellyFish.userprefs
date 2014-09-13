@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Jellyfish Script\MedusaHealth.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScenarioScripts/StageGameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\GUI Scripts\Main_Menu.cs" Line="36" Column="4" />
-      <File FileName="Assets\Scripts\GUI Scripts\OptionsMenu.cs" Line="124" Column="1" />
-      <File FileName="Assets\Scripts\GUI Scripts\CreditsMenu.cs" Line="46" Column="18" />
-      <File FileName="Assets\Scripts\ScenarioScripts\StageGameManager.cs" Line="213" Column="31" />
-      <File FileName="Assets\Scripts\Jellyfish Script\MedusaHealth.cs" Line="74" Column="4" />
+      <File FileName="Assets/Scripts/Jellyfish Script/MedusaHealth.cs" Line="73" Column="65" />
+      <File FileName="Assets/Scripts/Jellyfish Script/MedusaAnimation.cs" Line="64" Column="5" />
+      <File FileName="Assets/Scripts/Jellyfish Script/Movement.cs" Line="111" Column="16" />
+      <File FileName="Assets/Scripts/GUI Scripts/EndMenu.cs" Line="13" Column="31" />
+      <File FileName="Assets/Scripts/ScenarioScripts/StageGameManager.cs" Line="56" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

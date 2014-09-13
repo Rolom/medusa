@@ -87,7 +87,6 @@ public class MedusaHealth : MonoBehaviour {
 		Instantiate(jellyFishDieParticle);
 		Destroy(gameObject);
 		playDeathSound();
-		StageGameManager.getInstance().resetScenarioLevel();
 		if(StageGameManager.getInstance().getOnGameFlag()){
 			GUIManager.getInstance().showEndGame();
 		}else{
