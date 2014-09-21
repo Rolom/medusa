@@ -14,9 +14,8 @@ public class EndMenu : BasicGUI {
 
 	public void addPhraces(){
 		phrasesList=new ArrayList();
-		phrasesList.Add("A jelly fish is 96% water... \n and 100% deepness.");
 		phrasesList.Add("Sometimes, you just have \n to let it go... and flow.");
-		phrasesList.Add("Can be the soul \n so deep?.");
+		phrasesList.Add("Can be the soul \n so deep?");
 		phrasesList.Add("Your mind and body are only\n an illusion that hide the truth.");
 		phrasesList.Add("Stop thinking, \n start to experience.");
 		phrasesList.Add ("Just deepness \n will set you free.");
@@ -27,37 +26,37 @@ public class EndMenu : BasicGUI {
 		phrasesList.Add ("If you try to win, \n then you will lose. So you \n don’t try, just let it go.");
 		phrasesList.Add ("There is a deep and simple \n meaning about life... but that \n is hidden from our senses.");
 		phrasesList.Add ("Maybe the entire ocean \n is moving... and you are \n just standing there.");
-		phrasesList.Add ("The jelly fishes are \n beautiful... and so are you?.");
-		phrasesList.Add ("The jelly fishes are \n just a mirror... of your soul.");
+		phrasesList.Add ("The jellyfish are \n beautiful... and so are you?.");
+		phrasesList.Add ("The jellyfish are \n just a mirror... of your soul.");
 		phrasesList.Add ("This is beautiful... \n thanks for share it with me.");
-		phrasesList.Add ("Jelly fishes are 96% \n water... and 100% deepness.");
-		phrasesList.Add ("In the deep, your soul \n might be a surface of emotions \n and jelly fishes floating.");
+		phrasesList.Add ("Jellyfish are 96% \n water... and 100% deepness.");
+		phrasesList.Add ("In the deep, your soul \n might be a surface of emotions \n and jellyfish floating.");
 		phrasesList.Add ("Remember to forget.");
-		phrasesList.Add ("Why do you want to fly\n when you can swim?.");
+		phrasesList.Add ("Why do you want to fly\n when you can swim?");
 		phrasesList.Add ("Why do you like this jellyfish? \n Does it reflect your soul?.");
 		phrasesList.Add ("Let yourself go, \n so you can go deeper.");
-		phrasesList.Add ("Is the plankton less \n valuable than the jellyfish?.");
+		phrasesList.Add ("Is the plankton less \n valuable than the jellyfish?");
 		phrasesList.Add ("Maybe the jellyfish \n is scared of you?.");
 		phrasesList.Add ("Can you feel the sound \n of the last whisper?.");
 		phrasesList.Add ("Really, you don't have \n something more important \n to do... just breathe.");
-		phrasesList.Add ("Why are you go so fast?... \n just enjoy the journey \n into the unknown.");
+		phrasesList.Add ("Why are you go so fast?... \n Just enjoy the journey \n into the unknown.");
 		phrasesList.Add ("Can you look inside \n your eyes to really see?.");
 		phrasesList.Add ("Go to depth, but \n not so far to lose yourself.");
 		phrasesList.Add ("Do you know how much \n deep you can go?.");
 		phrasesList.Add ("The sound of the depth \n is not so beautiful.");
-		phrasesList.Add ("The sound of the depth \n can be so beautiful... \n like you are.");
+		phrasesList.Add ("The sound of the depth \n can be so beautiful... \n just like you.");
 		phrasesList.Add ("Your mind is brilliant!.");
 		phrasesList.Add ("Nature knows how deep you \n can be, it created you.");
 		phrasesList.Add ("Here you can hide \n the secrets of your soul.");
-		phrasesList.Add ("What else can you \n find in the deeps?.");
+		phrasesList.Add ("What else can you \n find in the deeps?");
 		phrasesList.Add ("Did you hear the sound \n scale of the life?... \n open your eyes.");
 		phrasesList.Add ("Deep down, you can \n find the unknown.");
 		phrasesList.Add ("Falling deep is good \n to get up higher \n in your selfness.");
-		phrasesList.Add ("Jellyfishes are beautiful, \n just like you.");
-		phrasesList.Add ("How much deeper would be \n the ocean without Jellyfishes?.");
-		phrasesList.Add ("If you were a jellyfish, \n would you be caught \n by Bob SquarePants?.");
+		phrasesList.Add ("Jellyfish are beautiful, \n just like you.");
+		phrasesList.Add ("How much deeper would be \n the ocean without Jellyfish?");
+		phrasesList.Add ("If you were a jellyfish, \n Would you be caught \n by Bob SquarePants?.");
 		phrasesList.Add ("The irony of life is... \n we have to fight for peace.");
-		phrasesList.Add ("The cry of a jellyfish does \n not mean weakness, means that \n their feelings are true.");
+		phrasesList.Add ("The cry of a jellyfish \n does not mean weakness,\n means that their feelings \n are true.");
 
 	}
 
