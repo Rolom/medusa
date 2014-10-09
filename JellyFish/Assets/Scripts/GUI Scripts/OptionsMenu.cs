@@ -7,17 +7,20 @@ public class OptionsMenu : BasicGUI {
 	private string SOUND_OFF="Sound OFF";
 	private string VIBRATION_ON="Vibration ON";
 	private string VIBRATION_OFF="Vibration OFF";
-	public bool vibrationStateFlag=true;
+	public bool vibrationStateFlag;
 	private string vibrateCondition;
 	private string resetMessage="Reset Best Score";
 	private int resetCount=0;
 	private string soundCondition;
-	private bool soundStateFlag=true;
+	private bool soundStateFlag;
+
+	public void Awake()
+	{
+	}
 
 	// Use this for initialization
-	public void Start(){
-		soundCondition=SOUND_ON;
-		vibrateCondition=VIBRATION_ON;
+	public void Start()
+	{	
 	}
 
 	void OnGUI() {
@@ -94,6 +97,7 @@ public class OptionsMenu : BasicGUI {
 			SoundManager.getInstance().unPauseAudio();
 			soundStateFlag=true;
 		}
+		Persistence.getInstance().setSound(!soundStateFlag);
 	}
 
 	public void defineVibrationState(){
@@ -105,6 +109,7 @@ public class OptionsMenu : BasicGUI {
 			Handheld.Vibrate ();
 			vibrationStateFlag=true;
 		}
+		Persistence.getInstance().setVibrate(!vibrationStateFlag);
 	}
 
 	public bool getVibrationState(){
@@ -118,6 +123,48 @@ public class OptionsMenu : BasicGUI {
 			GUIManager.getInstance().showMainMenu();
 		}
 	}
-	
 
+	public bool VibrationStateFlag {
+		get {
+			return vibrationStateFlag;
+		}
+		set {
+			vibrationStateFlag = value;
+		}
+	}
+
+	public bool SoundStateFlag {
+		get {
+			return soundStateFlag;
+		}
+		set {
+			soundStateFlag = value;
+		}
+	}
+
+	bool getPersistedSoundState ()
+	{
+		return Persistence.getInstance().isSoundEnable();
+	}
+
+	bool getPersistedVibrateState ()
+	{
+		return Persistence.getInstance().isVibrateEnable();
+	}
+
+	public void initSoundState ()
+	{
+		SoundStateFlag = getPersistedSoundState ();
+		Debug.Log("Persisted sound state: " + SoundStateFlag);
+		soundCondition = SoundStateFlag ? SOUND_ON : SOUND_OFF;
+		defineSoundState();
+	}
+
+	public void initVibrationState ()
+	{
+		VibrationStateFlag = getPersistedVibrateState ();
+		Debug.Log("Persisted vibration state: "+ VibrationStateFlag);
+		vibrateCondition = VibrationStateFlag ? VIBRATION_ON : VIBRATION_OFF;
+		defineVibrationState();
+	}
 }

@@ -14,6 +14,12 @@ public class Main_Menu : BasicGUI{
 		instructions.Add("DON'T TAP on the JELLYFISH, \n you hurt his SOUL.");
 		instructions.Add("RELAX, have FUN \n and SHARE your EXPERIENCE.");
 	}
+
+	public void Awake()
+	{
+		initSound();
+		initVibrate();
+	}
 		
 	void OnGUI () {
 		if(instructions==null){
@@ -65,5 +71,16 @@ public class Main_Menu : BasicGUI{
 		{
 			GUIManager.getInstance().closeApp();
 		}
+	}
+
+	void initSound()
+	{
+		GUIManager.getInstance().optionsMenu.initSoundState();
+	}
+
+	void initVibrate()
+	{
+		GUIManager.getInstance().optionsMenu.initVibrationState();
+
 	}
 }
