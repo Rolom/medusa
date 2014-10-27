@@ -10,6 +10,11 @@ public class OnPlay : BasicGUI {
 	private int saveScore=0;
 	private bool bonusFlag=false;
 	private int intMyScore=0;
+	private bool tutorial=true;
+
+	void OnEnable(){
+		tutorial=true;
+	}
 
 	void OnGUI () {
 		intMyScore=ScoreManager.getInstance().getScore();
@@ -21,30 +26,37 @@ public class OnPlay : BasicGUI {
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-		if(GUI.Button(RectAligment.rigthRect(1,20,8),"Pause")){
-			GUIManager.getInstance().showPause();
+		if(tutorial){
+		if(GUI.Button(RectAligment.centerRect(90,50,8),"Skip Tutorial")){
+				tutorial=false;
 		}
-
-		print (intMyScore-saveScore);
-		if(intMyScore-saveScore>1){
-			bonus="Bonus +"+(intMyScore-saveScore);
-			bonusFlag=true;
-		}
-		saveScore=intMyScore;
-		if(bonusFlag){
-			bonusCount++;
-			if(bonusCount>400){
-				bonusCount=0;
-				bonusFlag=false;
-				bonus="";
+		}else{
+		
+			if(GUI.Button(RectAligment.rigthRect(1,20,8),"Pause")){
+				GUIManager.getInstance().showPause();
 			}
+
+			print (intMyScore-saveScore);
+			if(intMyScore-saveScore>1){
+				bonus="Bonus +"+(intMyScore-saveScore);
+				bonusFlag=true;
+			}
+			saveScore=intMyScore;
+			if(bonusFlag){
+				bonusCount++;
+				if(bonusCount>400){
+					bonusCount=0;
+					bonusFlag=false;
+					bonus="";
+				}
+			}
+
+			GUI.Box(RectAligment.leftRect(1,30,10),Constants.SCORE_TEXT+myScore);
+
+			myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(8);
+			GUI.Box(RectAligment.leftRect(8,30,10),bonus);
+
 		}
-
-		GUI.Box(RectAligment.leftRect(1,30,10),Constants.SCORE_TEXT+myScore);
-
-		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(8);
-		GUI.Box(RectAligment.leftRect(8,30,10),bonus);
-
 		//hSliderValue = GUI.HorizontalSlider (RectAligment.centerRect(95, 50, 30), hSliderValue, 0f, 1.0f);
 
 	}
