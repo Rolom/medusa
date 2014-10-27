@@ -16,7 +16,8 @@ public class StageGameManager : MonoBehaviour {
 	private GameObject currentJellyFish;
 	private List<GameObject> currentLevelList = new List<GameObject>();
 	private int scenarioChangeCount;
-	
+
+	public List<GameObject> tutorialList = new List<GameObject>();
 	public List<GameObject> level1List = new List<GameObject>();
 	public List<GameObject> level2List = new List<GameObject>();
 	public List<GameObject> level3List = new List<GameObject>();
@@ -33,6 +34,8 @@ public class StageGameManager : MonoBehaviour {
 	GameObject currentStage;
 	GameObject oldScenario;
 	List<GameObject> stageLists = new List<GameObject>();
+	private bool tutorialFlag=true;
+	private int tutorialCount=0;
 
 	public static StageGameManager getInstance()
 	{
@@ -46,22 +49,34 @@ public class StageGameManager : MonoBehaviour {
 	void Start () {
 		canCreateScenario = false;
 		setScenarioSpeed(scenarioSpeed);
-		randomScenario = Random.Range (0, currentLevelList.Count);
-		currentLevelList = level1List;
+		setLevelList();
 		createJellyFish();
-		scenarioChangeCount = 0;
+	}
+
+	public void setLevelList(){
+		if(tutorialFlag){
+			currentLevelList = tutorialList;
+		}else{
+			currentLevelList = level1List;
+			randomScenario = Random.Range (0, currentLevelList.Count);
+			scenarioChangeCount = 0;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(canCreateStage){
-			if (canCreateScenario) 
+			if (canCreateScenario && !tutorialFlag) 
 			{
 				updateScenarioLevel();
 				scenarioSpeed-=SCENARIO_ACELERATION;
 				setScenarioSpeed(scenarioSpeed);
 				setScenarioSpeedToStages();
 				createNewScenario ();
+			}
+			if(canCreateScenario && tutorialFlag){
+				setScenarioSpeed(scenarioSpeed);
+				createNewScenarioTutorial ();
 			}
 		}
 	}
@@ -87,6 +102,18 @@ public class StageGameManager : MonoBehaviour {
 		stageLists.Add(currentStage);
 		setCanCreateScenario (false);
 		scenarioChangeCount++;
+	}
+
+	void createNewScenarioTutorial ()
+	{
+		currentStage = Instantiate (currentLevelList [tutorialCount], pointA.localPosition, Quaternion.identity) as GameObject;
+		BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
+		Vector3 newPosition = currentStage.transform.localPosition;
+		newPosition.y += collider.size.y / 2;
+		currentStage.transform.localPosition = newPosition;
+		stageLists.Add(currentStage);
+		setCanCreateScenario (false);
+		tutorialCount++;
 	}
 
 	private void saveOldScenario(){
@@ -215,7 +242,7 @@ public class StageGameManager : MonoBehaviour {
 
 	public void resetScenarioLevel()
 	{
-		currentLevelList = level1List;
+		setLevelList();
 		scenarioChangeCount = 0;
 		planktonCount = 0;
 		Debug.Log("Scenario reseted");

@@ -32,7 +32,7 @@ public class Main_Menu : BasicGUI{
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(25);
 		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(8);
 
-		if(GUI.Button(RectAligment.centerRect(18	,60,20),"Play")){
+		if(GUI.Button(RectAligment.centerRect(18,60,20),"Play")){
 			GUIManager.getInstance().showOnGame();
 		}
 
