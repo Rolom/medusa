@@ -17,7 +17,11 @@ public class RipleEffect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		numberOfRiples=Random.Range(minNumberOfRiples,maxNumberOfRiples);
-		riplePosition=Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
+			riplePosition=Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+		}else{
+			riplePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		}
 	}
 
 	

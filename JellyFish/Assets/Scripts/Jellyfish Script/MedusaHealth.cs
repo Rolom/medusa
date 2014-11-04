@@ -51,7 +51,7 @@ public class MedusaHealth : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D  other)
 	{
-		print(other.gameObject.tag);
+		print(other.gameObject.name);
 		deadState();
 	}
 
