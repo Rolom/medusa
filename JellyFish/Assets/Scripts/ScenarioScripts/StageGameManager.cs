@@ -7,8 +7,8 @@ public class StageGameManager : MonoBehaviour {
 
 	private static StageGameManager _instance;
 
-	public float scenarioSpeed = -0.9f;
-	public float SCENARIO_ACELERATION=0.4f;
+	private float scenarioSpeed = -1.5f;
+	public float SCENARIO_ACELERATION=0.35f;
 	private static Vector2 scenarioSpeedVector;
 	public Transform pointA;
 	public Transform pointB;
@@ -106,14 +106,19 @@ public class StageGameManager : MonoBehaviour {
 
 	void createNewScenarioTutorial ()
 	{
-		currentStage = Instantiate (currentLevelList [tutorialCount], pointA.localPosition, Quaternion.identity) as GameObject;
-		BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
-		Vector3 newPosition = currentStage.transform.localPosition;
-		newPosition.y += collider.size.y / 2;
-		currentStage.transform.localPosition = newPosition;
-		stageLists.Add(currentStage);
-		setCanCreateScenario (false);
-		tutorialCount++;
+		if(tutorialCount>=currentLevelList.Count){
+			endTutorial();
+		}else{
+			currentStage = Instantiate (currentLevelList [tutorialCount], pointA.localPosition, Quaternion.identity) as GameObject;
+			BoxCollider2D collider = currentStage.GetComponent<BoxCollider2D> ();
+			Vector3 newPosition = currentStage.transform.localPosition;
+			newPosition.y += collider.size.y / 2;
+			currentStage.transform.localPosition = newPosition;
+			stageLists.Add(currentStage);
+			setCanCreateScenario (false);
+			tutorialCount++;
+		}
+
 	}
 
 	private void saveOldScenario(){
@@ -184,6 +189,7 @@ public class StageGameManager : MonoBehaviour {
 		resetScenarioSpeed();
 		GUIManager.getInstance().onPlay.resetMyScore();
 		ScoreManager.getInstance().resetScore();
+		tutorialCount=0;
 	}
 
 	private void resetScenarioSpeed(){
@@ -242,9 +248,11 @@ public class StageGameManager : MonoBehaviour {
 
 	public void resetScenarioLevel()
 	{
-		setLevelList();
 		scenarioChangeCount = 0;
 		planktonCount = 0;
+		tutorialFlag=true;
+		tutorialCount=0;
+		setLevelList();
 		Debug.Log("Scenario reseted");
 	}
 
@@ -256,4 +264,17 @@ public class StageGameManager : MonoBehaviour {
 		canCreateStage=cCS;
 	}
 
+	public void endTutorial() {
+		 tutorialFlag=false;
+		 currentLevelList = level1List;
+	}
+
+	public bool TutorialFlag {
+		get {
+			return tutorialFlag;
+		}
+		set {
+			tutorialFlag = value;
+		}
+	}
 }

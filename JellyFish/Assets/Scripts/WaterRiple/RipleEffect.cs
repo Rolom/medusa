@@ -6,38 +6,45 @@ public class RipleEffect : MonoBehaviour {
 	public GameObject riple;
 	private int count=0;
 	private float maxCountRiple=0;
-	private int maxCountRange=20;
-	private int minCountRange=10;
 	private int numberOfRiples;
 	private int minNumberOfRiples=2;
-	private int maxNumberOfRiples=4;
+	private int maxNumberOfRiples=5;
 	private int ripleCount=0;
-	private Vector2 riplePosition;
+	private Vector3 riplePosition;
 
 	// Use this for initialization
 	void Start () {
-		numberOfRiples=Random.Range(minNumberOfRiples,maxNumberOfRiples);
-		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
-			riplePosition=Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-		}else{
-			riplePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		}
 	}
 
+	public void setRiplePosition(Vector3 inputPosition){
+		riplePosition=inputPosition;
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		count++;
-		if(count>maxCountRiple){
-			count=0;
-			ripleCount++;
-			maxCountRiple=Random.Range(minCountRange,maxCountRange);
-			riple.transform.position=riplePosition;
-			Instantiate(riple);
-		}
-
-		if(ripleCount>numberOfRiples){
+		
+		if(ripleCount>=numberOfRiples){
 			Destroy(gameObject);
 		}
+	}
+
+	public void createRiples(Vector3 inputPosition){
+		print (inputPosition);
+		riplePosition=Camera.main.ScreenToWorldPoint(inputPosition);
+		Vector3 riplePositionModify=new Vector3(riplePosition.x,riplePosition.y,-5);
+		maxCountRiple=Random.Range(minNumberOfRiples,maxNumberOfRiples);
+		while(count<maxCountRiple){
+			count++;
+			ripleCount++;
+			riple.transform.position=(riplePositionModify);
+			print (count+" count");
+			if(count>1){
+				Instantiate(riple);
+			}else{
+				Instantiate(riple);
+				riple.GetComponent<OneRipleAnimation>().createFirst();
+			}
+		}
+		count=0;
 	}
 }
