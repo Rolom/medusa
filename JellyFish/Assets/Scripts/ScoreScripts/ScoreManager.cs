@@ -27,8 +27,10 @@ public class ScoreManager : MonoBehaviour {
 
 	public void addScore(int scoreToAdd)
 	{
-		score += scoreToAdd;
-		GUIManager.getInstance ().getOnPlay ().setMyScore (score + "");
+		if(!StageGameManager.getInstance().TutorialFlag){
+			score += scoreToAdd;
+			GUIManager.getInstance ().getOnPlay ().setMyScore (score + "");
+		}
 	}
 
 	public int getScore(){

@@ -10,31 +10,34 @@ public class OnPlay : BasicGUI {
 	private int saveScore=0;
 	private bool bonusFlag=false;
 	private int intMyScore=0;
-	private bool tutorial=true;
+
 
 	void OnEnable(){
-		tutorial=true;
+
 	}
 
 	void OnGUI () {
 		intMyScore=ScoreManager.getInstance().getScore();
 		GUI.color=changeAlphaGui(GUI.color);
-
 		GUI.skin=myGuiSkin;
 
-		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
-
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
-
-		if(tutorial){
-		if(GUI.Button(RectAligment.centerRect(90,50,8),"Skip Tutorial")){
-				tutorial=false;
+		myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
+		if(GUI.Button(RectAligment.rigthRect(1,20,8),"Pause")){
+			GUIManager.getInstance().showPause();
 		}
-		}else{
-		
-			if(GUI.Button(RectAligment.rigthRect(1,20,8),"Pause")){
-				GUIManager.getInstance().showPause();
+
+
+		if(	StageGameManager.getInstance().TutorialFlag){
+			myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(8);
+			myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
+			GUI.Box(RectAligment.centerRect(85,50,10),"TAP the POINTER");
+			if(GUI.Button(RectAligment.centerRect(92,50,8),"Skip Tutorial")){
+					StageGameManager.getInstance().endTutorial();
 			}
+		}else{
+			myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
+			myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
 			print (intMyScore-saveScore);
 			if(intMyScore-saveScore>1){
