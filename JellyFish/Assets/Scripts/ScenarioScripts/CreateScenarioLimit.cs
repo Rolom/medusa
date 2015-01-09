@@ -23,7 +23,6 @@ public class CreateScenarioLimit : MonoBehaviour {
 		}
 		else if(other.gameObject.tag.Equals(Constants.PLANK))
 		{
-			Debug.Log ("Getting BH Script");
 			BehaviourPlanck bhPlanck = other.GetComponent<BehaviourPlanck>();
 			bhPlanck.setId(StageGameManager.getInstance ().planktonCount ++);
 		}

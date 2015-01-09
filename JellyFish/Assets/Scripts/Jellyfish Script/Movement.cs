@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour {
 	static float MAXIMUM_VECTOR_VELOCITY=50.0f;
 	private float verticalPosition;
 	public GameObject verticalToken;
-	private const float LINEAR_FORCE_MULTIPLIER=1.3f;
-	private const float ANGULAR_FORCE_MULTIPLIER=1.0f;
+	private const float LINEAR_FORCE_MULTIPLIER=1.5f;
+	private const float ANGULAR_FORCE_MULTIPLIER=0.2f;
 
 
 	Vector2 moveLeft;
@@ -31,11 +31,8 @@ public class Movement : MonoBehaviour {
 		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer ) {
 
 			if (Input.touchCount > 0) {
-
 				if(Input.GetTouch(0).phase == TouchPhase.Began ) {
-					AnimateCharacter (Input.GetTouch(0).position);
-					gameObject.GetComponent<MedusaAnimation>().setMovementFlag(true);
-					
+					AnimateCharacter (Input.GetTouch(0).position);	
 				}
 			}
 
@@ -43,7 +40,7 @@ public class Movement : MonoBehaviour {
 
 			if (Input.GetKeyDown (KeyCode.Mouse0)  ) {
 				AnimateCharacter(Input.mousePosition);
-				gameObject.GetComponent<MedusaAnimation>().setMovementFlag(true);
+
 			}
 		}
 
@@ -62,7 +59,8 @@ public class Movement : MonoBehaviour {
 		rigidbody2D.AddForce( returnToVerticalPosition() );
 	}
 
-	void AnimateCharacter(Vector3 position) {
+	public void AnimateCharacter(Vector3 position) {
+		gameObject.GetComponent<MedusaAnimation>().setMovementFlag(true);
 		Vector2 mouseVector = Camera.main.ScreenToWorldPoint(position);
 		Vector2 characterVector = transform.position;
 		Vector2 newDirection = characterVector - mouseVector;
@@ -167,7 +165,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	void setMedusaStraight(){
-		float straightTorque = 3.0f;
+		float straightTorque = 0.1f;
 	
 		float currentRotation = transform.rotation.z;
 		float netTorque = straightTorque * -1 * currentRotation ;
