@@ -1,21 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI Scripts/PauseMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Materials\overlay.shader">
     <Files>
-      <File FileName="Assets/Scripts/GUI Scripts/BasicGUI.cs" Line="1" Column="1" />
-      <File FileName="../../Downloads/LogIn.aspx.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScoreScripts/ScoreManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI Scripts/OnPlay.cs" Line="30" Column="18" />
-      <File FileName="Assets/Scripts/SouncScripts/Impl/RipleSFXImpl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI Scripts/CreditsMenu.cs" Line="29" Column="3" />
-      <File FileName="Assets/Scripts/GUI Scripts/EndMenu.cs" Line="116" Column="79" />
-      <File FileName="Assets/Scripts/GUI Scripts/GUIManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI Scripts/Main_Menu.cs" Line="50" Column="58" />
-      <File FileName="Assets/Scripts/GUI Scripts/OptionsMenu.cs" Line="83" Column="16" />
-      <File FileName="Assets/Scripts/GUI Scripts/PauseMenu.cs" Line="18" Column="63" />
-      <File FileName="Assets/Scripts/GUI Scripts/ProportionFontSize.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI Scripts/RectAligment.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI Scripts/SugarLayer.cs" Line="36" Column="45" />
+      <File FileName="Assets\Scripts\Persistence Scripts\Persistence.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUI Scripts\OptionsMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Constants.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUI Scripts\Main_Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Jellyfish Script\MedusaHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets\Materials\overlay.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
