@@ -10,6 +10,7 @@ public class Persistence : MonoBehaviour {
 
 	private bool soundEnable;
 	private bool vibrateEnable;
+	private bool tutorialEnable;
 
 	public static Persistence getInstance()
 	{
@@ -53,6 +54,23 @@ public class Persistence : MonoBehaviour {
 	{
 		vibrateEnable = vibrateOption;
 		PlayerPrefs.SetString(Constants.IS_VIBRATE_ENABLE, vibrateEnable ? TRUE : FALSE);
+	}
+
+	public void setTutorial(bool tutorialNewValue)
+	{
+		tutorialEnable = tutorialNewValue;
+		PlayerPrefs.SetString(Constants.IS_TUTORIAL_ENABLE, tutorialEnable ? TRUE : FALSE);
+	}
+
+	public bool isTutorialEnable()
+	{
+		tutorialEnable = false;
+		string tutorialEnableValue = PlayerPrefs.GetString(Constants.IS_TUTORIAL_ENABLE);
+		if(TRUE.Equals(tutorialEnableValue) || tutorialEnableValue == null)
+		{
+			tutorialEnable = true;
+		}
+		return tutorialEnable;
 	}
 
 	public int getHighscore()

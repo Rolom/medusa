@@ -11,5 +11,6 @@ public class Constants {
 	public static string HIGHSCORE = "highscore";
 	public static string IS_SOUND_ENABLE = "soundEnable";
 	public static string IS_VIBRATE_ENABLE = "vibrateEnable";
+	public static string IS_TUTORIAL_ENABLE = "tutorialEnable";
 
 }
