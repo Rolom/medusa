@@ -34,7 +34,7 @@ public class StageGameManager : MonoBehaviour {
 	GameObject currentStage;
 	GameObject oldScenario;
 	List<GameObject> stageLists = new List<GameObject>();
-	private bool tutorialFlag=true;
+	private bool tutorialFlag;
 	private int tutorialCount=0;
 
 	public static StageGameManager getInstance()
@@ -49,6 +49,8 @@ public class StageGameManager : MonoBehaviour {
 	void Start () {
 		canCreateScenario = false;
 		setScenarioSpeed(scenarioSpeed);
+		tutorialFlag = !Persistence.getInstance().isTutorialComplete();
+		Debug.Log (tutorialFlag);
 		setLevelList();
 		createJellyFish();
 	}
@@ -57,6 +59,7 @@ public class StageGameManager : MonoBehaviour {
 		if(tutorialFlag){
 			currentLevelList = tutorialList;
 		}else{
+			Debug.Log("No entre al tutorial!");
 			currentLevelList = level1List;
 			randomScenario = Random.Range (0, currentLevelList.Count);
 			scenarioChangeCount = 0;
@@ -68,6 +71,7 @@ public class StageGameManager : MonoBehaviour {
 		if(canCreateStage){
 			if (canCreateScenario && !tutorialFlag) 
 			{
+				Debug.Log("Estoy creando el Scenario");
 				updateScenarioLevel();
 				scenarioSpeed-=SCENARIO_ACELERATION;
 				setScenarioSpeed(scenarioSpeed);
@@ -75,6 +79,7 @@ public class StageGameManager : MonoBehaviour {
 				createNewScenario ();
 			}
 			if(canCreateScenario && tutorialFlag){
+				Debug.Log("Estoy creando el tutorial");
 				setScenarioSpeed(scenarioSpeed);
 				createNewScenarioTutorial ();
 			}
@@ -250,23 +255,27 @@ public class StageGameManager : MonoBehaviour {
 	{
 		scenarioChangeCount = 0;
 		planktonCount = 0;
-		tutorialFlag=true;
+		//tutorialFlag=true;
 		tutorialCount=0;
 		setLevelList();
 		Debug.Log("Scenario reseted");
 	}
 
-	public bool getCanCreateStage(){
+	public bool getCanCreateStage()
+	{
 		return canCreateStage;
 	}
 
-	public void setCanCreateStage(bool cCS){
+	public void setCanCreateStage(bool cCS)
+	{
 		canCreateStage=cCS;
 	}
 
-	public void endTutorial() {
-		 tutorialFlag=false;
-		 currentLevelList = level1List;
+	public void endTutorial() 
+	{
+		tutorialFlag=false;
+		Persistence.getInstance().setTutorialCompleted(true);
+		currentLevelList = level1List;
 	}
 
 	public bool TutorialFlag {
