@@ -56,19 +56,19 @@ public class Persistence : MonoBehaviour {
 		PlayerPrefs.SetString(Constants.IS_VIBRATE_ENABLE, vibrateEnable ? TRUE : FALSE);
 	}
 
-	public void setTutorial(bool tutorialNewValue)
+	public void setTutorialCompleted(bool tutorialNewValue)
 	{
 		tutorialEnable = tutorialNewValue;
 		PlayerPrefs.SetString(Constants.IS_TUTORIAL_ENABLE, tutorialEnable ? TRUE : FALSE);
 	}
 
-	public bool isTutorialEnable()
+	public bool isTutorialComplete()
 	{
-		tutorialEnable = false;
+		tutorialEnable = true;
 		string tutorialEnableValue = PlayerPrefs.GetString(Constants.IS_TUTORIAL_ENABLE);
-		if(TRUE.Equals(tutorialEnableValue) || tutorialEnableValue == null)
+		if(FALSE.Equals(tutorialEnableValue) || tutorialEnableValue == null)
 		{
-			tutorialEnable = true;
+			tutorialEnable = false;
 		}
 		return tutorialEnable;
 	}
