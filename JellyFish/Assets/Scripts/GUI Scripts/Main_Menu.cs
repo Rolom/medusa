@@ -39,6 +39,7 @@ public class Main_Menu : BasicGUI{
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(8);
 		if(GUI.Button(RectAligment.leftRect(1,25,6),"OPTIONS")){
+			GUIManager.getInstance().getOptionsMenu().initTutorialState();
 			GUIManager.getInstance().showOptions();	
 		}
 		if(GUI.Button(RectAligment.rigthRect(1,25,8),"EXIT")){

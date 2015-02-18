@@ -127,4 +127,9 @@ public class GUIManager : MonoBehaviour {
 		return onPlay;
 	}
 
+	public OptionsMenu getOptionsMenu()
+	{
+		return  optionsMenu;
+	}
+
 }

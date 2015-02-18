@@ -20,11 +20,13 @@ public class OptionsMenu : BasicGUI {
 
 	public void Awake()
 	{
+
 	}
 
 	// Use this for initialization
 	public void Start()
 	{	
+
 	}
 
 	void OnGUI() {
@@ -36,7 +38,7 @@ public class OptionsMenu : BasicGUI {
 
 
 
-		if(GUI.Button(RectAligment.centerRect(5,60,20),soundCondition)){
+		if(GUI.Button(RectAligment.centerRect(7,60,20),soundCondition)){
 			defineSoundState();
 		}
 
@@ -44,12 +46,12 @@ public class OptionsMenu : BasicGUI {
 			defineVibrationState();
 		}
 
-		if(GUI.Button(RectAligment.centerRect(29,60,20),"Credits")){
+		if(GUI.Button(RectAligment.centerRect(28,60,20),"Credits")){
 			GUIManager.getInstance().showCreditMenu();
 		}
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(12);
-		if(GUI.Button(RectAligment.centerRect(41,90,20),resetMessage)){
+		if(GUI.Button(RectAligment.centerRect(38,90,20),resetMessage)){
 			resetCount++;
 			switch(resetCount){
 				case 1:
@@ -71,11 +73,11 @@ public class OptionsMenu : BasicGUI {
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(13);
 
-		if(GUI.Button(RectAligment.centerRect(53,60,20),tutorialCondition)){
+		if(GUI.Button(RectAligment.centerRect(48,60,20),tutorialCondition)){
 			defineTutorialState();
 		}
 
-		if(GUI.Button(RectAligment.centerRect(85,60,20),"Back")){
+		if(GUI.Button(RectAligment.centerRect(-4,60,20),"Back")){
 			resetScoreMessageCount();
 			GUIManager.getInstance().showMainMenu();
 		}
