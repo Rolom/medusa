@@ -13,6 +13,10 @@ public class OptionsMenu : BasicGUI {
 	private int resetCount=0;
 	private string soundCondition;
 	private bool soundStateFlag;
+	private string TUTORIAL_ON="Tutorial ON";
+	private string TUTORIAL_OFF="Tutorial OFF";
+	private string tutorialCondition;
+	private bool tutorialStateFlag;
 
 	public void Awake()
 	{
@@ -66,7 +70,12 @@ public class OptionsMenu : BasicGUI {
 		}
 
 		myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(13);
-		if(GUI.Button(RectAligment.centerRect(53,60,20),"Back")){
+
+		if(GUI.Button(RectAligment.centerRect(53,60,20),tutorialCondition)){
+			defineTutorialState();
+		}
+
+		if(GUI.Button(RectAligment.centerRect(85,60,20),"Back")){
 			resetScoreMessageCount();
 			GUIManager.getInstance().showMainMenu();
 		}
@@ -98,6 +107,18 @@ public class OptionsMenu : BasicGUI {
 			soundStateFlag=true;
 		}
 		Persistence.getInstance().setSound(!soundStateFlag);
+	}
+
+	public void defineTutorialState(){
+		if(tutorialStateFlag){
+			tutorialCondition=TUTORIAL_ON;
+			tutorialStateFlag=false;
+		}else{
+			tutorialCondition=TUTORIAL_OFF;
+			tutorialStateFlag=true;
+		}
+		Persistence.getInstance().setTutorialCompleted(tutorialStateFlag);
+		StageGameManager.getInstance().TutorialFlag=!tutorialStateFlag;
 	}
 
 	public void defineVibrationState(){
@@ -152,10 +173,15 @@ public class OptionsMenu : BasicGUI {
 		return Persistence.getInstance().isVibrateEnable();
 	}
 
+	bool getPersistedTutorialState ()
+	{
+		return Persistence.getInstance().isTutorialComplete();
+	}
+
 	public void initSoundState ()
 	{
 		SoundStateFlag = getPersistedSoundState ();
-		Debug.Log("Persisted sound state: " + SoundStateFlag);
+		//Debug.Log("Persisted sound state: " + SoundStateFlag);
 		soundCondition = SoundStateFlag ? SOUND_ON : SOUND_OFF;
 		defineSoundState();
 	}
@@ -163,8 +189,16 @@ public class OptionsMenu : BasicGUI {
 	public void initVibrationState ()
 	{
 		VibrationStateFlag = getPersistedVibrateState ();
-		Debug.Log("Persisted vibration state: "+ VibrationStateFlag);
+		//Debug.Log("Persisted vibration state: "+ VibrationStateFlag);
 		vibrateCondition = VibrationStateFlag ? VIBRATION_ON : VIBRATION_OFF;
 		defineVibrationState();
+	}
+
+	public void initTutorialState ()
+	{
+		tutorialStateFlag = getPersistedTutorialState();
+		Debug.Log("Persisted tutorial state: "+ tutorialStateFlag);
+		tutorialCondition = tutorialStateFlag ? TUTORIAL_OFF : TUTORIAL_ON;
+		//defineTutorialState();
 	}
 }

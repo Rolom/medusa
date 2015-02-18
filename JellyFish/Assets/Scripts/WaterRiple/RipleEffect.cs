@@ -29,7 +29,6 @@ public class RipleEffect : MonoBehaviour {
 	}
 
 	public void createRiples(Vector3 inputPosition){
-		print (inputPosition);
 		riplePosition=Camera.main.ScreenToWorldPoint(inputPosition);
 		Vector3 riplePositionModify=new Vector3(riplePosition.x,riplePosition.y,-5);
 		maxCountRiple=Random.Range(minNumberOfRiples,maxNumberOfRiples);
@@ -37,7 +36,6 @@ public class RipleEffect : MonoBehaviour {
 			count++;
 			ripleCount++;
 			riple.transform.position=(riplePositionModify);
-			print (count+" count");
 			if(count>1){
 				Instantiate(riple);
 			}else{

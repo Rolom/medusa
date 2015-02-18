@@ -32,7 +32,7 @@ public class RipleEffectManager : MonoBehaviour {
 		}
 		}else{
 			if (Input.GetKeyDown (KeyCode.Mouse0)  ) {
-				Debug.Log ("Entre");
+				//Debug.Log ("Entre");
 				if(touchFlag==false){
 					makeRiple(Input.mousePosition);
 					touchFlag=true;
@@ -48,7 +48,6 @@ public class RipleEffectManager : MonoBehaviour {
 	public void makeRiple(Vector3 riplepos){
 		ripless.GetComponent<RipleEffect>().createRiples(riplepos);
 		Instantiate(ripless);
-		print("Create Riple");
 	}
 
 	

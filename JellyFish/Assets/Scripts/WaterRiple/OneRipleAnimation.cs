@@ -38,7 +38,6 @@ public class OneRipleAnimation : MonoBehaviour {
 	}
 
 	public void createFirst(){
-		print ("first");
 		delayCount=delay;
 	}
 }

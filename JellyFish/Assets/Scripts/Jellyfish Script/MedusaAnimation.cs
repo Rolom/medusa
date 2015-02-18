@@ -98,7 +98,7 @@ public class MedusaAnimation : MonoBehaviour {
 	private void damageAnimation(){
 		colorCount+=20f*Time.deltaTime;
 		colorNum=Mathf.Abs(Mathf.Sin(colorCount))+0.3f;
-		print (colorNum);
+		//print (colorNum);
 		color=new Color(1f,colorNum,colorNum,1f);
 		gameObject.renderer.material.color=color;
 		colorChangeCount++;

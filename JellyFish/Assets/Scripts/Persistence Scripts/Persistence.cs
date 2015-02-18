@@ -59,6 +59,7 @@ public class Persistence : MonoBehaviour {
 	public void setTutorialCompleted(bool tutorialNewValue)
 	{
 		tutorialEnable = tutorialNewValue;
+		print ("Tutorial SAVING tutorial:"+tutorialEnable);
 		PlayerPrefs.SetString(Constants.IS_TUTORIAL_ENABLE, tutorialEnable ? TRUE : FALSE);
 	}
 
@@ -70,6 +71,7 @@ public class Persistence : MonoBehaviour {
 		{
 			tutorialEnable = false;
 		}
+		print ("Tutorial is tutorial COMPLETE:"+tutorialEnable);
 		return tutorialEnable;
 	}
 
@@ -111,7 +113,7 @@ public class Persistence : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		actualHighscore = getHighscore();
-		Debug.Log("Highscore is: "+ actualHighscore);
+		//Debug.Log("Highscore is: "+ actualHighscore);
 	}
 
 	public void resetHighscore(){

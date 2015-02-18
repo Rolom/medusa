@@ -39,7 +39,6 @@ public class OnPlay : BasicGUI {
 			myGuiSkin.button.fontSize=ProportionFontSize.PorcentageFontSize(10);
 			myGuiSkin.box.fontSize=ProportionFontSize.PorcentageFontSize(10);
 
-			print (intMyScore-saveScore);
 			if(intMyScore-saveScore>1){
 				bonus="Bonus +"+(intMyScore-saveScore);
 				bonusFlag=true;

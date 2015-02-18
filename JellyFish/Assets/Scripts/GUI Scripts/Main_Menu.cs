@@ -19,6 +19,7 @@ public class Main_Menu : BasicGUI{
 	{
 		initSound();
 		initVibrate();
+		initTutorial();
 	}
 		
 	void OnGUI () {
@@ -82,5 +83,11 @@ public class Main_Menu : BasicGUI{
 	{
 		GUIManager.getInstance().optionsMenu.initVibrationState();
 
+	}
+
+	void initTutorial()
+	{
+		GUIManager.getInstance().optionsMenu.initTutorialState();
+		
 	}
 }

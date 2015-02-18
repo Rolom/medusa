@@ -189,7 +189,7 @@ public class BehaviourPlanck : MonoBehaviour {
 			if(gameObject.transform.localScale.x<0){
 				Destroy(gameObject);
 				playDeathSound();
-				print ("dead " + id);
+				//print ("dead " + id);
 			}
 	}
 

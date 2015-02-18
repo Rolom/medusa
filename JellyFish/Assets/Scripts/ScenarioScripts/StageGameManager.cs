@@ -50,7 +50,6 @@ public class StageGameManager : MonoBehaviour {
 		canCreateScenario = false;
 		setScenarioSpeed(scenarioSpeed);
 		tutorialFlag = !Persistence.getInstance().isTutorialComplete();
-		Debug.Log (tutorialFlag);
 		setLevelList();
 		createJellyFish();
 	}
@@ -59,7 +58,7 @@ public class StageGameManager : MonoBehaviour {
 		if(tutorialFlag){
 			currentLevelList = tutorialList;
 		}else{
-			Debug.Log("No entre al tutorial!");
+			//Debug.Log("No entre al tutorial!");
 			currentLevelList = level1List;
 			randomScenario = Random.Range (0, currentLevelList.Count);
 			scenarioChangeCount = 0;
@@ -71,7 +70,7 @@ public class StageGameManager : MonoBehaviour {
 		if(canCreateStage){
 			if (canCreateScenario && !tutorialFlag) 
 			{
-				Debug.Log("Estoy creando el Scenario");
+				//Debug.Log("Estoy creando el Scenario");
 				updateScenarioLevel();
 				scenarioSpeed-=SCENARIO_ACELERATION;
 				setScenarioSpeed(scenarioSpeed);
@@ -79,7 +78,7 @@ public class StageGameManager : MonoBehaviour {
 				createNewScenario ();
 			}
 			if(canCreateScenario && tutorialFlag){
-				Debug.Log("Estoy creando el tutorial");
+				//Debug.Log("Estoy creando el tutorial");
 				setScenarioSpeed(scenarioSpeed);
 				createNewScenarioTutorial ();
 			}
@@ -255,10 +254,9 @@ public class StageGameManager : MonoBehaviour {
 	{
 		scenarioChangeCount = 0;
 		planktonCount = 0;
-		//tutorialFlag=true;
 		tutorialCount=0;
 		setLevelList();
-		Debug.Log("Scenario reseted");
+		//Debug.Log("Scenario reseted");
 	}
 
 	public bool getCanCreateStage()
